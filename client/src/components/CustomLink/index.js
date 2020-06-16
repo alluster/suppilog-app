@@ -2,45 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
+	useLocation,
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Link
+	NavLink
   } from "react-router-dom";
 
-
-function CustomLink({ children, to }) {
+function CustomLink({ props, children, to, color, activeColor }) {
+	const location = useLocation();
+	console.log(props)
 	const Styled = styled.div`
+		
 		margin-right: 10px;
-		color: ${props => props.theme.colors.brand.disabled};
+		color: ${color};
 		${props => {
-			if (props.pathName === to) return css`
-				color: ${props => props.theme.colors.brand.primary};
+			if (location.pathname === to) return css`
+				color: ${activeColor} !important;
+				border-bottom: 3px solid ${activeColor}
 			`;
 		}};
 
 	`
 
  
-	const handleClick = e => {
-		e.preventDefault()
-	}
 
 	return (
-		<Link to={to} >
-			<Styled >
+		<NavLink to={to}  >
+			<Styled color={color} activeColor={activeColor}>
 				{children}
 			</Styled>
-		</Link>
+		</NavLink>
 	
 	)
 }
 
 CustomLink.propTypes = {
 	children: PropTypes.any,
-	to: PropTypes.string,
+	to: PropTypes.any,
 	theme: PropTypes.any,
-	pathName: PropTypes.string
+	pathName: PropTypes.string,
+	color: PropTypes.any,
+	activeColor: PropTypes.any
 
 };
 export default CustomLink;

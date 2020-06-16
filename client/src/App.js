@@ -9,7 +9,8 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 import { ThemeProvider } from 'styled-components';
 import Home from './Views/Home';
-
+import Hero from './components/Hero';
+import SubNavigation from './components/SubNavigation';
 import Navigation from './components/Navigation';
 import Provider from './context/Provider';
 import Container from './components/Container';
@@ -143,6 +144,11 @@ function App() {
 
 		<Router>
 			<Navigation />
+			<Hero image={"/suppilog-dinner.jpg"} 
+				title={"Digitaalinen kauppapaikka"} 
+				ingress={"Suppilogosta löydät kaikki tarvitsemasi tuotteet"}  
+			/>
+			<SubNavigation/>
 			<Switch>
 				<Route exact path="/" component={Home} />
 				

@@ -8,10 +8,10 @@ import {
 const StyledInput = styled.input `
 	background-color: white;
 	font-family: 'Open Sans'
-	height: 60px;
-	border: 0.5px: solid #EBEBEB
-	line-height: 60px;
-	font-size: 20px;
+	height: 40px;
+	border: 1px solid #EBEBEB !important;
+	line-height: 40px;
+	font-size: 18px;
 	padding-left: 20px;
 	width: 100%;
 	

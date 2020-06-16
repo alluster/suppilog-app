@@ -4,6 +4,16 @@ import Container from '../Container';
 import PropTypes from 'prop-types';
 import Input from '../../components/Input';
 
+
+const HeroStyled = styled.div`
+	height: 300px;
+    padding-top: 20px;
+    @media (max-width: ${props => props.theme.screenSize.tablet}) {
+        padding-top: 20px;
+
+     }
+`;
+
 const TextContainer = styled.div `
 	display: flex;
 	justify-content: center;
@@ -46,16 +56,7 @@ const Ingress = styled.p `
      }
 `;
 
-const HeroStyled = styled.div`
-    // background-color: ${props => props.theme.colors.persBlue};
-   height: 300px;
-    margin-bottom: 100px;
-    padding-top: 20px;
-    @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        padding-top: 20px;
 
-     }
-`;
 
 
 

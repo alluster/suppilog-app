@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AppContext } from '../../context/Context';
 import Button from '../../components/Button'
 import Container from '../../components/Container'
-
+import SubNavigation from '../../components/SubNavigation';
 import Hero from '../../components/Hero'
 import {
 	BrowserRouter as Router,
@@ -19,9 +19,7 @@ const Home = () => {
 	const context = useContext(AppContext)
 	return(
 		<div>
-			<Hero image={"/suppilog-dinner.jpg"} 
-				title={"Digitaalinen kauppapaikka"} 
-				ingress={"Suppilogosta löydät kaikki tarvitsemasi tuotteet"}  />
+
 			<Container>
 				<h1>Home</h1>
 			</Container>
