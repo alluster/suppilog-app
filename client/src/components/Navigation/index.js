@@ -72,11 +72,11 @@ const Navigation = ({ className }) => {
     return(
 		<NavContainer className={className} >
 			<Gx col={2} breakpoint={100}>
-				<CustomLink to="/" >
+				<Link to="/" >
 					<ImageContainer>
 						<Image src={logo} />
 					</ImageContainer>
-				</CustomLink>                
+				</Link>                
 			</Gx>
 	
 			<Gx col={4} breakpoint={100}>
@@ -88,21 +88,21 @@ const Navigation = ({ className }) => {
 			</Gx>
 			
 			<Gx col={1} breakpoint={100}>
-				<CustomLink to="/">
+				<Link to="/">
 					<div style={{lineHeight: "50px !important", color: "white"}}> 
 						<Icon style={{display: "inline-block"}} icon={faEnvelope} />
 						<span style={{display: "inline-block", fontSize: "12px"}}>Viestit</span>
 					</div>	
-				</CustomLink>                
+				</Link>                
 			</Gx>
 
 			<Gx col={1} breakpoint={100}>
-				<CustomLink to="/">
+				<Link to="/">
 					<div style={{lineHeight: "50px !important", color: "white"}}> 
 						<Icon style={{display: "inline-block"}} icon={faCog} />
 						<span style={{display: "inline-block", fontSize: "12px"}}>Asetukset</span>
 					</div>	
-				</CustomLink>                
+				</Link>                
 			</Gx>
 			
 		</NavContainer>        
