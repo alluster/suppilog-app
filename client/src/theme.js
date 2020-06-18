@@ -1,6 +1,6 @@
 export default {
     colors: {
-		primary: '#3461FF',
+		primary: '#454545',
         black: '#212121',
         white: '#fff',
         blue: '#2323E1',
@@ -11,7 +11,7 @@ export default {
         green: '#02EBA5',
         gray: '#F9F9F9',
         darkGray: "#9E9E9E",
-        persOrange: '#FA4000',
+        orange: '#DB8E41',
         persOrangeDark: '#e55124',
 		persBlue: '#090e2a',
 		brand: {

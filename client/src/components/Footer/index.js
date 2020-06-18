@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import Gx from '@tgrx/gx';
+import Container from '../Container';
+
 
 const FooterContent = styled.div`
     width: 100%;
-    height: 600px;
-    margin-top: 100px;
+    height: 300px;
+	margin-top: 300px !important;
+	color: white;
+	align-items: center;
+	text-alig: center;
+
+	background-color: ${props => props.theme.colors.primary}
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
     
     }
@@ -13,15 +20,14 @@ const FooterContent = styled.div`
 
 const Column = styled.div `
     display: flex;
-    flex-direction: column;
+	flex-direction: column;
+	align-items: center;
+
 
 `;
 const ColumnLowLeft = styled.div`
-    display: flex;
-    align-items: flex-end;
-    // flex-direction: column;
-    height: 300px;
-    color: #4B4B4B;
+  
+    color: white;
     font-size: 12px;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
         height: 100px;
@@ -29,11 +35,7 @@ const ColumnLowLeft = styled.div`
      }
 `;
 const ColumnLowRight= styled.div`
-    display: flex;
-    align-items: flex-end;
-    // flex-direction: column;
-    height: 300px;
-    justify-content: flex-end;
+  
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
         height: 100px;
  
@@ -42,10 +44,8 @@ const ColumnLowRight= styled.div`
 `;
 
 const ColumnHigh = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 200px;
+	text-align: center;
+	margin-top: 50px;
     font-size: 12px;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
         height: 100px;
@@ -61,16 +61,16 @@ const Logo = styled.img`
 
 
 
-const disclaimer = "Certify.com is a service for content creators to tag their work in web so that it can be easily traced an verified by viewers. This creates transparency and repels fraud."
+const disclaimer = "Suppilog.com, A Digital Wholesale Platform"
 const Footer = () => {
     return(
         <FooterContent>
-                <Gx col={6}>
+			<Container>
+				<Gx col={12} >
                     <Column>
                         <ColumnHigh>
-                            <Logo src="/logo.svg" alt="Certify"/>
-                            <h4>info@certificate.com</h4>
-                            {/* <span>Anna tukesi projektille. <Link href="https://shop.spreadshirt.fi/personaldatafi/">Osta huppari verkkokaupasta</Link></span> */}
+                            <Logo src="/suppilog_logo_horizontal_white.png" alt="Suppilog Oy"/>
+                            <h4>info@suppilog.com</h4>
                         </ColumnHigh>
                         <ColumnLowLeft>
                         {disclaimer}
@@ -78,15 +78,17 @@ const Footer = () => {
                         </ColumnLowLeft>
                     </Column>
                 </Gx>
-                <Gx col={6} style={{ alignItems: "flex-end" }}>
+                <Gx col={12} >
                 <Column>
                         <ColumnHigh>
                         </ColumnHigh>
                         <ColumnLowRight >
-                            © 2020 Certify.com
+                            © 2020 Suppilog Oy
                         </ColumnLowRight>
                     </Column>
                 </Gx>
+			</Container>
+           
         </FooterContent>
     );
 };

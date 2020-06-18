@@ -9,7 +9,10 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 import { ThemeProvider } from 'styled-components';
 import Home from './Views/Home';
+import Category from './Views/Category';
+
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 import SubNavigation from './components/SubNavigation';
 import Navigation from './components/Navigation';
 import Provider from './context/Provider';
@@ -32,42 +35,42 @@ const GlobalStyle = createGlobalStyle`
     }
     h1 {
 
-        margin-left: 0;
-		margin-right: 0;
+        margin: 0px;
 		font-family: 'Roboto Slab', serif;
 		font-weight: 500;
     }
     h2 {
 
-        margin-left: 0;
-		margin-right: 0;
+		margin: 0px;
+
 		font-family: 'Roboto Slab', serif;
     }
     h3 {
   
-        margin-left: 0;
-		margin-right: 0;
+		margin: 0px;
+
 		font-family: 'Roboto Slab', serif;
     }
     h4 {
-        margin-left: 0;
-		margin-right: 0;
+		margin: 0px;
+
 		font-family: 'Roboto Slab', serif;
     }
     h5 {
       
-        margin-left: 0;
-		margin-right: 0;
+		margin: 0px;
+
 		font-family: 'Roboto Slab', serif;
     }
     h6 {
   
-        margin-left: 0;
-		margin-right: 0;
+		margin: 0px;
+
 		font-family: 'Roboto Slab', serif;
 	}
 	p {
 		font-family: 'Open Sans', sans-serif;
+		margin: 0px;
 
 	}
     img {
@@ -150,10 +153,14 @@ function App() {
 			/>
 			<SubNavigation/>
 			<Switch>
+				<Route exact path="/" component={Category} />
+				<Route exact path="/tuotekategoriat" component={Category} />
+				<Route exact path="/tuotteet" component={Category} />
 				<Route exact path="/" component={Home} />
-				
-			</Switch>
+				<Route exact path="/" component={Home} />
 
+			</Switch>
+			<Footer />
 
 		</Router>
 		<GlobalStyle />

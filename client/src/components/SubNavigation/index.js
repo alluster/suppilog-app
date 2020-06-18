@@ -61,7 +61,7 @@ const SubNavigation = ({ className }) => {
 				</CustomLink>
 			</Gx>
 			<Gx col={2} breakpoint={100}>
-			<CustomLink to={"/tuotegategoriat"} color={"#DB8E41"} activeColor={"#4E186C"}>
+			<CustomLink to={"/tuotekategoriat"} color={"#DB8E41"} activeColor={"#4E186C"}>
 					<Text style={{display: "inline-block"}}>Tuotegategoriat</Text>
 				</CustomLink>
 			</Gx>

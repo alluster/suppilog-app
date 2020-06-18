@@ -11,9 +11,7 @@ import {
 
 function CustomLink({ props, children, to, color, activeColor }) {
 	const location = useLocation();
-	console.log(props)
 	const Styled = styled.div`
-		
 		margin-right: 10px;
 		color: ${color};
 		${props => {
