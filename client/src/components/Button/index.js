@@ -10,15 +10,16 @@ const StyledButton = styled.button `
 	font-family: 'Open Sans'
 	color: white;
 	-webkit-text-fill-color: white;
-	height: 30px; border-radius: 15px;
+	height: 30px; 
 	text-align: center;
 	line-height: 30px;
-	font-weight: bold;
-	font-size: 14px;
+	font-weight: 600;
+	font-size: 12px;
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-right: auto;
 	margin-top: auto;
+	min-width: 120px;
 		@media (max-width: ${props => props.theme.screenSize.tablet}) {
 			width: 100%;
 		}

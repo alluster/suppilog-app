@@ -22,5 +22,4 @@
 		"babel-loader": "^8.1.0",
 		"concurrently": "^4.0.1"
 	}
-	
 }

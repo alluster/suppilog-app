@@ -1,26 +1,15 @@
 export default {
     colors: {
-		primary: '#454545',
+		primary: '#0C10E9',
+		primaryDark: '#001F87',
         black: '#212121',
         white: '#fff',
-        blue: '#2323E1',
-        lightBlue: '#C7DAFF',
-        pink: '#FF00FF',
-        magenta: '#530082',
-        darkMagenta: '#26003C',
-        green: '#02EBA5',
-        gray: '#F9F9F9',
-        darkGray: "#9E9E9E",
-        orange: '#DB8E41',
-        persOrangeDark: '#e55124',
-		persBlue: '#090e2a',
-		brand: {
-			background: '#F5F5F2',
-			border: '#E3E8FA',
-			text: '#33343C',
-			primary: '#275EFE',
-			disabled: '#9499BA'
-		}
+		brand: '#4E186C',
+		brandDark: '#240237',
+		secondary: '#F5A623',
+		secondaryDark: '#E69000',
+		background: '#F8F8F8'
+		
     },
     fontWeight: {
         thin: '300',

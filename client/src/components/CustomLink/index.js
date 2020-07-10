@@ -17,7 +17,6 @@ function CustomLink({ props, children, to, color, activeColor }) {
 		${props => {
 			if (location.pathname === to) return css`
 				color: ${activeColor} !important;
-				border-bottom: 3px solid ${activeColor}
 			`;
 		}};
 

@@ -17,6 +17,8 @@ import SubNavigation from './components/SubNavigation';
 import Navigation from './components/Navigation';
 import Provider from './context/Provider';
 import Container from './components/Container';
+import ItemRow from './components/ItemRow';
+
 
 
 
@@ -29,47 +31,39 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 		font-family: 'Open Sans', sans-serif;
 		font-display: swap;
-		color: ${props => props.theme.colors.brand.text}
-		background-color: ${props => props.theme.colors.brand.background}
+		color: ${props => props.theme.colors.black}
 
     }
     h1 {
 
         margin: 0px;
-		font-family: 'Roboto Slab', serif;
 		font-weight: 500;
     }
     h2 {
 
 		margin: 0px;
 
-		font-family: 'Roboto Slab', serif;
     }
     h3 {
   
 		margin: 0px;
 
-		font-family: 'Roboto Slab', serif;
     }
     h4 {
 		margin: 0px;
 
-		font-family: 'Roboto Slab', serif;
     }
     h5 {
       
 		margin: 0px;
 
-		font-family: 'Roboto Slab', serif;
     }
     h6 {
   
 		margin: 0px;
 
-		font-family: 'Roboto Slab', serif;
 	}
 	p {
-		font-family: 'Open Sans', sans-serif;
 		margin: 0px;
 
 	}
@@ -79,7 +73,6 @@ const GlobalStyle = createGlobalStyle`
     a {
 		all: unset;
 		font-family: 'Open Sans', sans-serif;
-		color: ${props => props.theme.colors.brand.primary};
     }
     a:link {
         all: unset;
@@ -148,10 +141,24 @@ function App() {
 		<Router>
 			<Navigation />
 			<Hero image={"/suppilog-dinner.jpg"} 
-				title={"Digitaalinen kauppapaikka"} 
-				ingress={"Suppilogosta löydät kaikki tarvitsemasi tuotteet"}  
+				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
+				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
 			/>
-			<SubNavigation/>
+			{/* <Container>
+				<ItemRow>
+					<div>
+						<h1>Microsoft</h1>
+					</div>
+					<div>
+						<h1>Microsoft</h1>
+					</div>
+					<div>
+						<h1>Microsoft</h1>
+					</div>
+				</ItemRow>
+			</Container> */}
+		
+			{/* <SubNavigation/> */}
 			<Switch>
 				<Route exact path="/" component={Category} />
 				<Route exact path="/tuotekategoriat" component={Category} />
