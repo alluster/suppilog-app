@@ -93,7 +93,7 @@ const LinkText = styled.h2 `
 const Navigation = ({ className }) => {
 	// const router = useRouter()
 	// const context = useContext(AppContext)  
-	const [navOpen, setNavOpen] = useState(true)
+	const [navOpen, setNavOpen] = useState(false)
     return(
 		<>
 		<NavContainer className={className} >
