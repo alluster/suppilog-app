@@ -41,9 +41,7 @@ const Text = styled.div `
 	margin-right: 20px;
 
 
-`
-
-
+`;
 
 const NavContainer = styled.div`
 	position: fixed;
@@ -59,9 +57,7 @@ const NavContainer = styled.div`
 	12.5px 0 10px rgba(0, 0, 0, 0.06),
 	22.3px 0 17.9px rgba(0, 0, 0, 0.072),
 	41.8px 0 33.4px rgba(0, 0, 0, 0.086),
-	100px 0 80px rgba(0, 0, 0, 0.12)
-;
-
+	100px 0 80px rgba(0, 0, 0, 0.12);
 `;
 
 const OpenNav = styled.div`

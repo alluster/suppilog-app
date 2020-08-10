@@ -18,7 +18,8 @@ import Navigation from './components/Navigation';
 import Provider from './context/Provider';
 import Container from './components/Container';
 import ItemRow from './components/ItemRow';
-
+import CardNumber from './components/CardNumber';
+import Banner from './components/Banner';
 
 
 
@@ -144,19 +145,15 @@ function App() {
 				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
 				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
 			/>
-			{/* <Container>
+			<Container>
 				<ItemRow>
-					<div>
-						<h1>Microsoft</h1>
-					</div>
-					<div>
-						<h1>Microsoft</h1>
-					</div>
-					<div>
-						<h1>Microsoft</h1>
-					</div>
+					<CardNumber ingress="Suppilogissa on tehty jo yli" number={90665} title="yritystenvälistä tukkutilausta" />
+					<CardNumber ingress="Tilaa yli" number={76780} title="tukkutuotetta kaikista parhaimmilla toimitusehdoilla ja hinnoilla"c/>
+					<CardNumber ingress="Yli" number={56789} title="yritystä käyttää Suppilogin digitaalista tukkukaupankäynnin alustaa myymiseen ja ostamiseen"/>
+
 				</ItemRow>
-			</Container> */}
+			</Container>
+			<Banner />
 		
 			{/* <SubNavigation/> */}
 			<Switch>

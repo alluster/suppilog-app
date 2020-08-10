@@ -21,7 +21,8 @@
     "react-fontawesome": "^1.7.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "animated-number-react": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

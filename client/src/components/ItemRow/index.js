@@ -15,6 +15,7 @@ const ItemRow = ({ title, children }) => {
 		align-content: stretch;
 		background-size: cover;
 		margin-top: 30px;
+		margin-bottom: 30px;
 			@media (max-width: ${props => props.theme.screenSize.tablet}) {
 				width: 100%;
 			}
