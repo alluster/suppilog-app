@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '../Button';
+import { device } from '../../device';
 
 
 const Container = styled.div `
@@ -19,11 +20,16 @@ const Wrapper = styled.div`
 	padding-right: 10px;
 	padding-top: 50px;
 	display: flex;
+	flex-direction: row;
+	@media ${device.laptop} {
+		flex-direction: column;
+ 	}
+
 
 
 `;
 const ContentBlock = styled.div `
-	width: 50%
+	flex: 1;
 
 `;
 const Title = styled.h1`
@@ -42,7 +48,6 @@ const Title = styled.h1`
 
 
 const StyledButton = styled(Button) `
-	 min-width: 900px;
 `
 
 

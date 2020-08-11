@@ -40,6 +40,9 @@ const TextContainer = styled.div `
 	justify-content: center
 	@media ${device.laptop} {
 		height: 200px;
+		justify-content: flex-start;
+		margin-top: 30px;
+
 	}	
 	`;
 
@@ -52,6 +55,7 @@ const LogoImage = styled.div`
 	@media ${device.laptop} {
 		height: 150px;
 		margin-top: 100px;
+		align-items: flex-end
 
 	}	
 `;
@@ -68,6 +72,7 @@ const Title = styled.h1`
 		font-size: 28px !important;
 		text-align: center;
 		letter-spacing: -.30px;
+
 
 	}	
 `;
@@ -95,7 +100,9 @@ const InputContainer = styled.div`
 	height: 60px;
 	border: #E6E6E6 solid 0.8px;
 	@media ${device.laptop} {
-		display: none;
+		max-width: calc(100% - 20px) !important;
+		min-width: calc(100% - 20px) !important;
+		height: 50px;
 	}
 `;
 
@@ -105,6 +112,11 @@ const InputLogoContainer = styled.div`
 	justify-content: center;
 	height: 60px;
 	text-align: center;
+	@media ${device.laptop} {
+		max-width: 80px !important;
+		height: 50px;
+
+	}
 
 `
 const InputLogo = styled.img `
@@ -113,7 +125,9 @@ const InputLogo = styled.img `
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
-
+	@media ${device.laptop} {
+		height: 15px !important;
+	}
 
 `;
 
@@ -130,6 +144,13 @@ const InputButton = styled.button`
 	  width: 300px;
 	  margin-top: -0.8px;
 	  margin-right: -0.8px;
+	  @media ${device.laptop} {
+		max-width: 60px !important;
+		height: 50px;
+		line-height: 50px;
+
+
+	}
 
 `;
 
@@ -137,8 +158,24 @@ const Icon = styled.i`
 	 line-height: 60px;
 	 margin-right: 20px;
 	 font-size: 25px;
+	 @media ${device.laptop} {
+		height: 50px;
+		line-height: 50px;
+		font-size: 15px;
+		text-align: center
+		margin-right: 0px;;
 
+
+	}
 `
+const ButtonText = styled.span`
+color: white !important;
+@media ${device.laptop} {
+	display: none
+
+
+}
+`;
 
 
 
@@ -185,14 +222,16 @@ const Hero = ({title, ingress, image, children}) => {
 					<InputLogo src="/logo-input.png" />
 				</InputLogoContainer>
 					<Input 	
-						placeholder={"Etsi tuotteita hakusanalla"} 
+						placeholder={"Etsi tuotteita"} 
 					/>
 				<InputButton>
 					<Icon>
 						<FontAwesomeIcon icon={faSearch} />
 					</Icon>
 
-					Etsi
+					<ButtonText>
+						Etsi
+					</ButtonText>
 				</InputButton>	
 				</InputContainer>
 				

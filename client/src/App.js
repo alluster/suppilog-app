@@ -32,7 +32,8 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 		font-family: 'Open Sans', sans-serif;
 		font-display: swap;
-		color: ${props => props.theme.colors.black}
+		color: ${props => props.theme.colors.black};
+		hyphens: auto;
 
     }
     h1 {

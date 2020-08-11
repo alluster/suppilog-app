@@ -21,7 +21,6 @@ const StyledButton = styled.button `
 	margin-top: auto;
 	min-width: 120px;
 		@media (max-width: ${props => props.theme.screenSize.tablet}) {
-			width: 100%;
 		}
 `;
 
