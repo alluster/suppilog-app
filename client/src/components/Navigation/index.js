@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from 'styled-components';
 import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
@@ -7,23 +8,22 @@ import Button from '../../components/Button'
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-  } from "react-router-dom";
+import { device } from '../../device';
+
 const logo = '/suppilog_logo_horizontal_dark.png'
+
 const Icon = styled(FontAwesomeIcon)`
-	font-size: 18px;
+	font-size: 24px;
 	text-align: right;
+	padding-top: 10px;
     :hover {
         cursor: pointer;
 	}
 	
 `;
 const Image = styled.img`
-	max-height: 20px; !important
+	max-height: 20px; 
+	
 
 `
 
@@ -31,6 +31,7 @@ const ImageContainer = styled.div `
 	height: 50px;
 	text-align: left;
 	padding-top: 15px;
+	
 	
 `
 
@@ -69,6 +70,10 @@ const OpenNav = styled.div`
 	z-index: 10000;
 	position: absolute;
 	width: 100vw;
+	@media ${device.laptop} {
+		position: fixed;
+		height: calc(100vh + 200px);
+ 	}
 
 `
 
@@ -76,7 +81,6 @@ const IconContainer = styled(Container)`
 	display: absolute,
 	min-width: 100%;
 	text-align: right !important;
-	margin-top: 0px;
 
 `
 const LinkText = styled.h2 `
@@ -85,6 +89,13 @@ const LinkText = styled.h2 `
 
 
 `
+
+const ButtonsRow = styled.div`
+	@media ${device.laptop} {
+    	display: none !important;
+ 	}
+`;
+
 
 const Navigation = ({ className }) => {
 	// const router = useRouter()
@@ -96,7 +107,7 @@ const Navigation = ({ className }) => {
 		<Container>
 
 			
-			<Gx col={2} breakpoint={100}>
+			<Gx col={4} breakpoint={100}>
 				<Link to="/" >
 					<ImageContainer>
 						<Image src={logo} />
@@ -104,13 +115,12 @@ const Navigation = ({ className }) => {
 				</Link>                
 			</Gx>
 	
-			<Gx col={8} breakpoint={100}>
-
-				<Button style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
-				<Text style={{display: "inline-block"}}>Tai</Text>
-				<Button style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
-  
-
+			<Gx col={6} breakpoint={100}>
+				<ButtonsRow>
+					<Button style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
+					<Text style={{display: "inline-block"}}>Tai</Text>
+					<Button style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
+				</ButtonsRow>
 			</Gx>
 			
 			<Gx col={2} breakpoint={100}>
@@ -128,12 +138,7 @@ const Navigation = ({ className }) => {
 					{
 						navOpen ? 
 						<OpenNav>
-							<IconContainer>
-								<div onClick={e => setNavOpen(false)} style={{lineHeight: "50px !important", textAlign: "center", pointer: "cursor", lineHeight: "50px", color: "#212121"}}> 
-									<Icon  icon={faTimes} style={{marginRight: "10px"}}/>
-									<p style={{display: "inline-block"}}>Sulje </p>
-								</div>	
-							</IconContainer>
+							
 							<LinkText onClick={e => setNavOpen(false)} >
 								<CustomLink to="/" 
 									onClick={e => setNavOpen(false)}
@@ -169,6 +174,12 @@ const Navigation = ({ className }) => {
 									Tietosuojalauseke
 								</CustomLink>
 							</LinkText>
+							<IconContainer>
+								<div onClick={e => setNavOpen(false)} style={{lineHeight: "50px !important", textAlign: "center", pointer: "cursor", color: "#212121"}}> 
+									<Icon  icon={faTimes} style={{marginRight: "10px"}}/>
+									<h2 style={{display: "inline-block"}}>Sulje </h2>
+								</div>	
+							</IconContainer>
 						</OpenNav>
 						: 
 						<></>

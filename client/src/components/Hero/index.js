@@ -6,22 +6,86 @@ import Input from '../../components/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Gx from '@tgrx/gx';
+import { device } from '../../device';
+
 const HeroStyled = styled.div`
+
 	height: 500px;
 	z-index: -1;
-    @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        padding-top: 20px;
+	@media ${device.laptop} {
+		height: 90vh;
+    }
+`;
+
+const HeroContent = styled.div`
+	display: flex;
+	flex-direction: row;
+
+	@media ${device.laptop} {
+		height: 90vh;
+		flex-direction: column;
+		justify-content: center;
+		align-items:center;
+    }
+`;
+
+
+const TextContainer = styled.div `
+	display: flex;
+	flex: 2;
+	height: 500px;
+	text-align: left;
+	display: flex;
+	flex-direction: column
+	justify-content: center
+	@media ${device.laptop} {
+		height: 200px;
+	}	
+	`;
+
+const LogoImage = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	height: 500px;
+	@media ${device.laptop} {
+		height: 150px;
+		margin-top: 100px;
+
+	}	
+`;
+
+const Title = styled.h1`
+	color: white;
+	display: flex;
+	font-weight: 600;
+	letter-spacing: -.5px;
+	font-size: 45px !important;
+	margin: 0px !important;
+    font-size:  ${props => props.theme.fontSize.h3}
+    @media ${device.laptop} {
+		font-size: 28px !important;
+		text-align: center;
+		letter-spacing: -.30px;
+
+	}	
+`;
+
+const Ingress = styled.p `
+	font-size: 22px;
+    color: white;
+    font-weight: 400;
+	margin-top: 30px !important;
+    @media ${device.laptop} {
+        font-size: 18px;
+		margin-top: 20px;
+		text-align: center;
+
 
      }
 `;
 
-const TextContainer = styled.div `
-	display: flex;
-	flex-direction: column;
-	height: 500px;
-	justify-content: center;
-	text-align: left;
-	`;
 const InputContainer = styled.div`
 	position: absolute;
 	min-width: 900px !important;
@@ -30,8 +94,11 @@ const InputContainer = styled.div`
 	flex-direction: row;
 	height: 60px;
 	border: #E6E6E6 solid 0.8px;
-
+	@media ${device.laptop} {
+		display: none;
+	}
 `;
+
 const InputLogoContainer = styled.div`
 	background: white;
 	width: 250px;
@@ -76,31 +143,6 @@ const Icon = styled.i`
 
 
 
-const Title = styled.h1`
-    color: white;
-	font-weight: 600;
-	letter-spacing: -.5px;
-	font-size: 45px !important;
-	margin: 0px !important;
-    font-size:  ${props => props.theme.fontSize.h3}
-    @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        font-size: 24px;
-
-
-     }
-`;
-
-const Ingress = styled.p `
-    font-size:  22px;
-    color: white;
-    font-weight: 400;
-	margin-top: 30px !important;
-    @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        font-size: 14px;
-        margin-top: 20px;
-
-     }
-`;
 
 
 const AppStoreImage = styled.img`
@@ -110,71 +152,61 @@ const AppStoreImage = styled.img`
 	 
 `;
 
-const LogoImage = styled.div`
-	 align-items: center;
-	 justify-content: center;
-	 display: flex;
-	 height: 500px;
-`
-
 
 
 
 
 const Hero = ({title, ingress, image, children}) => {
     return(
-        <HeroStyled style={{backgroundImage: `url(${image})`,  objectFit: "cover"}}>
+        <HeroStyled style={{backgroundImage: `url(${image})`}}>
 		<Container>
-			<Gx col={5} brakepoint={100}>
-				<LogoImage>
-					<img src="/logo-image.png" style={{ height: "120px"}}/>
-				</LogoImage>
-			</Gx>
-			<Gx col={7} brakepoint={100}>
-				<TextContainer>
-					<Title>
-						{title}
-						<div>
-							{children}
-						</div>
-					</Title>
-		
-					<Ingress>
-					{ingress}
-					</Ingress>
-					{/* <AppStoreImage src="/appstore.png" /> */}
 
-						
-				</TextContainer>
-			</Gx>
+				<HeroContent>
+					<LogoImage>
+						<img src="/logo-image.png" style={{ height: "120px"}}/>
+					</LogoImage>
+					<TextContainer>
+						<Title>
+							{title}
+							<div>
+								{children}
+							</div>
+						</Title>
 			
-			<InputContainer>
-			<InputLogoContainer>
-				<InputLogo src="/logo-input.png" />
-			</InputLogoContainer>
-				<Input 	
-					placeholder={"Etsi tuotteita hakusanalla"} 
-				/>
-			<InputButton>
-				<Icon>
-					<FontAwesomeIcon icon={faSearch} />
-				</Icon>
+						<Ingress>
+						{ingress}
+						</Ingress>
+						{/* <AppStoreImage src="/appstore.png" /> */}
+							
+					</TextContainer>
+				</HeroContent>
+				<InputContainer>
+				<InputLogoContainer>
+					<InputLogo src="/logo-input.png" />
+				</InputLogoContainer>
+					<Input 	
+						placeholder={"Etsi tuotteita hakusanalla"} 
+					/>
+				<InputButton>
+					<Icon>
+						<FontAwesomeIcon icon={faSearch} />
+					</Icon>
 
-				Etsi
-			</InputButton>	
-			</InputContainer>
-			
-				{/* {
-					image ? 
-						<ImageContainer>
-							<img src={image} alt="Hero image" /> 
-						</ImageContainer>
-						:
-						null
-				} */}
-		</Container>
-			
+					Etsi
+				</InputButton>	
+				</InputContainer>
+				
+					{/* {
+						image ? 
+							<ImageContainer>
+								<img src={image} alt="Hero image" /> 
+							</ImageContainer>
+							:
+							null
+					} */}
+				</Container>
         </HeroStyled>
+		
         
     );
 };
