@@ -1,14 +1,11 @@
 import React , { useState } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch, faCog, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import AnimatedNumber from 'animated-number-react';
-import {
-
-	Link
-  } from "react-router-dom";
-
+import { device } from '../../device';
 
 
 const CardNumber = ({ingress, number, title}) => {
@@ -30,6 +27,9 @@ const CardNumber = ({ingress, number, title}) => {
 		color: ${props => props.theme.colors.black};
 		font-size: 70px;
 		font-weight: 600;
+		@media ${device.laptop} {
+			font-size: 30px;
+		}
 
 	`
 

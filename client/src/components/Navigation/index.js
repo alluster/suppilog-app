@@ -64,11 +64,11 @@ const NavContainer = styled.div`
 const OpenNav = styled.div`
 	top: 0;
 	min-height: 100vh;
-	background: white;
+	background: rgba(255, 255, 255, 0.98);
 	text-align: center;
 	padding-top: 150px;
 	z-index: 10000;
-	position: absolute;
+	position: fixed;
 	width: 100vw;
 	@media ${device.laptop} {
 		position: fixed;
@@ -142,8 +142,8 @@ const Navigation = ({ className }) => {
 							<LinkText onClick={e => setNavOpen(false)} >
 								<CustomLink to="/" 
 									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.primary} 
-									activeColor={props=>props.theme.colors.black}
+									color={props=>props.theme.colors.linkGray} 
+									activeColor={props=>props.theme.colors.primary}
 								>
 									Etusivu
 								</CustomLink>
@@ -151,8 +151,8 @@ const Navigation = ({ className }) => {
 							<LinkText onClick={e => setNavOpen(false)} >
 								<CustomLink to="/meista" 
 									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.primary} 
-									activeColor={props=>props.theme.colors.black}
+									color={props=>props.theme.colors.linkGray} 
+									activeColor={props=>props.theme.colors.primary}
 								>
 									Meistä
 								</CustomLink>
@@ -160,16 +160,16 @@ const Navigation = ({ className }) => {
 							<LinkText onClick={e => setNavOpen(false)} >
 								<CustomLink to="/myyjayrityksille" 
 									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.primary} 
-									activeColor={props=>props.theme.colors.black}
+									color={props=>props.theme.colors.linkGray} 
+									activeColor={props=>props.theme.colors.primary}
 								>
 									Myyjäyrityksille
 								</CustomLink>
 							</LinkText>
 							<LinkText onClick={e => setNavOpen(false)} >
 								<CustomLink to="/tietosuojalauseke" 
-									color={props=>props.theme.colors.primary} 
-									activeColor={props=>props.theme.colors.black}
+									color={props=>props.theme.colors.linkGray} 
+									activeColor={props=>props.theme.colors.primary}
 								>
 									Tietosuojalauseke
 								</CustomLink>

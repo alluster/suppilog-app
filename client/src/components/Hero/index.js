@@ -13,7 +13,7 @@ const HeroStyled = styled.div`
 	height: 500px;
 	z-index: -1;
 	@media ${device.laptop} {
-		height: 90vh;
+		height: 80vh;
     }
 `;
 
@@ -22,7 +22,7 @@ const HeroContent = styled.div`
 	flex-direction: row;
 
 	@media ${device.laptop} {
-		height: 90vh;
+		height: 80vh;
 		flex-direction: column;
 		justify-content: center;
 		align-items:center;

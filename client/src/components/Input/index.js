@@ -13,17 +13,23 @@ const StyledInput = styled.input `
 	font-weight: 600;
 	height: 60px;
 	line-height: 60px;
-	font-size: 16px;
+	font-size: 18px;
 	padding-left: 20px;
-	width: 100%;
+	width: calc(100% - 20px);
 
-	::placeholder,
-	::-webkit-input-placeholder {
-		color: ${props => props.theme.colors.black} !important;
+	::placeholder {
+		color: ${props => props.theme.colors.linkGray} !important;
 		font-size: 18px;
-		font-family: 'Open Sans !important';
-		font-weight: 600;
-		
+		font-weight: 400;
+		@media ${device.laptop} {
+			font-size: 16px;	
+		}
+
+	}
+	::-webkit-input-placeholder {
+		color: ${props => props.theme.colors.linkGray} !important;
+		font-size: 18px;
+		font-weight: 400;
 		@media ${device.laptop} {
 			font-size: 16px;	
 		}
@@ -31,9 +37,8 @@ const StyledInput = styled.input `
 
 	}
 	:-ms-input-placeholder {
-		color: ${props => props.theme.colors.black} !important;
+		color: ${props => props.theme.colors.linkGray} !important;
 		font-size: 18px;
-		font-family: 'Open Sans !important';
 		font-weight: 600;
 		@media ${device.laptop} {
 			font-size: 16px;	
@@ -47,11 +52,20 @@ const StyledInput = styled.input `
 		
     }
 `;
+const Label = styled.p`
+	margin-bottom: 10px;
 
-const Input = ({onChange, placeholder}) => {
+`
+
+
+
+const Input = ({onChange, placeholder, label, className}) => {
     return(
-        <StyledInput placeholder={placeholder} onChange={onChange} />
-    );
+		<>
+			<Label>{label}</Label>
+			<StyledInput className={className} placeholder={placeholder} onChange={onChange} />
+		</>
+	);
 };
 
 Input.propTypes = {

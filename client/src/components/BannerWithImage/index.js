@@ -8,12 +8,8 @@ import { device } from '../../device';
 
 const Container = styled.div `
 	width: 100%;
-	background-color: ${props => props.theme.colors.background}
-	height: 600px;
-	margin-top: 100px;
-	@media ${device.laptop} {
-		height: 900px;
- 	}
+	height: 300px;
+	margin-top: 80px;
 `
 
 const Wrapper = styled.div`
@@ -24,10 +20,12 @@ const Wrapper = styled.div`
 	padding-right: 10px;
 	display: flex;
 	align-items: center
+
 	height: 100%;
 	flex-direction: row;
 	@media ${device.laptop} {
 		flex-direction: column;
+		text-align: center
  	}
 
 
@@ -37,19 +35,13 @@ const ContentBlock = styled.div `
 	flex: 1;
 	flex-direction: column;
 	align-items: center
-	@media ${device.laptop} {
-		align-items: center;
-		text-align: center;
-		margin-top: 30px;
-		margin-bottom: 30px;
- 	}
 
 `;
 const Title = styled.h1`
     color: ${props => props.theme.colors.black};
 	font-weight: 600;
 	letter-spacing: -.5px;
-	font-size: 45px !important;
+	font-size: 35px !important;
 	margin: 0px !important;
     font-size:  ${props => props.theme.fontSize.h3}
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
@@ -61,9 +53,10 @@ const Title = styled.h1`
 const Ingress = styled.p `
 	font-size: 22px;
     font-weight: 400;
-	margin-top: 30px !important;
+	margin-top: 20px;
+	margin-bottom: 20px;
     @media ${device.laptop} {
-        font-size: 18px;
+        font-size: 20px;
 		margin-top: 20px;
 		text-align: center;
 
@@ -74,18 +67,24 @@ const Ingress = styled.p `
 const StyledButton = styled(Button) `
 `
 
+const Image = styled.div`
+padding: 20px;
+`;
 
 
-const Banner = () => {
+const BannerWithImage = ({image, title, ingress, body}) => {
     return(
 		<Container>
 			<Wrapper>
             	<ContentBlock>
-					<LoginForm />
+					<Image>
+						<img src={image}/> 
+					</Image>
 				</ContentBlock>
 				<ContentBlock>
-					<Title>Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme</Title>
-					<Ingress>Uusi tapa hoitaa tukkuostaminen</Ingress>
+					<Title>{title}</Title>
+					<Ingress>{ingress}</Ingress>
+					<p>{body}</p>
 				</ContentBlock>
         	</Wrapper>
 		</Container>
@@ -93,7 +92,7 @@ const Banner = () => {
     );
 };
 
- Banner.propTypes = {
+BannerWithImage.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -101,4 +100,4 @@ const Banner = () => {
     ])
  }
 
-export default Banner;
+export default BannerWithImage;

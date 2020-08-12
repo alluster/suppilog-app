@@ -15,8 +15,7 @@ const StyledButton = styled.button `
 	line-height: 30px;
 	font-weight: 600;
 	font-size: 12px;
-	padding-left: 30px;
-	padding-right: 30px;
+
 	padding-right: auto;
 	margin-top: auto;
 	min-width: 120px;
@@ -24,9 +23,9 @@ const StyledButton = styled.button `
 		}
 `;
 
-const Button = ({onClick, children, to, color}) => {
+const Button = ({onClick, children, to, color, className}) => {
     return(
-        <Link to={to}><StyledButton color={color} onClick={onClick} >{children}</StyledButton></Link>
+        <Link to={to}><StyledButton className={className} color={color} onClick={onClick} >{children}</StyledButton></Link>
     );
 };
 

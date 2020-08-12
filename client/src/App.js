@@ -20,6 +20,7 @@ import Container from './components/Container';
 import ItemRow from './components/ItemRow';
 import CardNumber from './components/CardNumber';
 import Banner from './components/Banner';
+import BannerWithImage from './components/BannerWithImage';
 
 
 
@@ -155,6 +156,13 @@ function App() {
 				</ItemRow>
 			</Container>
 			<Banner />
+			<BannerWithImage 
+				title="Tehosta ostamista ja
+				säästä aikaa"
+				image={"/app-image.png"}
+				ingress="Yhdellä rekisteröitymisellä tuotteita sadoilta eri myyjäyrityksiltä."
+				body="Ostajayritykset tilaavat yhdellä rekisteröitymisellä haluamiaan tuotteita sadoilta eri myyjäyrityksiltä. Tilausprosessin tehostumisella valikoimahallinta helpottuu, sekä tuotteiden jatkotilaaminen on yksinkertaista"
+				/>
 		
 			{/* <SubNavigation/> */}
 			<Switch>
