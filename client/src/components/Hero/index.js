@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Gx from '@tgrx/gx';
 import { device } from '../../device';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const HeroStyled = styled.div`
 
@@ -197,6 +198,7 @@ const Hero = ({title, ingress, image, children}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`}}>
 		<Container>
+		<ScrollAnimation animateIn="fadeIn" animateOnce>
 
 				<HeroContent>
 					<LogoImage>
@@ -243,6 +245,7 @@ const Hero = ({title, ingress, image, children}) => {
 							:
 							null
 					} */}
+					</ScrollAnimation>
 				</Container>
         </HeroStyled>
 		

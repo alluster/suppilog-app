@@ -21,6 +21,7 @@ import ItemRow from './components/ItemRow';
 import CardNumber from './components/CardNumber';
 import Banner from './components/Banner';
 import BannerWithImage from './components/BannerWithImage';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 
@@ -142,11 +143,15 @@ function App() {
 		<Provider>
 
 		<Router>
+
 			<Navigation />
+
 			<Hero image={"/suppilog-dinner.jpg"} 
 				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
 				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
 			/>
+			<ScrollAnimation animateIn="fadeIn">
+
 			<Container>
 				<ItemRow>
 					<CardNumber ingress="Suppilogissa on tehty jo yli" number={90665} title="yritystenvälistä tukkutilausta" />
@@ -155,7 +160,13 @@ function App() {
 
 				</ItemRow>
 			</Container>
+			</ScrollAnimation>
+			<ScrollAnimation animateIn="fadeIn">
+
 			<Banner />
+			</ScrollAnimation>
+			<ScrollAnimation animateIn="fadeIn">
+
 			<BannerWithImage 
 				title="Tehosta ostamista ja
 				säästä aikaa"
@@ -163,7 +174,8 @@ function App() {
 				ingress="Yhdellä rekisteröitymisellä tuotteita sadoilta eri myyjäyrityksiltä."
 				body="Ostajayritykset tilaavat yhdellä rekisteröitymisellä haluamiaan tuotteita sadoilta eri myyjäyrityksiltä. Tilausprosessin tehostumisella valikoimahallinta helpottuu, sekä tuotteiden jatkotilaaminen on yksinkertaista"
 				/>
-		
+					</ScrollAnimation>
+
 			{/* <SubNavigation/> */}
 			<Switch>
 				<Route exact path="/" component={Category} />
