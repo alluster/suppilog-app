@@ -19,7 +19,7 @@ const CardCategory = ({ to, image, title }) => {
 	margin-right: 10px;
 	border-radius: 5px;
 
-		@media (max-width: ${props => props.theme.screenSize.tablet}) {
+		@media ${device.laptop} {
 			width: 100%;
 		}
 		:last {

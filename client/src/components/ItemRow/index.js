@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
 	Link
   } from "react-router-dom";
+  import { device } from '../../device';
 
 
 
@@ -16,7 +17,7 @@ const ItemRow = ({ title, children }) => {
 		background-size: cover;
 		margin-top: 30px;
 		margin-bottom: 30px;
-			@media (max-width: ${props => props.theme.screenSize.tablet}) {
+			@media ${device.laptop} {
 				width: 100%;
 			}
 			

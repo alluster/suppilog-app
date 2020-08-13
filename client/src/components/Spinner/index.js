@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ClipLoader from "react-spinners/ClipLoader";
+import { device } from '../../device';
 
 
 const Spinner = () => {
@@ -14,7 +15,7 @@ const Spinner = () => {
 		flex-direction: column;
 		margin-top: 30px;
 		margin-bottom: 30px;
-			@media (max-width: ${props => props.theme.screenSize.tablet}) {
+			@media ${device.laptop} {
 				width: 100%;
 			}
 			

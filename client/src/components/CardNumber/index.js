@@ -18,7 +18,7 @@ const CardNumber = ({ingress, number, title}) => {
 		height: 300px;
 		background-color: white;
 		margin-top: 70px
-		@media (max-width: ${props => props.theme.screenSize.tablet}) {
+		@media ${device.laptop} {
 			width: 100%;
 		}
 		

@@ -8,6 +8,7 @@ import {
 	Link
   } from "react-router-dom";
 
+import { device } from '../../device';
 
 
 const CardProduct = ({ id, image, title, description, likes }) => {
@@ -24,36 +25,37 @@ const CardProduct = ({ id, image, title, description, likes }) => {
 			2.8px 0 2.2px rgba(0, 0, 0, 0.034),
 			6.7px 0 5.3px rgba(0, 0, 0, 0.048),
 			;
-		@media (max-width: ${props => props.theme.screenSize.tablet}) {
+		@media ${device.laptop} {
 			width: 100%;
 		}
 		
 `;
 
-const CardContent = styled.div`
+	const CardContent = styled.div`
 		display: flex;
 		flex-direction: column;
 		background-color: white;
-		height: 100px;
+		min-height: 100px;
 		border-top: 1px solid #DFDFDF;
 		border-radius: 0px 0px 5px 5px;
 		padding: 10px;
-		
-`
-const ImageContainer = styled.div`
-		background-size: cover;
+			
+	`;
+	const ImageContainer = styled.div`
 		height: 200px;
+		background-repeat: no-repeat;
+		background-size: auto;
 		border-radius: 5px 5px 0px 0px;
 
-`
+	`;
 
-const Image = styled.img`
-	height: 200px;
-	background-size: cover;
-	border-radius: 5px 5px 0px 0px;
+	const Image = styled.img`
+		height: 200px;
+		min-width: 100%;
+		border-radius: 5px 5px 0px 0px;
 
 
-`;
+	`;
 
 
     return(

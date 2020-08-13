@@ -5,6 +5,9 @@ import {
 
 	Link
   } from "react-router-dom";
+  import { device } from '../../device';
+
+  
 const StyledButton = styled.button `
 	background-color: ${props => props.color};
 	font-family: 'Open Sans'
@@ -19,7 +22,7 @@ const StyledButton = styled.button `
 	padding-right: auto;
 	margin-top: auto;
 	min-width: 120px;
-		@media (max-width: ${props => props.theme.screenSize.tablet}) {
+		@media ${device.laptop} {
 		}
 `;
 

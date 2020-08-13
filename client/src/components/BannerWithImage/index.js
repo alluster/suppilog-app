@@ -47,7 +47,7 @@ const Title = styled.h1`
 	font-size: 35px !important;
 	margin: 0px !important;
     font-size:  ${props => props.theme.fontSize.h3}
-    @media (max-width: ${props => props.theme.screenSize.tablet}) {
+    @media ${device.laptop} {
         font-size: 24px;
 
 

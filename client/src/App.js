@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0px;
         padding: 0px;
 		max-width: 100% ;
-		height: 100%;
+		min-height: 100vh;
 		font-family: 'Open Sans', sans-serif;
 		font-display: swap;
 		color: ${props => props.theme.colors.black};

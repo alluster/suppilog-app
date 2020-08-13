@@ -14,9 +14,9 @@ const Wrapper = styled.div`
 
 
 
-const Container = ({children}) => {
+const Container = ({children, className}) => {
     return(
-        <Wrapper>
+        <Wrapper className={className}>
             {children}
         </Wrapper>
     );

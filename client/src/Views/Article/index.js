@@ -10,6 +10,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import CardProduct from '../../components/CardProduct'
 import Spinner from '../../components/Spinner';
 import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 
 import {
 	BrowserRouter as Router,
@@ -47,6 +48,11 @@ const Article = () => {
 
 
 	}, [])
+	const Content = styled(Container) `
+		margin-top: 100px;
+		margin-bottom: 100px;
+	`;
+
 	return(
 		
 		
@@ -56,11 +62,11 @@ const Article = () => {
 				image={context.article.image ?  context.article.image.fields.file.url : "" } 
 				title={context.article.title} 
 			/>
-			<Container>
+			<Content>
 				<ReactMarkdown 
 					source={context.article.body}
 				/>
-			</Container>
+			</Content>
 		
 			
 			
