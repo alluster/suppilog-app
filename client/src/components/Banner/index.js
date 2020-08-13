@@ -12,7 +12,7 @@ const Container = styled.div `
 	height: 600px;
 	margin-top: 100px;
 	@media ${device.laptop} {
-		height: 900px;
+		height: 100%;
  	}
 `
 

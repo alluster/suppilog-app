@@ -10,6 +10,9 @@ const Container = styled.div `
 	width: 100%;
 	height: 300px;
 	margin-top: 80px;
+	@media ${device.laptop} {
+		height: 100%;
+ 	}
 `
 
 const Wrapper = styled.div`

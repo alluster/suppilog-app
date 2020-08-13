@@ -120,9 +120,9 @@ const Navigation = ({ className }) => {
 	
 			<Gx col={6} breakpoint={100}>
 				<ButtonsRow>
-					<Button style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
+					<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
 					<Text style={{display: "inline-block"}}>Tai</Text>
-					<Button style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
+					<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
 				</ButtonsRow>
 			</Gx>
 			

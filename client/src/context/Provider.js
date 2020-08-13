@@ -4,26 +4,46 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const Provider = ({children}) => {
-	const [ isLoading, setIsLoading ] = useState(false);
-	const [ loadingMessage, setLoadingMessage ] = useState();
-	const [ ringit, setRingit ] = useState([]);
-	const [ rinki, setRinki ] = useState([]);
-	const [ rinkiUsers, setRinkiUsers ] = useState([]);
-	const [ categories, setCategories ] = useState([]);
-	const [ userEmail, setUserEmail ] = useState("")
-	const [ userId, setUserId ] = useState("")
-	const [	error, setError	] = useState("")
-	const [user, setUser] = useState({ email: ""});
-	const [categoryInfo, setCategoryInfo] = useState({})
+	const [articles, setArticles] = useState([])
+	const [article, setArticle] = useState({})
+	const [articleImage, setArticleImage] = useState({})
 
+	const GetArticles = async () => {
+		await axios.get('/api/getarticles')
+		  	.then(async function (response) {
+				await setArticles(response.data);
+				await setArticleImage(article.image.fields.file.url);
 
- 	
+		  	})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function() {
+			});  
+	}
+	const GetArticle = async (id) => {
+		await axios.get(`/api/getarticle/${id}`)
+			.then(function (response) {
+				setArticle(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function () {
+			});  
+	}
+
 	useEffect(() => {
 	
 		}, []);
         return (
             <AppContext.Provider 
                 value={{
+					GetArticles,
+					articles,
+					GetArticle,
+					article,
+					articleImage
 					
                 }} 
             >

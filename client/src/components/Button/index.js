@@ -8,8 +8,8 @@ import {
 const StyledButton = styled.button `
 	background-color: ${props => props.color};
 	font-family: 'Open Sans'
-	color: white;
-	-webkit-text-fill-color: white;
+	color: ${props => props.textColor || "white"} ;
+	-webkit-text-fill-color: ${props => props.textColor || "white"} ;
 	height: 30px; 
 	text-align: center;
 	line-height: 30px;
@@ -23,9 +23,9 @@ const StyledButton = styled.button `
 		}
 `;
 
-const Button = ({onClick, children, to, color, className}) => {
+const Button = ({onClick, children, to, color, className, textColor}) => {
     return(
-        <Link to={to}><StyledButton className={className} color={color} onClick={onClick} >{children}</StyledButton></Link>
+        <Link to={to}><StyledButton className={className} color={color} textColor={textColor} onClick={onClick} >{children}</StyledButton></Link>
     );
 };
 

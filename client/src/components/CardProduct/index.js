@@ -10,8 +10,9 @@ import {
 
 
 
-const CardProduct = ({ to, image, title, description, likes }) => {
+const CardProduct = ({ id, image, title, description, likes }) => {
 	const CardContainer = styled.div `
+		width: 280px;
 		font-family: 'Open Sans'
 		height: 300px;
 		background-color: white;
@@ -37,23 +38,34 @@ const CardContent = styled.div`
 		border-top: 1px solid #DFDFDF;
 		border-radius: 0px 0px 5px 5px;
 		padding: 10px;
-		color: ${props => props.theme.colors.primary}
+		
 `
 const ImageContainer = styled.div`
-		background-image: url(${image});
 		background-size: cover;
 		height: 200px;
 		border-radius: 5px 5px 0px 0px;
 
 `
+
+const Image = styled.img`
+	height: 200px;
+	background-size: cover;
+	border-radius: 5px 5px 0px 0px;
+
+
+`;
+
+
     return(
-        <Link to={to}>
+        <Link to={`/article/${id}`}>
 		<CardContainer>
-			<ImageContainer image={image}/>
+			<ImageContainer>
+				<Image src={image} />
+			</ImageContainer>
 			<CardContent>
 				<h4 style={{ 
-						fontSize: "20px", 
-						fontWeight: "400"}}>
+						fontSize: "16px", 
+						fontWeight: "600"}}>
 					{title}
 				</h4>
 				<p style={{ 

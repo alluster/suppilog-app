@@ -23,8 +23,7 @@ const StyledButton = styled(Button) `
 	height: 50px;
 	font-size: 20px;
 `
-const StyledButtonGhost = styled.button `
-	color: #0C10E9;
+const StyledButtonGhost = styled(Button) `
 	text-align: center;
 	width: 100%;
 	font-weight: 600;
@@ -65,17 +64,19 @@ const LoginForm = () => {
 			/>
 			<StyledButton
 				color="#0C10E9"
-				to="/"
+				to="/register"
 
 			>	
 			Rekisteröidy
 			</StyledButton>
 			<CTA>Onko sinulla jo tunnukset?</CTA>
 
-			<StyledButtonGhost
+			<StyledButton
+				textColor="#0C10E9"
+				to="/sign-in"
 				>
 				Kirjaudu sisään
-			</StyledButtonGhost>
+			</StyledButton>
         </Wrapper>
     );
 };
