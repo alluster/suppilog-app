@@ -152,7 +152,7 @@ const Navigation = ({ className }) => {
 								</CustomLink>
 							</LinkText>
 							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/meista" 
+								<CustomLink to="/about-us" 
 									onClick={e => setNavOpen(false)}
 									color={props=>props.theme.colors.linkGray} 
 									activeColor={props=>props.theme.colors.primary}
@@ -161,12 +161,21 @@ const Navigation = ({ className }) => {
 								</CustomLink>
 							</LinkText>
 							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/myyjayrityksille" 
+								<CustomLink to="/sellers" 
 									onClick={e => setNavOpen(false)}
 									color={props=>props.theme.colors.linkGray} 
 									activeColor={props=>props.theme.colors.primary}
 								>
 									Myyjäyrityksille
+								</CustomLink>
+							</LinkText>
+							<LinkText onClick={e => setNavOpen(false)} >
+								<CustomLink to="/articles" 
+									onClick={e => setNavOpen(false)}
+									color={props=>props.theme.colors.linkGray} 
+									activeColor={props=>props.theme.colors.primary}
+								>
+									Suppiblog
 								</CustomLink>
 							</LinkText>
 							<LinkText onClick={e => setNavOpen(false)} >

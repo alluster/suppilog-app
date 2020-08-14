@@ -34,6 +34,27 @@ app.get('/api/getarticles', (req, res) => {
        res.status(500).send(err);
     })
   });
+  app.get('/api/getpersons', (req, res) => {
+    client.getEntries({content_type: 'person'}).then((entries) => {
+      res.send(entries.items);
+    }).catch((err) => {
+       res.status(500).send(err);
+    })
+  });
+  app.get('/api/getpagecontent/:id', (req, res) => {
+    client.getEntry(`${req.params.id}`).then((entry) => {
+      res.send(entry.fields);
+    }).catch((err) => {
+       res.status(500).send(err);
+    })
+  });
+  app.get('/api/getproducts', (req, res) => {
+    client.getEntries({content_type: 'product'}).then((entries) => {
+      res.send(entries.items);
+    }).catch((err) => {
+       res.status(500).send(err);
+    })
+  });
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });

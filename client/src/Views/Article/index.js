@@ -9,8 +9,10 @@ import BannerWithImage from '../../components/BannerWithImage';
 import ScrollAnimation from 'react-animate-on-scroll';
 import CardProduct from '../../components/CardProduct'
 import Spinner from '../../components/Spinner';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
+import CardArticle from '../../components/CardArticle'
+import Moment from 'react-moment';
 
 import {
 	BrowserRouter as Router,
@@ -45,14 +47,16 @@ const Article = () => {
 			window.scrollTo(0, 0)
 			context.GetArticle(id)
 			getArticle()
+			context.GetArticles()
+
 
 
 	}, [])
 	const Content = styled(Container) `
-		margin-top: 100px;
+		margin-top: 40px;
 		margin-bottom: 100px;
 	`;
-
+	
 	return(
 		
 		
@@ -63,11 +67,41 @@ const Article = () => {
 				title={context.article.title} 
 			/>
 			<Content>
-				<ReactMarkdown 
+				<Markdown 
 					source={context.article.body}
 				/>
 			</Content>
-		
+			<Container>
+				<ItemRow title="Suppiblog">
+					{
+						context.articles.slice(0,3).map((item, i) => {
+							const ConvertDate = () => {
+								return( 
+									<Moment
+										format="DD/MM/YYYY"
+									>
+										{item.sys.createdAt}
+									</Moment>
+								)}
+								
+						
+							
+							return(
+								
+								<CardArticle
+									id={item.sys.id}
+									key={i}
+									image={item.fields.image.fields.file.url}
+									title={item.fields.title }
+									date={ConvertDate()}
+									description={item.fields.description}
+								/>
+							)
+						})
+					}	
+				</ItemRow>
+			
+			</Container>
 			
 			
 		</div>

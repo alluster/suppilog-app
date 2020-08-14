@@ -11,7 +11,7 @@ import {
 import { device } from '../../device';
 
 
-const CardProduct = ({ id, image, title, description, likes }) => {
+const CardProduct = ({ id, image, name, description, price, type, quantity }) => {
 	const CardContainer = styled.div `
 		width: 280px;
 		font-family: 'Open Sans'
@@ -42,7 +42,7 @@ const CardProduct = ({ id, image, title, description, likes }) => {
 			
 	`;
 	const ImageContainer = styled.div`
-		height: 200px;
+		height: 300px;
 		background-repeat: no-repeat;
 		background-size: auto;
 		border-radius: 5px 5px 0px 0px;
@@ -50,10 +50,11 @@ const CardProduct = ({ id, image, title, description, likes }) => {
 	`;
 
 	const Image = styled.img`
-		height: 200px;
+		height: 300px;
 		min-width: 100%;
 		border-radius: 5px 5px 0px 0px;
-
+		object-fit: cover;
+		// object-position: 50% 0%
 
 	`;
 
@@ -68,13 +69,25 @@ const CardProduct = ({ id, image, title, description, likes }) => {
 				<h4 style={{ 
 						fontSize: "16px", 
 						fontWeight: "600"}}>
-					{title}
+					{name}
 				</h4>
 				<p style={{ 
 					fontSize: "12px"}}>
 					{description}
 				</p>
-				<div style={{marginTop: "auto"}}>
+				<p style={{ 
+					fontSize: "12px"}}>
+					Myyntierä: {quantity}
+				</p>
+				<p style={{ 
+					fontSize: "12px"}}>
+					{price}
+				</p>
+				<p style={{ 
+					fontSize: "12px"}}>
+					/{type}
+				</p>
+				{/* <div style={{marginTop: "auto"}}>
 					<FontAwesomeIcon 
 						icon={faThumbsUp} 
 						style={{
@@ -89,7 +102,7 @@ const CardProduct = ({ id, image, title, description, likes }) => {
 							fontWeight: "bold"}}>
 						{likes}
 					</p>
-				</div>
+				</div> */}
 			</CardContent>
 
 		</CardContainer>

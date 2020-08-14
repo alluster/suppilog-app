@@ -7,23 +7,30 @@ import CardNumber from '../../components/CardNumber';
 import Banner from '../../components/Banner';
 import BannerWithImage from '../../components/BannerWithImage';
 import ScrollAnimation from 'react-animate-on-scroll';
-import CardProduct from '../../components/CardProduct'
+import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
+import Button from '../../components/Button';
+
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Link
   } from "react-router-dom";
+  import Moment from 'react-moment';
+import CardProduct from '../../components/CardProduct';
 
 
 
 
 const Home = () => {
 	const context = useContext(AppContext)
+
+	
 	useEffect(() => {
 		window.scrollTo(0, 0)
 		context.GetArticles()
+		context.GetProducts()
 		
 	}, [])
 	return(
@@ -35,6 +42,38 @@ const Home = () => {
 				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
 				searchBar
 			/>
+			<Container>
+				{
+					context.products === []  ? 
+					<Spinner />
+					:
+						<Container>
+							<ItemRow title="Suosiuimmat tuotteemme">
+								{
+									context.products.slice(0,3).map((item, i) => {
+											
+									
+										
+										return(
+											
+											<CardProduct
+												id={item.sys.id}
+												key={i}
+												image={item.fields.image.fields.file.url}
+												name={item.fields.name }
+												description={item.fields.description}
+												quantity={item.fields.quantity}
+												price={item.fields.price}
+												type={item.fields.type}
+											/>
+										)
+									})
+								}	
+							</ItemRow>
+						</Container>
+					
+				}
+			</Container>
 			<ScrollAnimation animateIn="fadeIn">
 				<Container>
 					<ItemRow>
@@ -66,18 +105,33 @@ const Home = () => {
 					<Container>
 						<ItemRow title="Suppiblog">
 							{
-								context.articles.map((item, i) => {
+								context.articles.slice(0,3).map((item, i) => {
+											const ConvertDate = () => {
+										return( 
+											<Moment
+												format="DD/MM/YYYY"
+											>
+												{item.sys.createdAt}
+											</Moment>
+										)}
+										
+								
+									
 									return(
-										<CardProduct 
+										
+										<CardArticle
 											id={item.sys.id}
 											key={i}
 											image={item.fields.image.fields.file.url}
 											title={item.fields.title }
+											date={ConvertDate()}
+											description={item.fields.description}
 										/>
 									)
 								})
 							}	
 						</ItemRow>
+						<Button color="blue" style={{marginLeft: "auto", marginRight: "auto"}}>Siirry Suppiblogiin</Button>
 					</Container>
 				
 			}

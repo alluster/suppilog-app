@@ -11,6 +11,10 @@ import Home from './Views/Home';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import Provider from './context/Provider';
+import About from './Views/About';
+import Sellers from './Views/Sellers';
+import Buyers from './Views/Buyers';
+import Articles from './Views/Articles';
 import Article from './Views/Article';
 
 const GlobalStyle = createGlobalStyle`
@@ -55,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
 
 	}
 	p {
-		margin: 0px;
+		margin: 8px 0px 8px 0px;
 
 	}
     img {
@@ -132,6 +136,13 @@ const App = () => {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/article/:id" component={Article} />
+						<Route exact path="/articles" component={Articles} />
+						<Route exact path="/about-us" component={About} />
+						<Route exact path="/sellers" component={Sellers} />
+						<Route exact path="/buyers" component={Buyers} />
+
+
+
 						<Route path='/sign-in' component={() => { 
 							window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 
 							return null;

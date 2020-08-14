@@ -7,6 +7,9 @@ const Provider = ({children}) => {
 	const [articles, setArticles] = useState([])
 	const [article, setArticle] = useState({})
 	const [articleImage, setArticleImage] = useState({})
+	const [persons, setPersons] = useState([])
+	const [pageContent, setPageContent] = useState({})
+	const [products, setProducts] = useState([])
 
 	const GetArticles = async () => {
 		await axios.get('/api/getarticles')
@@ -32,6 +35,44 @@ const Provider = ({children}) => {
 			.then(function () {
 			});  
 	}
+	const GetPersons = async () => {
+		await axios.get('/api/getpersons')
+		  	.then(async function (response) {
+				await setPersons(response.data);
+
+		  	})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function() {
+			});  
+	}
+	const GetPageContent = async (id) => {
+		await axios.get(`/api/getpagecontent/${id}`)
+			.then(function (response) {
+				setPageContent(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function () {
+			});  
+	}
+
+	const GetProducts= async () => {
+		await axios.get('/api/getproducts')
+		  	.then(async function (response) {
+				await setProducts(response.data);
+
+		  	})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function() {
+			});  
+	}
+
+	console.log(products)
 
 	useEffect(() => {
 	
@@ -39,11 +80,17 @@ const Provider = ({children}) => {
         return (
             <AppContext.Provider 
                 value={{
+					GetPageContent,
+					pageContent,
 					GetArticles,
 					articles,
 					GetArticle,
 					article,
-					articleImage
+					articleImage,
+					persons,
+					GetPersons,
+					products,
+					GetProducts
 					
                 }} 
             >
