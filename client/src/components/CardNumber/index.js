@@ -17,7 +17,7 @@ const CardNumber = ({ingress, number, title}) => {
 		font-family: 'Open Sans'
 		height: 300px;
 		background-color: white;
-		margin-top: 70px
+		height: 100%;
 		@media ${device.laptop} {
 			width: 100%;
 		}
@@ -37,7 +37,7 @@ const CardNumber = ({ingress, number, title}) => {
 		display: flex;
 		flex-direction: column;
 		background-color: white;
-		height: 100px;
+		height: 100%;
 		text-align: center;
 
 	`;
@@ -53,7 +53,7 @@ const CardNumber = ({ingress, number, title}) => {
     return(
 		<CardContainer>
 			<CardContent>
-				<p>{ingress}</p>
+				<h2>{ingress}</h2>
 			<Number
 				value={number}
 				formatValue={formatValue}

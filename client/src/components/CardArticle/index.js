@@ -20,7 +20,7 @@ const CardArticle = ({ id, image, title, description, date }) => {
 		height: 300px;
 		background-color: white;
 		margin-right: 10px;
-		margin-top: 10px
+		margin-top: 20px
 		border-radius: 5px;
 		// border: 1px solid #DFDFDF;
 		// box-shadow:

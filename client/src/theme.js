@@ -1,6 +1,6 @@
 export default {
     colors: {
-		primary: '#0C10E9',
+		primary: '#0C10E9', //blue
 		primaryDark: '#001F87',
         black: '#212121',
         white: '#fff',
@@ -9,7 +9,8 @@ export default {
 		secondary: '#F5A623',
 		secondaryDark: '#E69000',
 		background: '#F8F8F8',
-		linkGray: '#C8CCD4'
+		linkGray: '#C8CCD4',
+		lightGray: '#F0F0F0'
 		
     },
     fontWeight: {

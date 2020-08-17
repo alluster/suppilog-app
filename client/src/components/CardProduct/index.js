@@ -13,20 +13,20 @@ import { device } from '../../device';
 
 const CardProduct = ({ id, image, name, description, price, type, quantity }) => {
 	const CardContainer = styled.div `
-		width: 280px;
+		width: 260px;
 		font-family: 'Open Sans'
-		height: 300px;
+		height: 100%;
 		background-color: white;
 		margin-right: 10px;
-		margin-top: 10px
-		border-radius: 5px;
-		border: 1px solid #DFDFDF;
-		box-shadow:
-			2.8px 0 2.2px rgba(0, 0, 0, 0.034),
-			6.7px 0 5.3px rgba(0, 0, 0, 0.048),
-			;
+		margin-top: 20px
+		border-radius: 16px;
+		padding: 10px;
+		border: 1px solid #F4F4F4;
+		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
+		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
 		@media ${device.laptop} {
-			width: 100%;
+			width: calc(50vw - 30px);
+
 		}
 		
 `;
@@ -36,29 +36,71 @@ const CardProduct = ({ id, image, name, description, price, type, quantity }) =>
 		flex-direction: column;
 		background-color: white;
 		min-height: 100px;
-		border-top: 1px solid #DFDFDF;
-		border-radius: 0px 0px 5px 5px;
+		border-radius: 0px 0px 16px 16px;
 		padding: 10px;
+		text-align: center;
+		color: ${props => props.theme.colors.black};
+
+		@media ${device.laptop} {
+			width: calc(100% - 10px);
+			padding: 5px;
+		}
 			
 	`;
 	const ImageContainer = styled.div`
 		height: 300px;
 		background-repeat: no-repeat;
 		background-size: auto;
-		border-radius: 5px 5px 0px 0px;
-
+		border-radius: 16px 16px 0px 0px;
+		@media ${device.laptop} {
+			height: 150px;
+		}
 	`;
 
 	const Image = styled.img`
 		height: 300px;
 		min-width: 100%;
-		border-radius: 5px 5px 0px 0px;
+		border-radius: 16px 16px 0px 0px;
 		object-fit: cover;
 		// object-position: 50% 0%
+		@media ${device.laptop} {
+			height: 150px;
+		}
+	`;
+	const Title = styled.h4`
+		font-size: 20px;
+		font-weight: 600;
+		@media ${device.laptop} {
+			font-size: 14px !important;
+		}
+
+	`;
+
+	const Price = styled.h1`
+		font-size: 50px;
+		font-weight:600;
+		color: ${props => props.theme.colors.lightGray} !important;
 
 	`;
 
 
+
+	const Type = styled.p`
+
+	`;
+
+
+	const Quantity = styled.p`
+		font.size: 14px;	
+	`;
+
+	const Tags = styled.p``;
+
+	const Alert = styled.p`
+		font-size: 12px;
+		font-weight: 600;
+		color: ${props => props.theme.colors.primary}
+	`;
     return(
         <Link to={`/article/${id}`}>
 		<CardContainer>
@@ -66,43 +108,30 @@ const CardProduct = ({ id, image, name, description, price, type, quantity }) =>
 				<Image src={image} />
 			</ImageContainer>
 			<CardContent>
-				<h4 style={{ 
-						fontSize: "16px", 
-						fontWeight: "600"}}>
+				{/* <Tags>
+					{}
+				</Tags> */}
+				<Title>
 					{name}
-				</h4>
-				<p style={{ 
+				</Title>
+				{/* <p style={{ 
 					fontSize: "12px"}}>
 					{description}
-				</p>
-				<p style={{ 
+				</p> */}
+				<Quantity style={{ 
 					fontSize: "12px"}}>
 					Myyntierä: {quantity}
-				</p>
-				<p style={{ 
-					fontSize: "12px"}}>
+				</Quantity>
+				<Price >
 					{price}
-				</p>
-				<p style={{ 
+				</Price>
+				<Type style={{ 
 					fontSize: "12px"}}>
 					/{type}
-				</p>
-				{/* <div style={{marginTop: "auto"}}>
-					<FontAwesomeIcon 
-						icon={faThumbsUp} 
-						style={{
-							display: "inline-block", 
-							color: "#DFDFDF", 
-							fontSize: "10px", 
-							marginRight: "8px"}}
-					/>
-					<p style={{
-							display: "inline-block", 
-							fontSize: "10px", 
-							fontWeight: "bold"}}>
-						{likes}
-					</p>
-				</div> */}
+				</Type>
+				<Alert>
+					Rekisteröidy nähdäksesi tuotteen hinnat
+				</Alert>
 			</CardContent>
 
 		</CardContainer>
@@ -114,7 +143,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity }) =>
 CardProduct.propTypes = {
 	text: PropTypes.string,
 	onClick: PropTypes.any,
-	children: PropTypes.any
+	children: PropTypes.any 
  };
 
-export default CardProduct;
+export default CardProduct; 

@@ -48,14 +48,10 @@ const Home = () => {
 					<Spinner />
 					:
 						<Container>
-							<ItemRow title="Suosiuimmat tuotteemme">
+							<ItemRow title="Suosituimmat tuotteemme">
 								{
 									context.products.slice(0,3).map((item, i) => {
-											
-									
-										
 										return(
-											
 											<CardProduct
 												id={item.sys.id}
 												key={i}
@@ -77,9 +73,9 @@ const Home = () => {
 			<ScrollAnimation animateIn="fadeIn">
 				<Container>
 					<ItemRow>
-						<CardNumber ingress="Suppilogissa on tehty jo yli" number={90665} title="yritystenvälistä tukkutilausta" />
-						<CardNumber ingress="Tilaa yli" number={76780} title="tukkutuotetta kaikista parhaimmilla toimitusehdoilla ja hinnoilla"c/>
-						<CardNumber ingress="Yli" number={56789} title="yritystä käyttää Suppilogin digitaalista tukkukaupankäynnin alustaa myymiseen ja ostamiseen"/>
+						<CardNumber ingress="Tilauksia" number={90665} title="Suppilogissa on tehty jo yli yritystenvälistä tukkutilausta" />
+						<CardNumber ingress="Tuotteita" number={76780} title="Tilaa yli tukkutuotetta kaikista parhaimmilla toimitusehdoilla ja hinnoilla"c/>
+						<CardNumber ingress="Käyttäjiä" number={56789} title="Yli yritystä käyttää Suppilogin digitaalista tukkukaupankäynnin alustaa myymiseen ja ostamiseen"/>
 
 					</ItemRow>
 				</Container>
