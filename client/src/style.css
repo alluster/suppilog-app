@@ -1,0 +1,32 @@
+.search-bar input {
+	background-color: white !important;
+	font-family: 'Open Sans' !important;
+	font-weight: 600 !important;
+	height: 60px;
+	width: 400px !important;
+	line-height: 60px;
+	border: none;
+	font-size: 18px;
+	padding-left: 20px;
+	z-index: 10000000;
+	/* width: calc(100% - 20px); */
+}
+	.search-bar::placeholder {
+		color: gray;
+		font-size: 18px;
+		font-weight: 400;
+	}
+	::-webkit-input-placeholder {
+		color: gray;
+		font-size: 18px;
+		font-weight: 400;
+		
+
+	}
+	:-ms-input-placeholder {
+		color: gray;
+		font-size: 18px;
+		font-weight: 600;
+		
+	}
+	

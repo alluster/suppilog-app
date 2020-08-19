@@ -11,7 +11,7 @@ import {
 import { device } from '../../device';
 
 
-const CardProduct = ({ id, image, name, description, price, type, quantity }) => {
+const CardProduct = ({ id, image, name, description, price, type, quantity, res }) => {
 	const CardContainer = styled.div `
 		width: 260px;
 		font-family: 'Open Sans'
@@ -102,41 +102,50 @@ const CardProduct = ({ id, image, name, description, price, type, quantity }) =>
 		color: ${props => props.theme.colors.primary}
 	`;
     return(
-        <Link to={`/article/${id}`}>
-		<CardContainer>
-			<ImageContainer>
-				<Image src={image} />
-			</ImageContainer>
-			<CardContent>
-				{/* <Tags>
-					{}
-				</Tags> */}
-				<Title>
-					{name}
-				</Title>
-				{/* <p style={{ 
-					fontSize: "12px"}}>
-					{description}
-				</p> */}
-				<Quantity style={{ 
-					fontSize: "12px"}}>
-					Myyntierä: {quantity}
-				</Quantity>
-				<Price >
-					{price}
-				</Price>
-				<Type style={{ 
-					fontSize: "12px"}}>
-					/{type}
-				</Type>
-				<Alert>
-					Rekisteröidy nähdäksesi tuotteen hinnat
-				</Alert>
-			</CardContent>
-
-		</CardContainer>
-			
-		</Link>
+		<div>
+		{
+			image === "no image" ? 
+			""
+			: 
+			<Link to={`/article/${id}`}>
+			<CardContainer>
+				<ImageContainer>
+					<Image src={`${image}`} />
+				</ImageContainer>
+				<CardContent>
+					{/* <Tags>
+						{}
+					</Tags> */}
+					<Title>
+						{name}
+					</Title>
+					{/* <p style={{ 
+						fontSize: "12px"}}>
+						{description}
+					</p> */}
+					<Quantity style={{ 
+						fontSize: "12px"}}>
+						Myyntierä: {quantity}
+					</Quantity>
+					<Price >
+						{price}
+					</Price>
+					<Type style={{ 
+						fontSize: "12px"}}>
+						/{type}
+					</Type>
+					<Alert>
+						Rekisteröidy nähdäksesi tuotteen hinnat
+					</Alert>
+				</CardContent>
+	
+			</CardContainer>
+				
+			</Link>
+		}
+		</div>
+		
+      
     );
 };
 

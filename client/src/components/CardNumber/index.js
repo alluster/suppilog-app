@@ -10,7 +10,6 @@ import { device } from '../../device';
 
 const CardNumber = ({ingress, number, title}) => {
 
-	// const formatValue = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	const formatValue = (value) => value.toFixed();
 	const CardContainer = styled.div `
 		width: 33%;

@@ -28,7 +28,7 @@ const Home = () => {
 
 	
 	useEffect(() => {
-		window.scrollTo(0, 0)
+		// window.scrollTo(0, 0)
 		context.GetArticles()
 		context.GetProducts()
 		
