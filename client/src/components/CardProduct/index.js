@@ -13,9 +13,8 @@ import { device } from '../../device';
 
 const CardProduct = ({ id, image, name, description, price, type, quantity, res }) => {
 	const CardContainer = styled.div `
-		width: 260px;
 		font-family: 'Open Sans'
-		height: 100%;
+		height: 600px;
 		background-color: white;
 		margin-right: 10px;
 		margin-top: 20px
@@ -29,24 +28,8 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 
 		}
 		
-`;
-
-	const CardContent = styled.div`
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		min-height: 100px;
-		border-radius: 0px 0px 16px 16px;
-		padding: 10px;
-		text-align: center;
-		color: ${props => props.theme.colors.black};
-
-		@media ${device.laptop} {
-			width: calc(100% - 10px);
-			padding: 5px;
-		}
-			
 	`;
+
 	const ImageContainer = styled.div`
 		height: 300px;
 		background-repeat: no-repeat;
@@ -67,6 +50,24 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 			height: 150px;
 		}
 	`;
+
+	const CardContent = styled.div`
+		display: flex;
+		flex-direction: column;
+		background-color: white;
+		height: 250px;
+		border-radius: 0px 0px 16px 16px;
+		padding: 10px;
+		text-align: center;
+		color: ${props => props.theme.colors.black};
+
+		@media ${device.laptop} {
+			width: calc(100% - 10px);
+			padding: 5px;
+		}
+			
+	`;
+	
 	const Title = styled.h4`
 		font-size: 20px;
 		font-weight: 600;
@@ -82,7 +83,6 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		color: ${props => props.theme.colors.lightGray} !important;
 
 	`;
-
 
 
 	const Type = styled.p`
@@ -128,7 +128,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 						Myyntierä: {quantity}
 					</Quantity>
 					<Price >
-						{price}
+						0,00 €
 					</Price>
 					<Type style={{ 
 						fontSize: "12px"}}>

@@ -19,6 +19,7 @@ import {
   } from "react-router-dom";
   import Moment from 'react-moment';
 import CardProduct from '../../components/CardProduct';
+import SearchBar from '../../components/SearchBar';
 
 
 
@@ -40,9 +41,13 @@ const Home = () => {
 				image={"/suppilog-dinner.jpg"} 
 				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
 				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
-				searchBar
+				
 			/>
 			<Container>
+				<SearchBar />
+
+			</Container>
+			{/* <Container>
 				{
 					context.products === []  ? 
 					<Spinner />
@@ -69,7 +74,7 @@ const Home = () => {
 						</Container>
 					
 				}
-			</Container>
+			</Container> */}
 			<ScrollAnimation animateIn="fadeIn">
 				<Container>
 					<ItemRow>

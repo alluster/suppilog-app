@@ -3,12 +3,16 @@ import styled from 'styled-components';
 
 import { device } from '../../device';
 import Input from '../../components/Input';
-import { ReactiveBase, DataSearch, SelectedFilters, ReactiveList } from '@appbaseio/reactivesearch';
+import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters } from '@appbaseio/reactivesearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import '../../style.css';
 import CardProduct from '../CardProduct';
 import CardListItem from '../CardListItem';
+
+import ReactSwipe from 'react-swipe';
+
+
 const SearchBar = () => {
 
 const [searchText, setSearchText] = useState("")
@@ -18,7 +22,7 @@ const InputContainer = styled.div`
 	margin-top: -15px !important;
 	display: flex;
 	flex-direction: row;
-	height: auto;
+	height: 100%;
 	border: #E6E6E6 solid 0.8px;
 	@media ${device.laptop} {
 		max-width: calc(100% - 20px) !important;
@@ -107,23 +111,20 @@ color: white !important;
 				noInitialQuery={true}
 				
 			>
-			<InputContainer>
-				<InputLogoContainer>
-					<InputLogo src="/logo-input.png" />
-				</InputLogoContainer>
-				
+		
 			<DataSearch
 
 				onChange={(value) => {setSearchText(value) ;
 				}}
 				componentId="search"
 				placeholder="Etsi tuotteita"
-				showFilter={false}
-				autosuggest={false}
-				showIcon={false}
-
+				autosuggest={true}
+				showIcon={true}
+				showFilter={true}
+				filterLabel=""
 				showClear={true}
-				
+				defaultValue="Suosituimmat"
+
 				dataField={[
 					'search_terms',
 					'name',
@@ -143,60 +144,51 @@ color: white !important;
 				className="search-bar"
 				/>
 				
-				<InputButton>
-					<Icon>
-						<FontAwesomeIcon icon={faSearch} />
-					</Icon>
+			<SelectedFilters 
+				showClearAll={true}	
+				clearAllLabel="Tyhjennä haku"
 
-					<ButtonText>
-						Etsi
-					</ButtonText>
-				</InputButton>	
-			</InputContainer>
+			/>
 		
 			
 			<ReactiveList
 
-				// defaultQuery={()=> {
-				// 	if(searchText !== ""){
-				// 		return {
-				// 			query: {
-				// 			match: {
-				// 				name: searchText
-				// 			}
-				// 			}
-				// 		}
-				// 	} else {
-				// 		return {
-				// 			query: {
-				// 			match_none: {}
-				// 			}
-				// 		}
 
-				// 	}
-				// }}
-
-
-				style={{backgroundColor: "white", zIndex: "1000000", maxHeight: "80vh"}}
+				style={{
+					backgroundColor: "white", 
+					zIndex: "1000000", 
+					display: "flex",
+					flexDirection: "column"
+					}}
 				componentId="result"
 				dataField="name"
 				pagination={true}
-				scrollTarget={true}
+				scrollTarget={false}
+				scrollOnChange={false}
 				react={{
 				and: [
 					'search'
 				]
 				}}
-				size={4}
-				renderItem={(res) => 
-					<CardListItem 
-							key={res._id} 
-							name={res.name}
-							image={res.photo_url ? res.photo_url : '/placeholder.png'}
+				size={3}
+				render={({ data }) =>(
+					<div
+					style={{display: "flex", flexDirection: "row", width: "100%"}}
+					>
+						{data.map( item => (
+							<CardProduct 
+									key={item._id} 
+									name={item.name}
+									image={item.photo_url ? item.photo_url : '/placeholder.png'}
+									type={item.consumer_package_size}
+									quantity={item.sales_unit_size}
 							/>
-							
-						}
-				/>
+						))}
+					</div>
+			
+						
+				)}
+			/>
 				
 
 		</ReactiveBase>

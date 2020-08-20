@@ -3,12 +3,13 @@
 	font-family: 'Open Sans' !important;
 	font-weight: 600 !important;
 	height: 60px;
-	width: 400px !important;
+	width: 100% !important;
 	line-height: 60px;
-	border: none;
+	/* border: none; */
 	font-size: 18px;
-	padding-left: 20px;
+	padding-left: 40px;
 	z-index: 10000000;
+	margin-top: -30px;
 	/* width: calc(100% - 20px); */
 }
 	.search-bar::placeholder {
@@ -30,3 +31,26 @@
 		
 	}
 	
+.css-dmx3ll-InputIcon-left {
+	margin-top: -15px;
+}
+
+.css-c4vjye-InputIcon-right {
+	margin-top: -15px;
+
+}
+
+
+.css-x2306x-pagination {
+	margin-top: 30px !important;
+}
+
+.css-1ek36dp-PoweredByImage  {
+	display: none;
+}
+
+.css-iioxla-Button {
+	background-color: #390754 !important;
+	color: white !important;
+	margin-top: 20px !important;
+}
