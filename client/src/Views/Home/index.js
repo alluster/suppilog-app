@@ -145,7 +145,6 @@ const Home = () => {
 								})
 							}	
 						</ItemRow>
-						<Button color="blue" style={{marginLeft: "auto", marginRight: "auto"}}>Siirry Suppiblogiin</Button>
 					</Container>
 				
 			}
