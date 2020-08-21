@@ -17,16 +17,22 @@ import Buyers from './Views/Buyers';
 import Articles from './Views/Articles';
 import Article from './Views/Article';
 
+
 const GlobalStyle = createGlobalStyle`
     body, html {
+		@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext);
+
         margin: 0px;
         padding: 0px;
 		max-width: 100% ;
 		min-height: 100vh;
-		font-family: 'Open Sans', sans-serif;
+		font-family: 'Open Sans', sans-serif !important;
 		font-display: swap;
 		color: ${props => props.theme.colors.black};
 		hyphens: auto;
+		text-rendering: optimizeLegibility;
+		
+}
 
     }
     h1 {
@@ -128,11 +134,14 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App = () => {
+
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Provider>
 				<Router>
 					<Navigation />
+	
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/article/:id" component={Article} />

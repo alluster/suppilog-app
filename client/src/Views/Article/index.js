@@ -44,7 +44,7 @@ const Article = () => {
 	}
 
 	useEffect(() => {
-			// window.scrollTo(0, 0)
+			window.scrollTo(0, 0)
 			context.GetArticle(id)
 			getArticle()
 			context.GetArticles()

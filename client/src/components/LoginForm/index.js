@@ -58,10 +58,10 @@ const LoginForm = () => {
 				label="Anna sähköpostiosoite"
 				placeholder=""
 			/>
-			<StyledInput 
+			{/* <StyledInput 
 				label="Luo salasana"
 				placeholder=""
-			/>
+			/> */}
 			<StyledButton
 				color="#0C10E9"
 				to="/register"

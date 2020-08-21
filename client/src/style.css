@@ -1,6 +1,6 @@
 .search-bar input {
 	background-color: white !important;
-	font-family: 'Open Sans' !important;
+	font-family: 'Open Sans',sans-serif !important;
 	font-weight: 600 !important;
 	height: 60px;
 	width: 100% !important;
@@ -32,11 +32,11 @@
 	}
 	
 .css-dmx3ll-InputIcon-left {
-	margin-top: -15px;
+	margin-top: -15px !important;
 }
 
 .css-c4vjye-InputIcon-right {
-	margin-top: -15px;
+	margin-top: -15px !important;
 
 }
 
@@ -51,6 +51,11 @@
 
 .css-iioxla-Button {
 	background-color: #390754 !important;
-	color: white !important;
+	-webkit-text-fill-color: white;
 	margin-top: 20px !important;
+}
+
+.css-x2306x-pagination .css-iioxla-Button {
+	background-color: white !important;
+	color: black !important;
 }

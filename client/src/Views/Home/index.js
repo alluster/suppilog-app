@@ -10,7 +10,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
 import Button from '../../components/Button';
-
+import Cookies from 'universal-cookie';
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -20,23 +20,31 @@ import {
   import Moment from 'react-moment';
 import CardProduct from '../../components/CardProduct';
 import SearchBar from '../../components/SearchBar';
+import GDPR from '../../components/GDPR';
 
 
+const cookies = new Cookies();
 
+let cookie = cookies.get('myCat')
 
 const Home = () => {
 	const context = useContext(AppContext)
 
 	
 	useEffect(() => {
-		// window.scrollTo(0, 0)
+		window.scrollTo(0, 0)
 		context.GetArticles()
 		context.GetProducts()
 		
 	}, [])
 	return(
-		<div>
-
+		<div>			
+			{
+				localStorage.getItem('displayDisclamer') === true ?
+				null
+				:
+			<GDPR />
+			}
 			<Hero 
 				image={"/suppilog-dinner.jpg"} 
 				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
@@ -47,6 +55,7 @@ const Home = () => {
 				<SearchBar />
 
 			</Container>
+
 			{/* <Container>
 				{
 					context.products === []  ? 

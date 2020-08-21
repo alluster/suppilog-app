@@ -24,7 +24,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
 		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
 		@media ${device.laptop} {
-			width: calc(50vw - 30px);
+			width: 80vw;
 
 		}
 		
