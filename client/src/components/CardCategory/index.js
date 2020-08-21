@@ -36,7 +36,7 @@ const CardContent = styled.div`
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		text-align: center;
+
 		color: white;
 		border-radius: 5px;
 		:hover {

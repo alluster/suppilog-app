@@ -9,7 +9,7 @@ const Spinner = () => {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		text-align: center;
+
 		margin-left: auto;
 		margin-right: auto;
 		flex-direction: column;

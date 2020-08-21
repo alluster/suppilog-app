@@ -62,7 +62,7 @@ const Ingress = styled.p `
     @media ${device.laptop} {
         font-size: 20px;
 		margin-top: 20px;
-		text-align: center;
+
 
 
      }

@@ -11,6 +11,8 @@ import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
 import Button from '../../components/Button';
 import Cookies from 'universal-cookie';
+import { faTruck, faBoxOpen, faSmile, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -34,7 +36,6 @@ const Home = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0)
 		context.GetArticles()
-		context.GetProducts()
 		
 	}, [])
 	return(
@@ -86,12 +87,15 @@ const Home = () => {
 			</Container> */}
 			<ScrollAnimation animateIn="fadeIn">
 				<Container>
-					<ItemRow>
-						<CardNumber ingress="Tilauksia" number={90665} title="Suppilogissa on tehty jo yli yritystenvälistä tukkutilausta" />
-						<CardNumber ingress="Tuotteita" number={76780} title="Tilaa yli tukkutuotetta kaikista parhaimmilla toimitusehdoilla ja hinnoilla"c/>
-						<CardNumber ingress="Käyttäjiä" number={56789} title="Yli yritystä käyttää Suppilogin digitaalista tukkukaupankäynnin alustaa myymiseen ja ostamiseen"/>
+				<h2>Palvelumme numeroina</h2>
 
+					<ItemRow>
+
+						<CardNumber icon={faTruck} ingress="Tilauksia" number={90665} title="Palvelussamme tehtyä yritysten välistä tukkutilausta" />
+						<CardNumber icon={faBoxOpen} ingress="Tuotteita" number={76780} title="Tilaa yli tukkutuotetta kaikista parhaimmilla toimitusehdoilla ja hinnoilla"c/>
+						<CardNumber icon={faSmile} ingress="Käyttäjiä" number={56789} title="yritystä käyttää Suppilogin digitaalista tukkukaupankäynnin alustaa myymiseen ja ostamiseen"/>
 					</ItemRow>
+
 				</Container>
 			</ScrollAnimation>
 			<ScrollAnimation animateIn="fadeIn">

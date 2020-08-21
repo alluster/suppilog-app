@@ -66,10 +66,11 @@ const Title = styled.h1`
 	margin: 0px !important;
     font-size:  ${props => props.theme.fontSize.h3}
     @media ${device.laptop} {
-		font-size: 28px !important;
-		text-align: center;
+		font-size: 34px !important;
+		// text-align: center;
 		letter-spacing: -.30px;
 		margin-top: 100px;
+		line-height: 40px;
 
 
 	}	
@@ -79,11 +80,11 @@ const Ingress = styled.p `
 	font-size: 22px;
     color: white;
     font-weight: 400;
-	margin-top: 30px !important;
+	margin-top: 30px;
     @media ${device.laptop} {
         font-size: 18px;
-		margin-top: 20px;
-		text-align: center;
+		margin-top: 10px;
+
 
 
      }
@@ -125,7 +126,7 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 						</Title>
 			
 						<Ingress>
-						{ingress}
+							{ingress}
 						</Ingress>
 						{/* <AppStoreImage src="/appstore.png" /> */}
 							

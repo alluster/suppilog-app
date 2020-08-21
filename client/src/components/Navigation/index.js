@@ -15,7 +15,7 @@ const logo = '/suppilog_logo_horizontal_dark.png'
 const NavContainer = styled.div`
 	position: fixed;
 	min-width: 100%;
-	z-index: 10000;
+	z-index: 100000;
 	height: 50px;
 	text-align: center;
 	top: 0;
@@ -93,7 +93,6 @@ const OpenNav = styled.div`
 	@media ${device.laptop} {
 		position: fixed;
 		height: calc(100vh + 200px);
-		padding-top: 40px;
  	}
 
 `
@@ -122,8 +121,7 @@ const BurgerContainer = styled.div`
 `;
 
 const Navigation = ({ className }) => {
-	// const router = useRouter()
-	// const context = useContext(AppContext)  
+
 	const [navOpen, setNavOpen] = useState(false)
     return(
 		<>
@@ -144,8 +142,14 @@ const Navigation = ({ className }) => {
 					</ButtonsRow>
 				</Gx>
 				<Gx col={2} breakpoint={100}>
-					<BurgerContainer onClick={e => setNavOpen(true)} > 
-						<Icon style={{display: "inline-block"}} icon={faBars} />
+					<BurgerContainer  > 
+					{
+						!navOpen ? <Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
+						: 
+						<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{marginRight: "10px"}}/>
+
+
+					}
 					</BurgerContainer>	
 				</Gx>
 			</Container>
@@ -199,12 +203,7 @@ const Navigation = ({ className }) => {
 									Tietosuojalauseke
 								</CustomLink>
 							</LinkText>
-							<IconContainer>
-								<div onClick={e => setNavOpen(false)} style={{lineHeight: "50px !important", textAlign: "center", pointer: "cursor", color: "#212121"}}> 
-									<Icon  icon={faTimes} style={{marginRight: "10px"}}/>
-									<h2 style={{display: "inline-block"}}>Sulje </h2>
-								</div>	
-							</IconContainer>
+						
 						</OpenNav>
 						: 
 						<></>

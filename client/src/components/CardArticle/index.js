@@ -60,7 +60,7 @@ const CardArticle = ({ id, image, title, description, date }) => {
 		height: 250px;
 		border-radius: 0px 0px 16px 16px;
 		padding: 10px;
-		text-align: center;
+
 		color: ${props => props.theme.colors.black};
 
 		@media ${device.laptop} {

@@ -39,7 +39,7 @@ const ContentBlock = styled.div `
 	align-items: center
 	@media ${device.laptop} {
 		align-items: center;
-		text-align: center;
+
 		margin-top: 30px;
 		margin-bottom: 30px;
  	}
@@ -65,7 +65,7 @@ const Ingress = styled.p `
     @media ${device.laptop} {
         font-size: 18px;
 		margin-top: 20px;
-		text-align: center;
+
 
 
      }

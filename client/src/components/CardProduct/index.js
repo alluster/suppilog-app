@@ -55,10 +55,10 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		display: flex;
 		flex-direction: column;
 		background-color: white;
-		height: 250px;
+		height: 200px;
 		border-radius: 0px 0px 16px 16px;
 		padding: 10px;
-		text-align: center;
+
 		color: ${props => props.theme.colors.black};
 
 		@media ${device.laptop} {
@@ -102,7 +102,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		font-size: 12px;
 		font-weight: 600;
 		color: ${props => props.theme.colors.primary};
-		-webkit-text-fill-color:${props => props.theme.colors.primary};
+		-webkit-text-fill-color: ${props => props.theme.colors.lightGray};
 	`;
     return(
 		<div>
@@ -133,15 +133,16 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 					<Price >
 						0,00 €
 					</Price>
+					
 					<Type style={{ 
 						fontSize: "12px"}}>
 						/{type}
 					</Type>
-					<Alert>
+			
+				</CardContent>
+				<Alert>
 						Rekisteröidy nähdäksesi tuotteen hinnat
 					</Alert>
-				</CardContent>
-	
 			</CardContainer>
 				
 			</Link>
