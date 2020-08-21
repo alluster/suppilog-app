@@ -8,10 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import '../../style.css';
 import CardProduct from '../CardProduct';
-import CardListItem from '../CardListItem';
-
-import ReactSwipe from 'react-swipe';
-
+import ItemRow from '../../components/ItemRow';
 
 const SearchBar = () => {
 
@@ -113,18 +110,28 @@ color: white !important;
 			>
 		
 			<DataSearch
-
+				defaultQuery={
+					function(value, props) {
+					return {
+						query: {
+							match: {
+								data_field: "this is a test"
+							}
+						}
+					}
+					}
+				}
 				onChange={(value) => {setSearchText(value) ;
 				}}
 				componentId="search"
-				placeholder="Etsi tuotteita"
+				placeholder="Etsi tuotteita valtavasta valikoimastamme"
 				autosuggest={true}
 				showIcon={true}
 				showFilter={true}
-				filterLabel=""
+				filterLabel="Filters"
 				showClear={true}
 				defaultValue="Suosituimmat"
-
+				defaultSuggestions={[{label: "Suosituimmat", value: "Suosituimmat"}]}
 				dataField={[
 					'search_terms',
 					'name',
@@ -172,29 +179,20 @@ color: white !important;
 				}}
 				size={3}
 				render={({ data }) =>(
-					<div
-					style={{display: "flex", flexDirection: "row", width: "100%"}}
-					>
+					<ItemRow>
 						{data.map( item => (
 							<CardProduct 
-									key={item._id} 
-									name={item.name}
-									image={item.photo_url ? item.photo_url : '/placeholder.png'}
-									type={item.consumer_package_size}
-									quantity={item.sales_unit_size}
+								key={item._id} 
+								name={item.name}
+								image={item.photo_url ? item.photo_url : '/placeholder.png'}
+								type={item.consumer_package_size}
+								quantity={item.sales_unit_size}
 							/>
 						))}
-					</div>
-			
-						
+					</ItemRow>		
 				)}
 			/>
-				
-
 		</ReactiveBase>
-
-		
-
     );
 };
 

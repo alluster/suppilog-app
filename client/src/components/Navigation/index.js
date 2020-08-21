@@ -28,6 +28,10 @@ const NavContainer = styled.div`
 	22.3px 0 17.9px rgba(0, 0, 0, 0.072),
 	41.8px 0 33.4px rgba(0, 0, 0, 0.086),
 	100px 0 80px rgba(0, 0, 0, 0.12);
+	@media ${device.laptop} {
+		height: 80px;
+ 	}
+
 `;
 
 
@@ -38,10 +42,20 @@ const Icon = styled(FontAwesomeIcon)`
     :hover {
         cursor: pointer;
 	}
+	@media ${device.laptop} {
+		font-size: 40px;
+		padding-top: 20px;
+		padding-right: 20px;
+		color: ${props => props.theme.colors.brand};
+	}
 	
 `;
 const Image = styled.img`
 	max-height: 20px; 
+	@media ${device.laptop} {
+		max-height: 40px;
+		
+	}
 	
 
 `
@@ -50,7 +64,10 @@ const ImageContainer = styled.div `
 	height: 50px;
 	text-align: left;
 	padding-top: 15px;
-	
+	@media ${device.laptop} {
+		height: 80px;
+		padding-top: 30px;
+	}
 	
 `
 
@@ -76,6 +93,7 @@ const OpenNav = styled.div`
 	@media ${device.laptop} {
 		position: fixed;
 		height: calc(100vh + 200px);
+		padding-top: 40px;
  	}
 
 `
@@ -99,6 +117,9 @@ const ButtonsRow = styled.div`
  	}
 `;
 
+const BurgerContainer = styled.div`
+	 text-align: right;
+`;
 
 const Navigation = ({ className }) => {
 	// const router = useRouter()
@@ -107,34 +128,26 @@ const Navigation = ({ className }) => {
     return(
 		<>
 		<NavContainer className={className} >
-		<Container>
-
-			
-			<Gx col={4} breakpoint={100}>
-				<Link to="/" >
-					<ImageContainer>
-						<Image src={logo} />
-					</ImageContainer>
-				</Link>                
-			</Gx>
-	
-			<Gx col={6} breakpoint={100}>
-				<ButtonsRow>
-					<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
-					<Text style={{display: "inline-block"}}>Tai</Text>
-					<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
-				</ButtonsRow>
-			</Gx>
-			
-			<Gx col={2} breakpoint={100}>
-			
-					<div onClick={e => setNavOpen(true)} style={{lineHeight: "50px !important", textAlign: "right", lineHeight: "50px", color: "#212121"}}> 
+			<Container>
+				<Gx col={4} breakpoint={100}>
+					<Link to="/" >
+						<ImageContainer>
+							<Image src={logo} />
+						</ImageContainer>
+					</Link>                
+				</Gx>
+				<Gx col={6} breakpoint={100}>
+					<ButtonsRow>
+						<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
+						<Text style={{display: "inline-block"}}>Tai</Text>
+						<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
+					</ButtonsRow>
+				</Gx>
+				<Gx col={2} breakpoint={100}>
+					<BurgerContainer onClick={e => setNavOpen(true)} > 
 						<Icon style={{display: "inline-block"}} icon={faBars} />
-					</div>	
-               
-			</Gx>
-
-			
+					</BurgerContainer>	
+				</Gx>
 			</Container>
 
 		</NavContainer>        

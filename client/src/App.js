@@ -21,7 +21,6 @@ import Article from './Views/Article';
 const GlobalStyle = createGlobalStyle`
     body, html {
 		@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext);
-
         margin: 0px;
         padding: 0px;
 		max-width: 100% ;

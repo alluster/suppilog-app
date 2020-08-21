@@ -72,7 +72,8 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		font-size: 20px;
 		font-weight: 600;
 		@media ${device.laptop} {
-			font-size: 14px !important;
+			font-size: 22px !important;
+			margin-top: 20px;
 		}
 
 	`;
@@ -80,7 +81,8 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 	const Price = styled.h1`
 		font-size: 50px;
 		font-weight:600;
-		color: ${props => props.theme.colors.lightGray} !important;
+		color: ${props => props.theme.colors.lightGray} ;
+		-webkit-text-fill-color: ${props => props.theme.colors.lightGray};
 
 	`;
 
@@ -99,7 +101,8 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 	const Alert = styled.p`
 		font-size: 12px;
 		font-weight: 600;
-		color: ${props => props.theme.colors.primary}
+		color: ${props => props.theme.colors.primary};
+		-webkit-text-fill-color:${props => props.theme.colors.primary};
 	`;
     return(
 		<div>

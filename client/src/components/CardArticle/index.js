@@ -15,47 +15,68 @@ import { device } from '../../device';
 
 const CardArticle = ({ id, image, title, description, date }) => {
 	const CardContainer = styled.div `
-		width: 280px;
 		font-family: 'Open Sans'
-		height: 300px;
+		height: 600px;
 		background-color: white;
 		margin-right: 10px;
 		margin-top: 20px
-		border-radius: 5px;
-		// border: 1px solid #DFDFDF;
-		// box-shadow:
-		// 	2.8px 0 2.2px rgba(0, 0, 0, 0.034),
-		// 	6.7px 0 5.3px rgba(0, 0, 0, 0.048),
-		// 	;
+		border-radius: 16px;
+		padding: 10px;
+		border: 1px solid #F4F4F4;
+		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
+		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
 		@media ${device.laptop} {
-			width: 100%;
+			width: 80vw;
+
 		}
 		
-`;
+	`;
+
+	const ImageContainer = styled.div`
+		height: 300px;
+		background-repeat: no-repeat;
+		background-size: auto;
+		border-radius: 16px 16px 0px 0px;
+		@media ${device.laptop} {
+			height: 150px;
+		}
+	`;
+
+	const Image = styled.img`
+		height: 300px;
+		min-width: 100%;
+		border-radius: 16px 16px 0px 0px;
+		object-fit: cover;
+		// object-position: 50% 0%
+		@media ${device.laptop} {
+			height: 150px;
+		}
+	`;
 
 	const CardContent = styled.div`
 		display: flex;
 		flex-direction: column;
 		background-color: white;
-		min-height: 100px;
-		border-top: 1px solid #DFDFDF;
-		border-radius: 0px 0px 5px 5px;
-		padding: 15px 15px 15px 0px;
+		height: 250px;
+		border-radius: 0px 0px 16px 16px;
+		padding: 10px;
+		text-align: center;
+		color: ${props => props.theme.colors.black};
+
+		@media ${device.laptop} {
+			width: calc(100% - 10px);
+			padding: 5px;
+		}
 			
 	`;
-	const ImageContainer = styled.div`
-		height: 200px;
-		background-repeat: no-repeat;
-		background-size: auto;
-		border-radius: 5px 5px 0px 0px;
-
-	`;
-
-	const Image = styled.img`
-		height: 200px;
-		min-width: 100%;
-		border-radius: 5px 5px 0px 0px;
-
+	
+	const Title = styled.h4`
+		font-size: 20px;
+		font-weight: 600;
+		@media ${device.laptop} {
+			font-size: 22px !important;
+			margin-top: 20px;
+		}
 
 	`;
 
@@ -67,11 +88,9 @@ const CardArticle = ({ id, image, title, description, date }) => {
 				</ImageContainer>
 				<CardContent>
 					<p>{date}</p>
-					<h4 style={{ 
-							fontSize: "16px", 
-							fontWeight: "600"}}>
+					<Title>
 						{title}
-					</h4>
+					</Title>
 					<p style={{ 
 						fontSize: "12px", marginTop: "10px"}}>
 						{description}

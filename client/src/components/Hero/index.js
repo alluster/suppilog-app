@@ -12,7 +12,7 @@ const HeroStyled = styled.div`
 	height: 500px;
 	z-index: -1;
 	@media ${device.laptop} {
-		height: 80vh;
+		height: 60vh;
     }
 `;
 
@@ -21,7 +21,6 @@ const HeroContent = styled.div`
 	flex-direction: row;
 
 	@media ${device.laptop} {
-		height: 80vh;
 		flex-direction: column;
 		justify-content: center;
 		align-items:center;
@@ -38,9 +37,10 @@ const TextContainer = styled.div `
 	flex-direction: column
 	justify-content: center
 	@media ${device.laptop} {
-		height: 200px;
 		justify-content: flex-start;
-		margin-top: 30px;
+		flex: 1;justify-content: center;
+		height: 50vh;
+		padding-top: 10vh;
 
 	}	
 	`;
@@ -52,9 +52,7 @@ const LogoImage = styled.div`
 	flex: 1;
 	height: 500px;
 	@media ${device.laptop} {
-		height: 150px;
-		margin-top: 100px;
-		align-items: flex-end
+		display: none;
 
 	}	
 `;
@@ -71,6 +69,7 @@ const Title = styled.h1`
 		font-size: 28px !important;
 		text-align: center;
 		letter-spacing: -.30px;
+		margin-top: 100px;
 
 
 	}	
