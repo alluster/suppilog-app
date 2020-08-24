@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from 'styled-components';
+import { AppContext } from '../../context/Context';
 import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
 import Gx from '@tgrx/gx';
@@ -9,11 +10,12 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { device } from '../../device';
+import Flag from 'react-world-flags'
 
 const logo = '/suppilog_logo_horizontal_dark.png'
 
 const NavContainer = styled.div`
-	position: fixed;
+	position: absolute;
 	min-width: 100%;
 	z-index: 100000;
 	height: 50px;
@@ -21,15 +23,12 @@ const NavContainer = styled.div`
 	top: 0;
 	margin-bottom: -40px;
 	background-color: #fff;
-	box-shadow:
-	2.8px 0 2.2px rgba(0, 0, 0, 0.034),
-	6.7px 0 5.3px rgba(0, 0, 0, 0.048),
-	12.5px 0 10px rgba(0, 0, 0, 0.06),
-	22.3px 0 17.9px rgba(0, 0, 0, 0.072),
-	41.8px 0 33.4px rgba(0, 0, 0, 0.086),
-	100px 0 80px rgba(0, 0, 0, 0.12);
+	
 	@media ${device.laptop} {
 		height: 80px;
+		background-color: transparent;
+		box-shadwow: none;
+
  	}
 
 `;
@@ -40,13 +39,12 @@ const Icon = styled(FontAwesomeIcon)`
 	text-align: right;
 	padding-top: 10px;
     :hover {
-        cursor: pointer;
+	cursor: pointer;
 	}
 	@media ${device.laptop} {
 		font-size: 40px;
 		padding-top: 20px;
-		padding-right: 20px;
-		color: ${props => props.theme.colors.brand};
+		color: ${props => props.theme.colors.white};
 	}
 	
 `;
@@ -93,6 +91,7 @@ const OpenNav = styled.div`
 	@media ${device.laptop} {
 		position: fixed;
 		height: calc(100vh + 200px);
+		text-align: left;
  	}
 
 `
@@ -120,14 +119,40 @@ const BurgerContainer = styled.div`
 	 text-align: right;
 `;
 
-const Navigation = ({ className }) => {
+const LanguageSelector = styled.div`
+	display: flex;
+	height: 30px;
+	flex-direction: row;
+	justify-content:center;
+	align-items: center;
+	margin-top: 100px;
 
+`;
+const StyledFlag = styled(Flag)`
+	max-height: 20px !important;
+	padding: 30px;
+	margin-bottom: 50px;
+	:hover{
+		cursor: pointer;
+	}
+`;
+
+
+
+const Navigation = ({ className }) => {
+	const context = useContext(AppContext)
 	const [navOpen, setNavOpen] = useState(false)
+	const LocaleSelector = (locale) => {
+	localStorage.setItem('lang', locale);
+	setNavOpen(false)
+	window.location.reload();
+
+}
     return(
 		<>
 		<NavContainer className={className} >
 			<Container>
-				<Gx col={4} breakpoint={100}>
+				<Gx col={2} breakpoint={100}>
 					<Link to="/" >
 						<ImageContainer>
 							<Image src={logo} />
@@ -146,7 +171,7 @@ const Navigation = ({ className }) => {
 					{
 						!navOpen ? <Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
 						: 
-						<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{marginRight: "10px"}}/>
+						<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{color: "black"}}/>
 
 
 					}
@@ -158,52 +183,57 @@ const Navigation = ({ className }) => {
 					{
 						navOpen ? 
 						<OpenNav>
-							
-							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/" 
-									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.linkGray} 
-									activeColor={props=>props.theme.colors.primary}
-								>
-									Etusivu
-								</CustomLink>
-							</LinkText>
-							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/about-us" 
-									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.linkGray} 
-									activeColor={props=>props.theme.colors.primary}
-								>
-									Meistä
-								</CustomLink>
-							</LinkText>
-							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/sellers" 
-									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.linkGray} 
-									activeColor={props=>props.theme.colors.primary}
-								>
-									Myyjäyrityksille
-								</CustomLink>
-							</LinkText>
-							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/articles" 
-									onClick={e => setNavOpen(false)}
-									color={props=>props.theme.colors.linkGray} 
-									activeColor={props=>props.theme.colors.primary}
-								>
-									Suppiblog
-								</CustomLink>
-							</LinkText>
-							<LinkText onClick={e => setNavOpen(false)} >
-								<CustomLink to="/tietosuojalauseke" 
-									color={props=>props.theme.colors.linkGray} 
-									activeColor={props=>props.theme.colors.primary}
-								>
-									Tietosuojalauseke
-								</CustomLink>
-							</LinkText>
 						
+							<Container>
+								<LinkText onClick={e => setNavOpen(false)} >		
+									<CustomLink to="/" 
+										onClick={e => setNavOpen(false)}
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										Etusivu
+									</CustomLink>
+								</LinkText>
+								<LinkText onClick={e => setNavOpen(false)} >
+									<CustomLink to="/about-us" 
+										onClick={e => setNavOpen(false)}
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										Meistä
+									</CustomLink>
+								</LinkText>
+								<LinkText onClick={e => setNavOpen(false)} >
+									<CustomLink to="/sellers" 
+										onClick={e => setNavOpen(false)}
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										Myyjäyrityksille
+									</CustomLink>
+								</LinkText>
+								<LinkText onClick={e => setNavOpen(false)} >
+									<CustomLink to="/articles" 
+										onClick={e => setNavOpen(false)}
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										Suppiblog
+									</CustomLink>
+								</LinkText>
+								<LinkText onClick={e => setNavOpen(false)} >
+									<CustomLink to="/tietosuojalauseke" 
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										Tietosuojalauseke
+									</CustomLink>
+								</LinkText>
+								<LanguageSelector>
+									<StyledFlag code="fi" onClick={e => LocaleSelector("fi")}  />
+									<StyledFlag code="gb" onClick={e => LocaleSelector("en-US")}/>
+								</LanguageSelector>
+							</Container>
 						</OpenNav>
 						: 
 						<></>

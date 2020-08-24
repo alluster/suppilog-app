@@ -41,8 +41,8 @@ app.get('/api/getarticles', (req, res) => {
        res.status(500).send(err);
     })
   });
-  app.get('/api/getpagecontent/:id', (req, res) => {
-    client.getEntry(`${req.params.id}`).then((entry) => {
+  app.get('/api/getpagecontent/:id/:lang', (req, res) => {
+    client.getEntry(`${req.params.id}`, {locale: `${req.params.lang}`}).then((entry) => {
       res.send(entry.fields);
     }).catch((err) => {
        res.status(500).send(err);

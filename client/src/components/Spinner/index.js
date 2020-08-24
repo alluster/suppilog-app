@@ -13,8 +13,7 @@ const Spinner = () => {
 		margin-left: auto;
 		margin-right: auto;
 		flex-direction: column;
-		margin-top: 30px;
-		margin-bottom: 30px;
+		height: 100vh;
 			@media ${device.laptop} {
 				width: 100%;
 			}
@@ -27,7 +26,6 @@ const Spinner = () => {
 
     return(
 			<Wrapper>
-				<LoadingText>Loading content please wait..</LoadingText>
 				<ClipLoader/>
 			</Wrapper>
 

@@ -9,77 +9,86 @@ const Provider = ({children}) => {
 	const [articleImage, setArticleImage] = useState({})
 	const [persons, setPersons] = useState([])
 	const [pageContent, setPageContent] = useState({})
-	const [products, setProducts] = useState([])
+	const [lang, setLang] = useState(localStorage.getItem('lang') || 'en-US')
+	const [loading, setLoading] = useState(false)
 
 	const GetArticles = async () => {
+		setLoading(true)
 		await axios.get('/api/getarticles')
 		  	.then(async function (response) {
 				await setArticles(response.data);
 				await setArticleImage(article.image.fields.file.url);
+				setLoading(false)
 
 		  	})
 			.catch(function (error) {
 				console.log(error);
+				setLoading(false)
+
 			})
 			.then(function() {
+				setLoading(false)
+
 			});  
 	}
 	const GetArticle = async (id) => {
+		setLoading(true)
 		await axios.get(`/api/getarticle/${id}`)
 			.then(function (response) {
 				setArticle(response.data);
+				setLoading(false)
 			})
 			.catch(function (error) {
 				console.log(error);
+				setLoading(false)
+
 			})
 			.then(function () {
+				setLoading(false)
 			});  
 	}
 	const GetPersons = async () => {
+		setLoading(true)
 		await axios.get('/api/getpersons')
 		  	.then(async function (response) {
 				await setPersons(response.data);
+				setLoading(false)
 
 		  	})
 			.catch(function (error) {
 				console.log(error);
+				setLoading(false)
 			})
 			.then(function() {
+				setLoading(false)
 			});  
 	}
-	const GetPageContent = async (id) => {
-		await axios.get(`/api/getpagecontent/${id}`)
+	const GetPageContent = async (id, locale) => {
+		setLoading(true)
+		await axios.get(`/api/getpagecontent/${id}/${locale}`)
 			.then(function (response) {
 				setPageContent(response.data);
+				setLoading(false)
 			})
 			.catch(function (error) {
 				console.log(error);
+				setLoading(false)
 			})
 			.then(function () {
 			});  
 	}
 
-	const GetProducts= async () => {
-		await axios.get('/api/getproducts')
-		  	.then(async function (response) {
-				await setProducts(response.data);
-
-		  	})
-			.catch(function (error) {
-				console.log(error);
-			})
-			.then(function() {
-			});  
-	}
-
-	console.log(products)
-
+	
+console.log(lang)
 	useEffect(() => {
 	
 		}, []);
         return (
             <AppContext.Provider 
                 value={{
+					loading,
+					lang,
+					setLang,
 					GetPageContent,
 					pageContent,
 					GetArticles,
@@ -88,9 +97,8 @@ const Provider = ({children}) => {
 					article,
 					articleImage,
 					persons,
-					GetPersons,
-					products,
-					GetProducts
+					GetPersons
+					
 					
                 }} 
             >

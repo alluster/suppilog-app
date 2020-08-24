@@ -18,6 +18,7 @@ import Articles from './Views/Articles';
 import Article from './Views/Article';
 
 
+
 const GlobalStyle = createGlobalStyle`
     body, html {
         margin: 0px;
@@ -136,33 +137,31 @@ const App = () => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<Provider>
-				<Router>
-					<Navigation />
-	
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/article/:id" component={Article} />
-						<Route exact path="/articles" component={Articles} />
-						<Route exact path="/about-us" component={About} />
-						<Route exact path="/sellers" component={Sellers} />
-						<Route exact path="/buyers" component={Buyers} />
 
+				<Provider>
+					<Router>
+						<Navigation />
+						<Switch>
+							<Route exact path="/" component={Home} />
+							<Route exact path="/article/:id" component={Article} />
+							<Route exact path="/articles" component={Articles} />
+							<Route exact path="/about-us" component={About} />
+							<Route exact path="/sellers" component={Sellers} />
+							<Route exact path="/buyers" component={Buyers} />
+							<Route path='/sign-in' component={() => { 
+								window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 
+								return null;
+							}}/>
+							<Route path='/register' component={() => { 
+								window.location.href = 'https://secure.suppilog.fi/kayttajat/rekisteroidy'; 
+								return null;
+							}}/>
+						</Switch>
+						<Footer />
+					</Router>
+					<GlobalStyle />
+				</Provider>
 
-
-						<Route path='/sign-in' component={() => { 
-							window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 
-							return null;
-						}}/>
-						<Route path='/register' component={() => { 
-							window.location.href = 'https://secure.suppilog.fi/kayttajat/rekisteroidy'; 
-							return null;
-						}}/>
-					</Switch>
-					<Footer />
-				</Router>
-				<GlobalStyle />
-			</Provider>
 		</ThemeProvider>
   	);
 }	

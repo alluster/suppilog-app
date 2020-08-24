@@ -9,11 +9,10 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
 
 const HeroStyled = styled.div`
-
-	height: 500px;
+	height: 300px;
 	z-index: -1;
 	@media ${device.laptop} {
-		height: 60vh;
+		height: 300px;
     }
 `;
 
@@ -23,8 +22,6 @@ const HeroContent = styled.div`
 
 	@media ${device.laptop} {
 		flex-direction: column;
-		justify-content: center;
-		align-items:center;
     }
 `;
 
@@ -32,16 +29,17 @@ const HeroContent = styled.div`
 const TextContainer = styled.div `
 	display: flex;
 	flex: 2;
-	height: 500px;
+	height: 300px;
 	text-align: left;
+	margin-top: 50px;
 	display: flex;
-	flex-direction: column
-	justify-content: center
+	flex-direction: column;
+	justify-content: center;
 	@media ${device.laptop} {
 		justify-content: flex-start;
 		flex: 1;justify-content: center;
-		height: 50vh;
-		padding-top: 10vh;
+		height: 300px;
+    }
 
 	}	
 	`;
@@ -81,7 +79,7 @@ const Ingress = styled.p `
 	font-size: 22px;
     color: white;
     font-weight: 400;
-	margin-top: 0px;
+	margin-top: 10px;
     @media ${device.laptop} {
         font-size: 18px;
 		margin-top: 10px;
@@ -108,16 +106,13 @@ const AppStoreImage = styled.img`
 
 
 
-const Hero = ({title, ingress, image, children, searchBar}) => {
+const HeroSmall = ({title, ingress, image, children, searchBar}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 		<Container>
 		<ScrollAnimation animateIn="fadeIn" animateOnce>
 
 				<HeroContent>
-					<LogoImage>
-						<img src="/logo-image.png" style={{ height: "120px"}}/>
-					</LogoImage>
 					<TextContainer>
 						<Title>
 							{title}
@@ -150,7 +145,7 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
     );
 };
 
-Hero.propTypes = {
+HeroSmall.propTypes = {
     title: PropTypes.string,
     ingress: PropTypes.string,
 	image: PropTypes.string,
@@ -158,4 +153,4 @@ Hero.propTypes = {
 
  };
 
-export default Hero;
+export default HeroSmall;

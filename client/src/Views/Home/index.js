@@ -11,7 +11,8 @@ import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
 import Button from '../../components/Button';
 import Cookies from 'universal-cookie';
-import { faTruck, faBoxOpen, faSmile, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faTruck, faBoxOpen, faSmile, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
 
 import {
 	BrowserRouter as Router,
@@ -25,9 +26,6 @@ import SearchBar from '../../components/SearchBar';
 import GDPR from '../../components/GDPR';
 
 
-const cookies = new Cookies();
-
-let cookie = cookies.get('myCat')
 
 const Home = () => {
 	const context = useContext(AppContext)
@@ -40,15 +38,10 @@ const Home = () => {
 	}, [])
 	return(
 		<div>			
-			{
-				localStorage.getItem('displayDisclamer') === true ?
-				null
-				:
-			<GDPR />
-			}
+			
 			<Hero 
 				image={"/suppilog-dinner.jpg"} 
-				title={"Kaikki tarvitsemasi tuotteet digitaalisessa palvelussamme"} 
+				title={"Translated Content Added Here"}
 				ingress={"Uusi tapa hoitaa tukkuostaminen"}  
 				
 			/>
@@ -57,34 +50,7 @@ const Home = () => {
 
 			</Container>
 
-			{/* <Container>
-				{
-					context.products === []  ? 
-					<Spinner />
-					:
-						<Container>
-							<ItemRow title="Suosituimmat tuotteemme">
-								{
-									context.products.slice(0,3).map((item, i) => {
-										return(
-											<CardProduct
-												id={item.sys.id}
-												key={i}
-												image={item.fields.image.fields.file.url}
-												name={item.fields.name }
-												description={item.fields.description}
-												quantity={item.fields.quantity}
-												price={item.fields.price}
-												type={item.fields.type}
-											/>
-										)
-									})
-								}	
-							</ItemRow>
-						</Container>
-					
-				}
-			</Container> */}
+			
 			<ScrollAnimation animateIn="fadeIn">
 				<Container>
 				<h2>Palvelumme numeroina</h2>

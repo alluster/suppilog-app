@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
-import Hero from '../../components/Hero';
+import HeroSmall from '../../components/HeroSmall';
 import ItemRow from '../../components/ItemRow';
 import CardNumber from '../../components/CardNumber';
 import Banner from '../../components/Banner';
@@ -26,67 +26,71 @@ import {
 const About = () => {
 	const context = useContext(AppContext)
 	console.log(context.pageContent)
-	
+	console.log(context.lang)
+
 	useEffect(() => {
 		window.scrollTo(0, 0)
 		context.GetPersons()
-		context.GetPageContent("2xjTFdz9kF3keyZlMwVlEA")
+		context.GetPageContent("2xjTFdz9kF3keyZlMwVlEA", `${context.lang}`)
 		
 	}, [])
 	return(
+
 		<div>
-
-			<Hero 
-				image={context.pageContent.image ? context.pageContent.image.fields.file.url : ""} 
-				title={context.pageContent.name} 
-				ingress={context.pageContent.title}  
-				
-			/>
+		{ !context.loading ? 
+			<div>
+				<HeroSmall 
+					image={context.pageContent.image ? context.pageContent.image.fields.file.url : ""} 
+					title={context.pageContent.name} 
+					ingress={context.pageContent.title}  
+				/>
 			
-			<ScrollAnimation animateIn="fadeIn">
+				<ScrollAnimation animateIn="fadeIn">
 
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn">
+								<Markdown source={context.pageContent.content}/>
 
-							<Markdown source={context.pageContent.content} />
-
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn">
-				{
-					context.persons === []  ? 
-					<Spinner />
-					:
-						<Container>
-							<ItemRow title="Keitä me olemme">
-								{
-									context.persons.map((item, i) => {
-								
+				</ScrollAnimation>
+				<ScrollAnimation animateIn="fadeIn">
+					{
+						context.persons === []  ? 
+						<Spinner />
+						:
+							<Container>
+								<ItemRow title="Keitä me olemme">
+									{
+										context.persons.map((item, i) => {
 									
 										
-										return(
 											
-											<CardPerson
-												key={i}
-												image={item.fields.image.fields.file.url}
-												name={item.fields.name }
-												description={item.fields.description}
-												phone={item.fields.phone }
-												email={item.fields.email }
-												position={item.fields.position}
+											return(
+												
+												<CardPerson
+													key={i}
+													image={item.fields.image.fields.file.url}
+													name={item.fields.name }
+													description={item.fields.description}
+													phone={item.fields.phone }
+													email={item.fields.email }
+													position={item.fields.position}
 
-											/>
-										)
-									})
-								}	
-							</ItemRow>
-						</Container>
+												/>
+											)
+										})
+									}	
+								</ItemRow>
+							</Container>
 
-					
-				}
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn">
-				<Banner />
-			</ScrollAnimation>
+						
+					}
+				</ScrollAnimation>
+				<ScrollAnimation animateIn="fadeIn">
+					<Banner />
+				</ScrollAnimation>
+			</div>
+			:
+			<Spinner />
+}
+			
 
 		</div>
 		
