@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Input from '../Input';
 import Button from '../Button';
 import { device } from '../../device';
+import { AppContext } from '../../context/Context';
 
 const Wrapper = styled.div`
     max-width: 900px;
@@ -28,6 +29,9 @@ const StyledButtonGhost = styled(Button) `
 	width: 100%;
 	font-weight: 600;
 	font-size: 20px;
+	@media ${device.laptop} {
+		text-align: left;
+	}
 `
 
 const Title = styled.h1`
@@ -45,21 +49,25 @@ const CTA = styled.p`
 	text-align: center;
 	margin-bottom: 10px;
 	margin-top: 20px;
+		@media ${device.laptop} {
+		text-align: left;
+	}
 `
 
 
 
 
 const LoginForm = () => {
+	const context = useContext(AppContext)
+
     return(
         <Wrapper>
-			<Title>Luo tunnukset palveluun</Title>
 		   <StyledInput 
-				label="Anna sähköpostiosoite"
+				label={context.t('input.email')}
 				placeholder=""
 			/>
 			{/* <StyledInput 
-				label="Luo salasana"
+				label={context.t.('input.password)}
 				placeholder=""
 			/> */}
 			<StyledButton
@@ -67,15 +75,18 @@ const LoginForm = () => {
 				to="/register"
 
 			>	
-			Rekisteröidy
+				{context.t('button.register')}
 			</StyledButton>
-			<CTA>Onko sinulla jo tunnukset?</CTA>
+			<CTA>{
+				context.t('notification.already-member')}
+			</CTA>
 
 			<StyledButton
 				textColor="#0C10E9"
 				to="/sign-in"
+				color="#EEEEEE"
 				>
-				Kirjaudu sisään
+					{context.t('button.sign-in')}
 			</StyledButton>
         </Wrapper>
     );

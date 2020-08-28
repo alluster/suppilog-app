@@ -18,38 +18,31 @@ const NavContainer = styled.div`
 	position: absolute;
 	min-width: 100%;
 	z-index: 100000;
-	height: 50px;
-	text-align: center;
+	height: 80px;
+	// text-align: center;
 	top: 0;
 	margin-bottom: -40px;
-	background-color: #fff;
+	// background-color: #fff;
 	
-	@media ${device.laptop} {
-		height: 80px;
-		background-color: transparent;
-		box-shadwow: none;
 
- 	}
 
 `;
 
 
 const Icon = styled(FontAwesomeIcon)`
-	font-size: 24px;
+	font-size: 40px;
 	text-align: right;
-	padding-top: 10px;
+	padding-top: 20px;
+			color: ${props => props.theme.colors.white};
+
     :hover {
-	cursor: pointer;
+		cursor: pointer;
 	}
-	@media ${device.laptop} {
-		font-size: 40px;
-		padding-top: 20px;
-		color: ${props => props.theme.colors.white};
-	}
+	
 	
 `;
 const Image = styled.img`
-	max-height: 20px; 
+	max-height: 30px;
 	@media ${device.laptop} {
 		max-height: 40px;
 		
@@ -59,9 +52,10 @@ const Image = styled.img`
 `
 
 const ImageContainer = styled.div `
-	height: 50px;
+	height: 80px;
 	text-align: left;
-	padding-top: 15px;
+	padding-top: 25px;
+
 	@media ${device.laptop} {
 		height: 80px;
 		padding-top: 30px;
@@ -70,10 +64,12 @@ const ImageContainer = styled.div `
 `
 
 const Text = styled.div `
-	line-height: 50px !important;
+	line-height: 80px !important;
 	text-align: center;
 	margin-left: 20px;
 	margin-right: 20px;
+	color: white;
+
 
 
 `;
@@ -84,7 +80,7 @@ const OpenNav = styled.div`
 	min-height: 100vh;
 	background: rgba(255, 255, 255, 0.98);
 	text-align: center;
-	padding-top: 150px;
+	padding-top: 50px;
 	z-index: 10000;
 	position: fixed;
 	width: 100vw;
@@ -110,13 +106,19 @@ const LinkText = styled.h2 `
 `
 
 const ButtonsRow = styled.div`
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 	@media ${device.laptop} {
     	display: none !important;
  	}
 `;
 
 const BurgerContainer = styled.div`
-	 text-align: right;
+	text-align: right;
+	width: 100%;
+
 `;
 
 const LanguageSelector = styled.div`
@@ -152,24 +154,46 @@ const Navigation = ({ className }) => {
 		<>
 		<NavContainer className={className} >
 			<Container>
-				<Gx col={2} breakpoint={100}>
+				<Gx col={3} breakpoint={100}>
+				{
+						navOpen ? 
+				
+						""
+						: 
+						
 					<Link to="/" >
 						<ImageContainer>
 							<Image src={logo} />
 						</ImageContainer>
 					</Link>                
-				</Gx>
-				<Gx col={6} breakpoint={100}>
-					<ButtonsRow>
-						<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>Kirjaudu</Button>   
-						<Text style={{display: "inline-block"}}>Tai</Text>
-						<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>Rekisteröidy</Button>             
-					</ButtonsRow>
-				</Gx>
-				<Gx col={2} breakpoint={100}>
+		
+				}
+						</Gx>
+						<Gx col={6} breakpoint={100}>
+				{
+						navOpen ? 
+				
+						""
+						: 
+
+					
+							<ButtonsRow>
+								<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>{context.t('button.sign-in')}</Button>   
+								<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
+								<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>{context.t('button.register')}</Button>             
+							</ButtonsRow>
+					
+				}
+					</Gx>
+
+
+				
+				<Gx col={3} breakpoint={100}>
 					<BurgerContainer  > 
 					{
-						!navOpen ? <Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
+						!navOpen ? 
+						
+						<Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
 						: 
 						<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{color: "black"}}/>
 

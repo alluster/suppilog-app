@@ -9,7 +9,7 @@ import {
 
   
 const StyledButton = styled.button `
-	background-color: ${props => props.color};
+	background-color: ${props => props.color || props.theme.colors.primary};
 	font-family: 'Open Sans'
 	color: ${props => props.textColor || "white"} ;
 	-webkit-text-fill-color: ${props => props.textColor || "white"} ;
@@ -18,8 +18,9 @@ const StyledButton = styled.button `
 	line-height: 30px;
 	font-weight: 600;
 	font-size: 12px;
-
+	border-radius: 5px;
 	padding-right: auto;
+	padding-left: auto;
 	margin-top: auto;
 	min-width: 120px;
 		@media ${device.laptop} {

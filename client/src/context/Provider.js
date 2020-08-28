@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AppContext } from './Context';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const Provider = ({children}) => {
 	const [articles, setArticles] = useState([])
@@ -11,6 +12,7 @@ const Provider = ({children}) => {
 	const [pageContent, setPageContent] = useState({})
 	const [lang, setLang] = useState(localStorage.getItem('lang') || 'en-US')
 	const [loading, setLoading] = useState(false)
+	const { t, i18n } = useTranslation();
 
 	const GetArticles = async () => {
 		setLoading(true)
@@ -97,7 +99,10 @@ console.log(lang)
 					article,
 					articleImage,
 					persons,
-					GetPersons
+					GetPersons,
+					t,
+					i18n
+
 					
 					
                 }} 

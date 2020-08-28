@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { device } from '../../device';
 
 const Wrapper = styled.div`
     max-width: 900px;
@@ -8,13 +9,16 @@ const Wrapper = styled.div`
     margin-right: auto;
     padding-left: 10px;
 	padding-right: 10px;
-
+	@media ${device.laptop} {
+		padding-left: 20px;
+		padding-right: 20px;
+		}
 
 `;
 
 
 
-const Container = ({children, className}) => {
+const Container = ({ children, className }) => {
     return(
         <Wrapper className={className}>
             {children}

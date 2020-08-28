@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,17 +9,22 @@ import {
   } from "react-router-dom";
 
 import { device } from '../../device';
+import { AppContext } from '../../context/Context';
 
 
 const CardProduct = ({ id, image, name, description, price, type, quantity, res }) => {
+	const context = useContext(AppContext)
+
 	const CardContainer = styled.div `
 		font-family: 'Open Sans'
-		height: 600px;
+		min-height: 100%;
+		min-width: 270px;
 		background-color: white;
 		margin-right: 10px;
 		margin-top: 20px
 		border-radius: 16px;
 		padding: 10px;
+		padding-bottom: 40px;
 		border: 1px solid #F4F4F4;
 		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
 		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
@@ -110,7 +115,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 			image === "no image" ? 
 			""
 			: 
-			<Link to={`/article/${id}`}>
+			<Link to={`/product/${id}/${image}/${name}`} >
 			<CardContainer>
 				<ImageContainer>
 					<Image src={`${image}`} />
@@ -128,21 +133,19 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 					</p> */}
 					<Quantity style={{ 
 						fontSize: "12px"}}>
-						Myyntierä: {quantity}
+						{context.t('card.product.quantity')} {quantity}
 					</Quantity>
 					<Price >
 						0,00 €
 					</Price>
 					
 					<Type style={{ 
-						fontSize: "12px"}}>
+						fontSize: "18px"}}>
 						/{type}
 					</Type>
 			
 				</CardContent>
-				<Alert>
-						Rekisteröidy nähdäksesi tuotteen hinnat
-					</Alert>
+				
 			</CardContainer>
 				
 			</Link>

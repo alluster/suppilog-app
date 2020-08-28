@@ -10,7 +10,7 @@ import SearchBar from '../../components/SearchBar';
 
 const HeroStyled = styled.div`
 	height: 300px;
-	z-index: -1;
+	z-index: -1
 	@media ${device.laptop} {
 		height: 300px;
     }
@@ -31,14 +31,14 @@ const TextContainer = styled.div `
 	flex: 2;
 	height: 300px;
 	text-align: left;
-	margin-top: 50px;
+	// margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	@media ${device.laptop} {
 		justify-content: flex-start;
-		flex: 1;justify-content: center;
-		height: 300px;
+		flex: 1;
+		justify-content: center;
     }
 
 	}	
@@ -59,7 +59,7 @@ const LogoImage = styled.div`
 const Title = styled.h1`
 	color: white;
 	display: flex;
-	font-weight: 600;
+    font-weight: 400 !important;
 	letter-spacing: -.5px;
 	font-size: 45px !important;
 	margin: 0px !important;
@@ -78,8 +78,9 @@ const Title = styled.h1`
 const Ingress = styled.p `
 	font-size: 22px;
     color: white;
-    font-weight: 400;
+    font-weight: 300;
 	margin-top: 10px;
+	letter-spacing: 0.4px;
     @media ${device.laptop} {
         font-size: 18px;
 		margin-top: 10px;

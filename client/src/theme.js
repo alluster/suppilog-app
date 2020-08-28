@@ -15,8 +15,8 @@ export default {
     },
     fontWeight: {
         thin: '300',
-        bold: '700',
         medium: '400',
+		bold: '600'
 
     },
     fontSize: {

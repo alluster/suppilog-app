@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext, Suspense } from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -16,7 +16,10 @@ import Sellers from './Views/Sellers';
 import Buyers from './Views/Buyers';
 import Articles from './Views/Articles';
 import Article from './Views/Article';
-
+import Product from './Views/Product';
+import { AppContext } from './context/Context';
+import { useTranslation } from 'react-i18next';
+import Spinner from './components/Spinner'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -28,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Open Sans', sans-serif !important;
 		font-display: swap;
 		color: ${props => props.theme.colors.black};
-		hyphens: auto;
+		hyphens: manual;
 		text-rendering: optimizeLegibility;
 		
 }
@@ -133,11 +136,12 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App = () => {
-
-
+	
+	
+	
 	return (
 		<ThemeProvider theme={theme}>
-
+			<Suspense fallback={<Spinner />}>
 				<Provider>
 					<Router>
 						<Navigation />
@@ -148,6 +152,8 @@ const App = () => {
 							<Route exact path="/about-us" component={About} />
 							<Route exact path="/sellers" component={Sellers} />
 							<Route exact path="/buyers" component={Buyers} />
+							<Route exact path="/product/:id/:image/:name" component={Product} />
+
 							<Route path='/sign-in' component={() => { 
 								window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 
 								return null;
@@ -161,7 +167,7 @@ const App = () => {
 					</Router>
 					<GlobalStyle />
 				</Provider>
-
+			</Suspense>
 		</ThemeProvider>
   	);
 }	

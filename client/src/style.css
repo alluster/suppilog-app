@@ -10,7 +10,7 @@
 	line-height: 60px;
 	/* border: none; */
 	font-size: 18px;
-	padding-left: 40px;
+	padding-left: 20px;
 	z-index: 10000000;
 	margin-top: -30px;
 	/* width: calc(100% - 20px); */
@@ -34,7 +34,7 @@
 		
 	}
 	
-.css-dmx3ll-InputIcon-left {
+/* .css-dmx3ll-InputIcon-left {
 	margin-top: -15px !important;
 }
 
@@ -50,9 +50,6 @@
 	font-weight: 600;
 }
 
-.css-1ek36dp-PoweredByImage  {
-	display: none;
-}
 
 .css-iioxla-Button {
 	background-color: #390754 !important;
@@ -64,4 +61,15 @@
 	background-color: white !important;
 	color: black !important;
 	margin-left: 10px;
+} */
+
+
+ active css-hc20h2-Button-large e165j7gc0{
+	color: red;
+
 }
+
+.css-1ek36dp-PoweredByImage  {
+	display: none;
+}
+

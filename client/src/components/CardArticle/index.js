@@ -16,7 +16,7 @@ import { device } from '../../device';
 const CardArticle = ({ id, image, title, description, date }) => {
 	const CardContainer = styled.div `
 		font-family: 'Open Sans'
-		height: 600px;
+		min-height: 100%;
 		background-color: white;
 		margin-right: 10px;
 		margin-top: 20px

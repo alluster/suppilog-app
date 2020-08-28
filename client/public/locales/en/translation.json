@@ -1,0 +1,41 @@
+{
+	"home": {
+		"hero": {
+			"title": "Welcome to Suppilog",
+			"ingress": "A Digital Wholesale Platform",
+			"search-placeholder": "Search: 16000 wholesale products"
+		}
+		
+	},
+	"button": {
+		"register": "Register Now",
+		"sign-in": "Sign In",
+		"buyers": "Benefits For Buyer Companies",
+		"or": "or"
+	},
+	"card": {
+		"number": {
+			"row-title": "Suppilog in Numbers"
+		},
+		"article": {
+			"row-title": "Suppiblog"
+		},
+		"product": {
+			"quantity": "Quantity:"
+		}
+	},
+	"banner": {
+		"register": {
+			"title": "Where to Begin?",
+			"ingress": "Register for free, sign in and create your first order straight from producers and with whole sale prices.",
+			"body": "Thousands of Companies use Suppilog - Why Would'nt You?"
+		}
+	},
+	"input": {
+		"email": "Please Type Your Email Address",
+		"password": "Password"
+	},
+	"notification": {
+		"already-member": "Already have an Account?"
+	}		
+}

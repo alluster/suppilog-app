@@ -1,0 +1,16 @@
+{
+	"home": {
+		"hero": {
+			"title": "Tervetuloa Suppilogiin",
+			"ingress": "Täältä löydät hienoimmat tuotteet"
+
+		}
+
+	},
+	"": {
+		"register": "Rekisteröidy",
+		"sign-in": "Kirjaudu",
+		"buyers": "Lue lisää hyödyistä ostajayrityksille"
+
+	}	
+}

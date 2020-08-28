@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import styled from 'styled-components';
-
+import { AppContext } from '../../context/Context'
 import { device } from '../../device';
 import Input from '../../components/Input';
-import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters } from '@appbaseio/reactivesearch';
+import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton } from '@appbaseio/reactivesearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import '../../style.css';
@@ -11,7 +11,7 @@ import CardProduct from '../CardProduct';
 import ItemRow from '../../components/ItemRow';
 
 const SearchBar = () => {
-
+const context = useContext(AppContext)
 const [searchText, setSearchText] = useState("")
 const InputContainer = styled.div`
 	position: absolute;
@@ -108,30 +108,20 @@ color: white !important;
 				noInitialQuery={true}
 				
 			>
-		
+
 			<DataSearch
-				defaultQuery={
-					function(value, props) {
-					return {
-						query: {
-							match: {
-								data_field: "this is a test"
-							}
-						}
-					}
-					}
-				}
+				
 				onChange={(value) => {setSearchText(value) ;
 				}}
 				componentId="search"
-				placeholder="Etsi tuotteita valtavasta valikoimastamme"
+				placeholder={context.t('home.hero.search-placeholder')}
 				autosuggest={true}
-				showIcon={true}
+				showIcon={false}
 				showFilter={true}
 				filterLabel="Filters"
 				showClear={true}
-				defaultValue="Suosituimmat"
-				defaultSuggestions={[{label: "Suosituimmat", value: "Suosituimmat"}]}
+				// defaultValue="Suosituimmat"
+				// defaultSuggestions={[{label: "Suosituimmat", value: "Suosituimmat"}]}
 				dataField={[
 					'search_terms',
 					'name',
@@ -150,7 +140,30 @@ color: white !important;
 				]}
 				className="search-bar"
 				/>
-				
+				{/* <ToggleButton
+					className="toggle-button"
+					componentId="MeetupTops"
+					dataField={[
+						'search_terms',
+						'name',
+						'product_family_name',
+						'vendor_name',
+
+					]}
+					data={
+						[{"label": "Ravintolat",   "value": "olut"},
+						{"label": "K-Kaupat",   "value": "Travel"},
+						{"label": "Alkoholilupa A", "value": "Outdoors"},
+						{"label": "Apteekit", "value": "Outdoors"},
+						{"label": "Europe", "value": "Outdoors"},
+						{"label": "Luontaistuotekaupat", "value": "Outdoors"}
+					]
+						
+
+					}
+					// multiSelect={true}
+	
+				/> */}
 			<SelectedFilters 
 				showClearAll={true}	
 				clearAllLabel="Tyhjennä haku"
@@ -187,6 +200,7 @@ color: white !important;
 								image={item.photo_url ? item.photo_url : '/placeholder.png'}
 								type={item.consumer_package_size}
 								quantity={item.sales_unit_size}
+								id={item._id}
 							/>
 						))}
 					</ItemRow>		

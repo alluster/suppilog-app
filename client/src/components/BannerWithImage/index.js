@@ -8,7 +8,7 @@ import { device } from '../../device';
 
 const Container = styled.div `
 	width: 100%;
-	height: 300px;
+	height: 500px;
 	margin-top: 80px;
 	@media ${device.laptop} {
 		height: 100%;
@@ -16,21 +16,20 @@ const Container = styled.div `
 `
 
 const Wrapper = styled.div`
-    max-width: 900px;
+     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
+	padding-left: 10px;
 	padding-right: 10px;
 	display: flex;
 	align-items: center
-
 	height: 100%;
 	flex-direction: row;
 	@media ${device.laptop} {
 		flex-direction: column;
-		text-align: center
+		padding-left: 20px;
+		padding-right: 20px;
  	}
-
 
 
 `;
@@ -44,7 +43,7 @@ const Title = styled.h1`
     color: ${props => props.theme.colors.black};
 	font-weight: 600;
 	letter-spacing: -.5px;
-	font-size: 35px !important;
+	font-size: 45px !important;
 	margin: 0px !important;
     font-size:  ${props => props.theme.fontSize.h3}
     @media ${device.laptop} {
@@ -66,16 +65,20 @@ const Ingress = styled.p `
 
      }
 `;
-
 const StyledButton = styled(Button) `
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
 `
-
 const Image = styled.div`
 padding: 20px;
 `;
+const Body = styled.p`
+	margin-bottom: 50px;
+`;
 
 
-const BannerWithImage = ({image, title, ingress, body}) => {
+const BannerWithImage = ({image, title, ingress, body, buttonText, button, to }) => {
     return(
 		<Container>
 			<Wrapper>
@@ -87,7 +90,14 @@ const BannerWithImage = ({image, title, ingress, body}) => {
 				<ContentBlock>
 					<Title>{title}</Title>
 					<Ingress>{ingress}</Ingress>
-					<p>{body}</p>
+					<Body>{body}</Body>
+					{
+						button == true ?
+							<StyledButton to={`${to}`} textColor="white">
+								{buttonText}
+							</StyledButton>
+							: ""
+					}
 				</ContentBlock>
         	</Wrapper>
 		</Container>
