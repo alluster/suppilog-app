@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {
-	Link
-  } from "react-router-dom";
-  import { device } from '../../device';
+import { device } from '../../device';
 
 
 
-const ItemRow = ({ title, children }) => {
+const ItemRow = ({ children, title }) => {
 	const Container = styled.div `
 		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: no-wrap;
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 		padding-bottom: 30px;
@@ -21,10 +18,16 @@ const ItemRow = ({ title, children }) => {
 			}
 			
 	`;
+const Title = styled.h2`
+	margin-bottom: 30px;
+
+`;
+
 
 
     return(
 		<div children={children}>
+			<Title>{title}</Title>
 			<Container  >
 				{children}
 			</Container>

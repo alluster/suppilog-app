@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import PropTypes from 'prop-types';
-
-import Gx from '@tgrx/gx';
 import { device } from '../../device';
 import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
@@ -100,19 +98,6 @@ const Ingress = styled.p `
 
 
 
-
-
-const AppStoreImage = styled.img`
-		object-fit: contain;
-		height: 30px;
-		margin-top: 20px;
-	 
-`;
-
-
-
-
-
 const Hero = ({title, ingress, image, children, searchBar}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
@@ -121,7 +106,7 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 
 				<HeroContent>
 					<LogoImage>
-						<img src="/logo-image.png" style={{ height: "120px"}}/>
+						<img src="/logo-image.png" alt="Hero" style={{ height: "120px"}}/>
 					</LogoImage>
 					<TextContainer>
 						<Title>
@@ -134,7 +119,6 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 						<Ingress>
 							{ingress}
 						</Ingress>
-						{/* <AppStoreImage src="/appstore.png" /> */}
 							
 					</TextContainer>
 		

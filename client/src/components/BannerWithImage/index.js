@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import LoginForm from '../LoginForm';
 import { device } from '../../device';
 
 
@@ -10,25 +9,24 @@ const Container = styled.div `
 	width: 100%;
 	height: 500px;
 	margin-top: 80px;
+	margin-bottom: 20px;
 	@media ${device.laptop} {
 		height: 100%;
  	}
 `
 
 const Wrapper = styled.div`
-     max-width: 900px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-	padding-left: 10px;
-	padding-right: 10px;
 	display: flex;
 	align-items: center
-	height: 100%;
 	flex-direction: row;
 	@media ${device.laptop} {
 		flex-direction: column;
 		padding-left: 20px;
 		padding-right: 20px;
+
  	}
 
 
@@ -36,7 +34,15 @@ const Wrapper = styled.div`
 const ContentBlock = styled.div `
 	flex: 1;
 	flex-direction: column;
-	align-items: center
+	align-items: center;
+	width: 100%;
+	@media ${device.laptop} {
+		align-items: left;
+
+ 	}
+`;
+const ImageContainer = styled.div `
+	height: 100%;
 
 `;
 const Title = styled.h1`
@@ -70,29 +76,26 @@ const StyledButton = styled(Button) `
 	height: 50px;
 	font-size: 20px;
 `
-const Image = styled.div`
-padding: 20px;
-`;
-const Body = styled.p`
-	margin-bottom: 50px;
+const Image = styled.img`
+	 max-height: 500px;
+
 `;
 
 
-const BannerWithImage = ({image, title, ingress, body, buttonText, button, to }) => {
+
+const BannerWithImage = ({image, title, ingress, buttonText, button, to , children}) => {
     return(
 		<Container>
 			<Wrapper>
-            	<ContentBlock>
-					<Image>
-						<img src={image}/> 
-					</Image>
-				</ContentBlock>
+            	<ImageContainer>
+						<Image src={image} alt="Banner" /> 
+				</ImageContainer>
 				<ContentBlock>
 					<Title>{title}</Title>
 					<Ingress>{ingress}</Ingress>
-					<Body>{body}</Body>
+					{children}
 					{
-						button == true ?
+						button === true ?
 							<StyledButton to={`${to}`} textColor="white">
 								{buttonText}
 							</StyledButton>

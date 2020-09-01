@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Button from '../Button';
 import LoginForm from '../LoginForm';
 import { device } from '../../device';
 import { AppContext } from '../../context/Context';
@@ -84,8 +83,6 @@ const Body = styled.p `
 
      }
 `;
-const StyledButton = styled(Button) `
-`
 
 
 

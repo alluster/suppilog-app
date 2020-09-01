@@ -1,74 +1,51 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../../context/Context';
+import React, { useEffect, useState, useContext } from 'react';
 import Container from '../../components/Container'
-import Hero from '../../components/Hero';
-import ItemRow from '../../components/ItemRow';
-import CardNumber from '../../components/CardNumber';
-import Banner from '../../components/Banner';
-import BannerWithImage from '../../components/BannerWithImage';
-import ScrollAnimation from 'react-animate-on-scroll';
-import CardProduct from '../../components/CardProduct'
-import Spinner from '../../components/Spinner';
-import Markdown from '../../components/Markdown';
+import HeroSmall from '../../components/HeroSmall';
 import styled from 'styled-components';
-import CardArticle from '../../components/CardArticle'
-import Moment from 'react-moment';
-
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useParams
-  } from "react-router-dom";
+import { AppContext } from '../../context/Context';
+import BannerWithImage from '../../components/BannerWithImage';
 
 
 
 
-const Product = (props) => {
-	const [image, setImage] = useState()
-	const [article, setArticle] = useState({ image: "", title:""})
-	let { id } = useParams();
-	const context = useContext(AppContext)
-	const getArticle = async () => {
-		console.log(props)
-		if(context.article === {}){
 
-		}
-		else(
-			setArticle({
-				image: context.articleImage ? context.articleImage : "" ,
-				title: context.article.title
-			})
-		)
-	}
-
+const Product = () => {
+	const context = useContext(AppContext);
+	const [product, setProduct] = useState({})
 	useEffect(() => {
+		context.i18n.changeLanguage(context.lang);
+
+			setProduct(JSON.parse(localStorage.getItem("product")))
 			window.scrollTo(0, 0)
-			context.GetArticle(id)
-			getArticle()
-			context.GetArticles()
-
-
-
-	}, [])
-	const Content = styled(Container) `
-		margin-top: 40px;
-		margin-bottom: 100px;
-	`;
 	
+	}, [])
+
+
 	return(
 		
 		
 		<div>
 
-			<Hero 
-				image={props.match.params.image ?  props.match.params.image : "" } 
-				title={props.match.params.name} 
+			<HeroSmall 
+			title={product.name}
+			image="/suppilog-dinner.jpg"
 			/>
-			<Content>
+			<BannerWithImage 
+				image={product.photo_url}
+				title={product.name}
+				ingress={product.vendor}
 			
-			</Content>
+				buttonText=""
+				
+			
+				>
+					<p>{context.t('product.consumer_package_size')}</p>
+					<h3>{product.consumer_package_size},</h3>
+					<p>{context.t('product.sales_unit_size')}: </p>
+					<h3>
+						{product.sales_unit_size} 
+					</h3>
+				</BannerWithImage>
 
 			
 			

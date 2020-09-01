@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AppContext } from './Context';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -13,6 +13,17 @@ const Provider = ({children}) => {
 	const [lang, setLang] = useState(localStorage.getItem('lang') || 'en-US')
 	const [loading, setLoading] = useState(false)
 	const { t, i18n } = useTranslation();
+	const [product, setProduct] = useState([{
+		name: "",
+		image:"",	
+		vendor: "",
+		product_family_name:"",
+		sales_unit_size:"",
+		consumer_package_size: ""
+
+	}])
+
+
 
 	const GetArticles = async () => {
 		setLoading(true)
@@ -80,11 +91,6 @@ const Provider = ({children}) => {
 			});  
 	}
 
-	
-console.log(lang)
-	useEffect(() => {
-	
-		}, []);
         return (
             <AppContext.Provider 
                 value={{
@@ -101,7 +107,9 @@ console.log(lang)
 					persons,
 					GetPersons,
 					t,
-					i18n
+					i18n,
+					product,
+					setProduct
 
 					
 					

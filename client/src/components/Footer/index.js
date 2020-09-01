@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Gx from '@tgrx/gx';
 import Container from '../Container';
 import { device } from '../../device';
-
+import Social from '../Social'
 
 const FooterContent = styled.div`
     width: 100%;
@@ -66,7 +65,6 @@ const Footer = () => {
     return(
         <FooterContent>
 			<Container>
-				<Gx col={12} >
                     <Column>
                         <ColumnHigh>
                             <Logo src="/logo-footer.png" alt="Suppilog Oy"/>
@@ -74,18 +72,15 @@ const Footer = () => {
                         </ColumnHigh>
                         <ColumnLowLeft>
                         {disclaimer}
-
+						<Social />
                         </ColumnLowLeft>
                     </Column>
-                </Gx>
-                <Gx col={12} >
                 <Column>
                         
                         <ColumnLowRight >
                             © 2020 Suppilog Oy
                         </ColumnLowRight>
                     </Column>
-                </Gx>
 			</Container>
            
         </FooterContent>

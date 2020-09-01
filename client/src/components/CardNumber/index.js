@@ -1,9 +1,8 @@
-import React , { useState } from 'react';
-import { Link } from "react-router-dom";
+import React  from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTruck, faBoxOpen, faSmile, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faTruck, faBoxOpen, faSmile, faPlus, faThumbsUp, faCode } from '@fortawesome/free-solid-svg-icons'
 import AnimatedNumber from 'animated-number-react';
 import { device } from '../../device';
 
@@ -93,10 +92,9 @@ const CardNumber = ({ingress, number, title, icon}) => {
 
     return(
 		<CardContainer>
-	
 			<CardContent>
 			<IconContainer>
-				<Icon icon={icon}/> 
+				<Icon icon={faCode}/> 
 			</IconContainer>
 				<h2>{ingress}</h2>
 			<Number

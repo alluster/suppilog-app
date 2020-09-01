@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faSearch, faCog, faPlus, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+
 import {
 
 	Link
@@ -12,7 +11,7 @@ import { device } from '../../device';
 import { AppContext } from '../../context/Context';
 
 
-const CardProduct = ({ id, image, name, description, price, type, quantity, res }) => {
+const CardProduct = ({data}) => {
 	const context = useContext(AppContext)
 
 	const CardContainer = styled.div `
@@ -101,31 +100,26 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 		font.size: 14px;	
 	`;
 
-	const Tags = styled.p``;
-
-	const Alert = styled.p`
-		font-size: 12px;
-		font-weight: 600;
-		color: ${props => props.theme.colors.primary};
-		-webkit-text-fill-color: ${props => props.theme.colors.lightGray};
-	`;
     return(
 		<div>
 		{
-			image === "no image" ? 
+			!data.photo_url === "no image" ? 
 			""
 			: 
-			<Link to={`/product/${id}/${image}/${name}`} >
+			<Link 
+			to={{ pathname: `/product/${data._id}`}} 
+			onClick={() => localStorage.setItem("product", JSON.stringify(data))}
+			>
 			<CardContainer>
 				<ImageContainer>
-					<Image src={`${image}`} />
+					<Image src={`${data.photo_url}`} />
 				</ImageContainer>
 				<CardContent>
 					{/* <Tags>
 						{}
 					</Tags> */}
 					<Title>
-						{name}
+						{data.name}
 					</Title>
 					{/* <p style={{ 
 						fontSize: "12px"}}>
@@ -133,7 +127,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 					</p> */}
 					<Quantity style={{ 
 						fontSize: "12px"}}>
-						{context.t('card.product.quantity')} {quantity}
+						{context.t('card.product.quantity')} {data.sales_unit_size}
 					</Quantity>
 					<Price >
 						0,00 €
@@ -141,7 +135,7 @@ const CardProduct = ({ id, image, name, description, price, type, quantity, res 
 					
 					<Type style={{ 
 						fontSize: "18px"}}>
-						/{type}
+						/{data.consumer_package_size}
 					</Type>
 			
 				</CardContent>

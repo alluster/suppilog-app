@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import PropTypes from 'prop-types';
-
-import Gx from '@tgrx/gx';
 import { device } from '../../device';
 import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
@@ -44,18 +42,6 @@ const TextContainer = styled.div `
 	}	
 	`;
 
-const LogoImage = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-	height: 500px;
-	@media ${device.laptop} {
-		display: none;
-
-	}	
-`;
-
 const Title = styled.h1`
 	color: white;
 	display: flex;
@@ -92,21 +78,6 @@ const Ingress = styled.p `
 
 
 
-
-
-
-
-const AppStoreImage = styled.img`
-		object-fit: contain;
-		height: 30px;
-		margin-top: 20px;
-	 
-`;
-
-
-
-
-
 const HeroSmall = ({title, ingress, image, children, searchBar}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
@@ -125,7 +96,6 @@ const HeroSmall = ({title, ingress, image, children, searchBar}) => {
 						<Ingress>
 							{ingress}
 						</Ingress>
-						{/* <AppStoreImage src="/appstore.png" /> */}
 							
 					</TextContainer>
 		

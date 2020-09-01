@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -17,8 +17,6 @@ import Buyers from './Views/Buyers';
 import Articles from './Views/Articles';
 import Article from './Views/Article';
 import Product from './Views/Product';
-import { AppContext } from './context/Context';
-import { useTranslation } from 'react-i18next';
 import Spinner from './components/Spinner'
 
 
@@ -34,9 +32,9 @@ const GlobalStyle = createGlobalStyle`
 		hyphens: manual;
 		text-rendering: optimizeLegibility;
 		
-}
+	}
 
-    }
+    
     h1 {
 
         margin: 0px;
@@ -78,16 +76,19 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Open Sans', sans-serif;
     }
     a:link {
-        all: unset;
+        all: unset !important;
+		::-webkit-any-link {
+			all: unset;
+		}
     }
     a:focus {
-        all: unset;
+        all: unset !important;
     }
     a:active {
-        all: unset;
+        all: unset !important;
     }
     a:visited {
-        all: unset;
+        all: unset !important;
     }
     a:hover {
 		cursor: pointer !important;
@@ -130,7 +131,7 @@ const GlobalStyle = createGlobalStyle`
     ::placeholder {
         /* modern browser */
     }
-    }
+    
     
 `;
 
@@ -152,7 +153,7 @@ const App = () => {
 							<Route exact path="/about-us" component={About} />
 							<Route exact path="/sellers" component={Sellers} />
 							<Route exact path="/buyers" component={Buyers} />
-							<Route exact path="/product/:id/:image/:name" component={Product} />
+							<Route exact path="/product/:id" component={Product} />
 
 							<Route path='/sign-in' component={() => { 
 								window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 

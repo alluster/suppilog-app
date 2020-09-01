@@ -5,7 +5,6 @@
 			"ingress": "A Digital Wholesale Platform",
 			"search-placeholder": "Search: 16000 wholesale products"
 		}
-		
 	},
 	"button": {
 		"register": "Register Now",
@@ -22,6 +21,9 @@
 		},
 		"product": {
 			"quantity": "Quantity:"
+		},
+		"person": {
+			"row-title": "Who We Are"
 		}
 	},
 	"banner": {
@@ -37,5 +39,17 @@
 	},
 	"notification": {
 		"already-member": "Already have an Account?"
-	}		
+	},		
+	"navigation": {
+		"landing-page": "Home" ,
+		"about-us": "About Us",
+		"buyers": "For Buyers",
+		"sellers": "For Sellers",
+		"privacy-policy": "Privacy Policy",
+		"suppiblog": "Suppiblog"
+	},
+	"product": {
+		"sales_unit_size": "Sales Unit Size",
+		"consumer_package_size": "Package Size"
+	}
 }

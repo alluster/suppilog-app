@@ -3,35 +3,32 @@ import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
 import HeroSmall from '../../components/HeroSmall';
 import ItemRow from '../../components/ItemRow';
-import CardNumber from '../../components/CardNumber';
 import Banner from '../../components/Banner';
-import BannerWithImage from '../../components/BannerWithImage';
-import BannerCentered from '../../components/BannerCentered';
 import ScrollAnimation from 'react-animate-on-scroll';
 import CardPerson from '../../components/CardPerson'
 import Spinner from '../../components/Spinner';
-import Button from '../../components/Button';
 import Markdown from '../../components/Markdown';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-  } from "react-router-dom";
-  import Moment from 'react-moment';
+import styled from 'styled-components';
+
 
 
 
 
 const About = () => {
 	const context = useContext(AppContext)
-	console.log(context.pageContent)
-	console.log(context.lang)
+	const Content = styled(Container)`
+		margin-top: 50px;
+	
+	`;
 
 	useEffect(() => {
-		window.scrollTo(0, 0)
-		context.GetPersons()
-		context.GetPageContent("2xjTFdz9kF3keyZlMwVlEA", `${context.lang}`)
+		let mounted = true;
+		if(mounted){
+			window.scrollTo(0, 0)
+			context.GetPersons()
+			context.GetPageContent("2xjTFdz9kF3keyZlMwVlEA", `${context.lang}`)
+		}
+		return () => mounted = false;
 		
 	}, [])
 	return(
@@ -44,19 +41,19 @@ const About = () => {
 					title={context.pageContent.name} 
 					ingress={context.pageContent.title}  
 				/>
-			
-				<ScrollAnimation animateIn="fadeIn">
-
-								<Markdown source={context.pageContent.content}/>
-
-				</ScrollAnimation>
+				<Content>
+					<ScrollAnimation animateIn="fadeIn">
+						<Markdown source={context.pageContent.content}/>
+					</ScrollAnimation>
+				</Content>
+					
 				<ScrollAnimation animateIn="fadeIn">
 					{
 						context.persons === []  ? 
 						<Spinner />
 						:
-							<Container>
-								<ItemRow title="Keitä me olemme">
+							<Content>
+								<ItemRow title={context.t('card.person.row-title')}>
 									{
 										context.persons.map((item, i) => {
 									
@@ -78,7 +75,7 @@ const About = () => {
 										})
 									}	
 								</ItemRow>
-							</Container>
+							</Content>
 
 						
 					}

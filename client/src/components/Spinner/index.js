@@ -20,9 +20,6 @@ const Spinner = () => {
 			
 	`;
 
-	const LoadingText = styled.p`
-		margin-bottom: 20px;
-	`;
 
     return(
 			<Wrapper>

@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { device } from '../../device';
 
-import {
-
-	Link
-  } from "react-router-dom";
 const StyledInput = styled.input `
 	background-color: white;
 	font-family: 'Open Sans'

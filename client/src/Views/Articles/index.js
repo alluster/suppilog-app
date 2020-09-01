@@ -1,21 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
-import Hero from '../../components/Hero';
 import ItemRow from '../../components/ItemRow';
-import CardNumber from '../../components/CardNumber';
-import Banner from '../../components/Banner';
-import BannerWithImage from '../../components/BannerWithImage';
-import ScrollAnimation from 'react-animate-on-scroll';
 import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-  } from "react-router-dom";
-  import Moment from 'react-moment';
+import Moment from 'react-moment';
 
 
 
@@ -25,8 +14,8 @@ const Articles = () => {
 
 	
 	useEffect(() => {
-		window.scrollTo(0, 0)
-		context.GetArticles()
+			window.scrollTo(0, 0)
+			context.GetArticles()
 		
 	}, [])
 	return(

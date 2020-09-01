@@ -2,15 +2,55 @@
 	"home": {
 		"hero": {
 			"title": "Tervetuloa Suppilogiin",
-			"ingress": "Täältä löydät hienoimmat tuotteet"
-
+			"ingress": "Digitaalinen myynti- ja ostokanava",
+			"search-placeholder": "Etsi yli 16000 tukkutuotteen joukosta"
 		}
-
+		
 	},
-	"": {
+	"button": {
 		"register": "Rekisteröidy",
 		"sign-in": "Kirjaudu",
-		"buyers": "Lue lisää hyödyistä ostajayrityksille"
-
-	}	
+		"buyers": "Hyödyt ostajayritykselle",
+		"or": "tai"
+	},
+	"card": {
+		"number": {
+			"row-title": "Suppilog numeroina"
+		},
+		"article": {
+			"row-title": "Suppiblog"
+		},
+		"product": {
+			"quantity": "Myyntikoko:"
+		},
+		"person": {
+			"row-title": "Keitä me olemme"
+		}
+	},
+	"banner": {
+		"register": {
+			"title": "Kuinka aloitan?",
+			"ingress": "Rekisteröidy ilmaiseksi, kirjaudu ja tee tilaus suoraan yrityksiltä tukkuhinnoilla.",
+			"body": "Tuhannet ostajat ja sadat eri myyjät käyttävät Suppilogia, miksi et sinäkin?"
+		}
+	},
+	"input": {
+		"email": "Anna email osoite",
+		"password": "Salasana"
+	},
+	"notification": {
+		"already-member": "Onko sinulla jo tili?"
+	},
+	"navigation": {
+		"landing-page": "Etusivu" ,
+		"about-us": "Meistä",
+		"buyers": "Ostajayrityksille",
+		"sellers": "Myyjäyrityksille",
+		"privacy-policy": "Tietosuoja",
+		"suppiblog": "Suppiblog"
+	},
+	"product": {
+		"sales_unit_size": "Vähimmäismyyntimäärä",
+		"consumer_package_size": "Myyntipakkauksen koko"
+	}
 }

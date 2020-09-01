@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import styled from 'styled-components';
 import { AppContext } from '../../context/Context';
 import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
-import Gx from '@tgrx/gx';
+import { Row, Col } from 'react-flexbox-grid';
 import Button from '../../components/Button'
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -55,7 +55,9 @@ const ImageContainer = styled.div `
 	height: 80px;
 	text-align: left;
 	padding-top: 25px;
-
+	:hover {
+		cursor: pointer;
+	}
 	@media ${device.laptop} {
 		height: 80px;
 		padding-top: 30px;
@@ -90,20 +92,14 @@ const OpenNav = styled.div`
 		text-align: left;
  	}
 
-`
+`;
 
-const IconContainer = styled(Container)`
-	display: absolute,
-	min-width: 100%;
-	text-align: right !important;
-
-`
 const LinkText = styled.h2 `
 
 	line-height: 60px;
 
 
-`
+`;
 
 const ButtonsRow = styled.div`
 	align-self: center;
@@ -146,6 +142,7 @@ const Navigation = ({ className }) => {
 	const [navOpen, setNavOpen] = useState(false)
 	const LocaleSelector = (locale) => {
 	localStorage.setItem('lang', locale);
+	context.setLang(locale)
 	setNavOpen(false)
 	window.location.reload();
 
@@ -154,53 +151,55 @@ const Navigation = ({ className }) => {
 		<>
 		<NavContainer className={className} >
 			<Container>
-				<Gx col={3} breakpoint={100}>
-				{
-						navOpen ? 
-				
-						""
-						: 
+				<Row>
+					<Col xs={3}>
+						{
+							navOpen ? 
 						
-					<Link to="/" >
-						<ImageContainer>
-							<Image src={logo} />
-						</ImageContainer>
-					</Link>                
-		
-				}
-						</Gx>
-						<Gx col={6} breakpoint={100}>
-				{
-						navOpen ? 
+								""
+								: 
+								
+								<CustomLink to="/" >
+									<ImageContainer>
+										<Image src={logo} />
+									</ImageContainer>
+								</CustomLink>                
 				
-						""
-						: 
+						}
+					</Col>
+					<Col xs={6}>
+						{
+								navOpen ? 
+						
+								""
+								: 
+
+							
+									<ButtonsRow>
+										<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>{context.t('button.sign-in')}</Button>   
+										<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
+										<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>{context.t('button.register')}</Button>             
+									</ButtonsRow>
+							
+						}
+					</Col>
+
 
 					
-							<ButtonsRow>
-								<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>{context.t('button.sign-in')}</Button>   
-								<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
-								<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>{context.t('button.register')}</Button>             
-							</ButtonsRow>
-					
-				}
-					</Gx>
+					<Col xs={3}>
+						<BurgerContainer  > 
+						{
+							!navOpen ? 
+							
+							<Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
+							: 
+							<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{color: "black"}}/>
 
 
-				
-				<Gx col={3} breakpoint={100}>
-					<BurgerContainer  > 
-					{
-						!navOpen ? 
-						
-						<Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
-						: 
-						<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{color: "black"}}/>
-
-
-					}
-					</BurgerContainer>	
-				</Gx>
+						}
+						</BurgerContainer>	
+					</Col>			
+				</Row>
 			</Container>
 
 		</NavContainer>        
@@ -215,7 +214,7 @@ const Navigation = ({ className }) => {
 										color={props=>props.theme.colors.linkGray} 
 										activeColor={props=>props.theme.colors.primary}
 									>
-										Etusivu
+										{context.t("navigation.landing-page")}
 									</CustomLink>
 								</LinkText>
 								<LinkText onClick={e => setNavOpen(false)} >
@@ -224,7 +223,7 @@ const Navigation = ({ className }) => {
 										color={props=>props.theme.colors.linkGray} 
 										activeColor={props=>props.theme.colors.primary}
 									>
-										Meistä
+										{context.t("navigation.about-us")}
 									</CustomLink>
 								</LinkText>
 								<LinkText onClick={e => setNavOpen(false)} >
@@ -233,7 +232,16 @@ const Navigation = ({ className }) => {
 										color={props=>props.theme.colors.linkGray} 
 										activeColor={props=>props.theme.colors.primary}
 									>
-										Myyjäyrityksille
+										{context.t("navigation.sellers")}
+									</CustomLink>
+								</LinkText>
+								<LinkText onClick={e => setNavOpen(false)} >
+									<CustomLink to="/buyers" 
+										onClick={e => setNavOpen(false)}
+										color={props=>props.theme.colors.linkGray} 
+										activeColor={props=>props.theme.colors.primary}
+									>
+										{context.t("navigation.buyers")}
 									</CustomLink>
 								</LinkText>
 								<LinkText onClick={e => setNavOpen(false)} >
@@ -242,15 +250,15 @@ const Navigation = ({ className }) => {
 										color={props=>props.theme.colors.linkGray} 
 										activeColor={props=>props.theme.colors.primary}
 									>
-										Suppiblog
+										{context.t("navigation.suppiblog")}
 									</CustomLink>
 								</LinkText>
 								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/tietosuojalauseke" 
+									<CustomLink to="/privacy-policy" 
 										color={props=>props.theme.colors.linkGray} 
 										activeColor={props=>props.theme.colors.primary}
 									>
-										Tietosuojalauseke
+										{context.t("navigation.privacy-policy")}
 									</CustomLink>
 								</LinkText>
 								<LanguageSelector>

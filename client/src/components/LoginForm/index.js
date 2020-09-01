@@ -23,27 +23,13 @@ const StyledButton = styled(Button) `
 	width: 100%;
 	height: 50px;
 	font-size: 20px;
-`
-const StyledButtonGhost = styled(Button) `
-	text-align: center;
-	width: 100%;
-	font-weight: 600;
-	font-size: 20px;
-	@media ${device.laptop} {
-		text-align: left;
-	}
-`
-
-const Title = styled.h1`
-	margin-bottom: 40px;
-	font-weight: 400;
 `;
 
 const StyledInput = styled(Input)`
 	margin-bottom: 20px !important;
 	border: #E6E6E6 solid 0.8px;
 
-`
+`;
 
 const CTA = styled.p`
 	text-align: center;
@@ -52,7 +38,7 @@ const CTA = styled.p`
 		@media ${device.laptop} {
 		text-align: left;
 	}
-`
+`;
 
 
 
@@ -66,10 +52,6 @@ const LoginForm = () => {
 				label={context.t('input.email')}
 				placeholder=""
 			/>
-			{/* <StyledInput 
-				label={context.t.('input.password)}
-				placeholder=""
-			/> */}
 			<StyledButton
 				color="#0C10E9"
 				to="/register"
