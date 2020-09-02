@@ -3,7 +3,7 @@
 		"hero": {
 			"title": "Tervetuloa Suppilogiin",
 			"ingress": "Digitaalinen myynti- ja ostokanava",
-			"search-placeholder": "Etsi yli 16000 tukkutuotteen joukosta"
+			"search-placeholder": "Etsi tuotteita"
 		}
 		
 	},
@@ -39,7 +39,9 @@
 		"password": "Salasana"
 	},
 	"notification": {
-		"already-member": "Onko sinulla jo tili?"
+		"already-member": "Onko sinulla jo tili?",
+		"register": "Luo käyttäjätili ja aloita tukkuostaminen yli 16 000 tuotteen joukosta."
+
 	},
 	"navigation": {
 		"landing-page": "Etusivu" ,

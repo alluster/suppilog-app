@@ -11,39 +11,45 @@ const CardNumber = ({ingress, number, title, icon}) => {
 
 	const formatValue = (value) => value.toFixed();
 	const CardContainer = styled.div `
-	font-family: 'Open Sans'
-	height: 600px;
-	align-items: center;
-	background-color: white;
-	margin-right: 10px;
-	margin-top: 20px
-	border-radius: 16px;
-	padding: 10px;
-	// border: 1px solid #F4F4F4;
-	// -webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
-	// box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
-	@media ${device.laptop} {
-		width: 80vw;
+		font-family: 'Open Sans'
+		height: 100%;
+		align-items: center;
+		background-color: white;
+		margin-right: 10px;
+		margin-top: 20px
+		border-radius: 16px;
+		padding: 20px;
+		border: 1px solid #F4F4F4;
+		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
+		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
+		@media ${device.laptop} {
+			width: 80vw;
 
-	}
+		}
 	
 	`;
 	const CardContent = styled.div`
 		display: flex;
 		align-items: center;
-		flex-direction: column;
+		flex-direction: row;
 		background-color: white;
 		height: 100%;
 		border-radius: 0px 0px 16px 16px;
-		padding: 10px;
+
 
 		color: ${props => props.theme.colors.black};
 
 		@media ${device.laptop} {
-			padding: 5px;
 		}
 			
 	`;
+
+const TexrContainer = styled.div `
+		flex-direction: column;
+
+`;
+
+
 	const IconContainer = styled.div`
 
 		display: flex;
@@ -51,7 +57,7 @@ const CardNumber = ({ingress, number, title, icon}) => {
 		width: 100px;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 20px;
+		margin-right: 20px;
 		background-color: ${props => props.theme.colors.background};
 		border-radius: 50px 50px 50px 50px;
 		@media ${device.laptop} {
@@ -70,7 +76,6 @@ const CardNumber = ({ingress, number, title, icon}) => {
 
 	const Title = styled.h4`
 		font-size: 16px;
-		text-align: center;
 		font-weight: 400;
 		@media ${device.laptop} {
 			font-size: 16px !important;
@@ -79,6 +84,7 @@ const CardNumber = ({ingress, number, title, icon}) => {
 	`;
 	const Number = styled(AnimatedNumber)`
 		color: ${props => props.theme.colors.black};
+		line-height: 60px;
 		font-size: 70px;
 		font-weight: 600;
 		color: ${props => props.theme.colors.brandDark};
@@ -96,13 +102,16 @@ const CardNumber = ({ingress, number, title, icon}) => {
 			<IconContainer>
 				<Icon icon={faCode}/> 
 			</IconContainer>
+			<TexrContainer>
 				<h2>{ingress}</h2>
-			<Number
-				value={number}
-				formatValue={formatValue}
-				duration={3000}
-        	/>
-			<Title>{title}</Title>
+				<Number
+					value={number}
+					formatValue={formatValue}
+					duration={3000}
+				/>
+				<Title>{title}</Title>
+			</TexrContainer>
+	
 			</CardContent>
 
 		</CardContainer>

@@ -3,7 +3,7 @@
 		"hero": {
 			"title": "Welcome to Suppilog",
 			"ingress": "A Digital Wholesale Platform",
-			"search-placeholder": "Search: 16000 wholesale products"
+			"search-placeholder": "Search Products"
 		}
 	},
 	"button": {
@@ -38,7 +38,9 @@
 		"password": "Password"
 	},
 	"notification": {
-		"already-member": "Already have an Account?"
+		"already-member": "Already have an Account?",
+		"register": "Create a free user account and purchase from over 16 000 products"
+		
 	},		
 	"navigation": {
 		"landing-page": "Home" ,

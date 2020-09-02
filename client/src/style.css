@@ -51,16 +51,20 @@
 }
 
 
-.css-iioxla-Button {
+.css-iioxla-Button:a {
 	background-color: #390754 !important;
 	-webkit-text-fill-color: white;
-	margin-top: 20px !important;
+	margin: 20px !important;
+	padding: 10px !important;
+	letter-spacing: 2 !important;
+
 }
 
 .css-x2306x-pagination .css-iioxla-Button {
 	background-color: white !important;
 	color: black !important;
-	margin-left: 10px;
+	margin-left: 20px;
+	padding: 10px;
 }
 
 

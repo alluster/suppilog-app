@@ -12,11 +12,16 @@ import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
 import Moment from 'react-moment';
 import SearchBar from '../../components/SearchBar';
+import Button from '../../components/Button';
 
 const Row = styled.div`
 	margin-top: 50px;
 `
-
+const StyledButton = styled(Button) `
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+`;
 const Home = () => {
 	const context = useContext(AppContext);
 
@@ -59,7 +64,11 @@ const Home = () => {
 				title={context.pageContent.title}
 				ingress={context.pageContent.ingress}  
 				
-			/>
+
+			>
+			<StyledButton>{context.t('button.register')}</StyledButton>
+			<p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p>
+			</Hero>
 			<Container>
 				<SearchBar />
 

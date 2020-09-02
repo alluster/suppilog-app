@@ -21,8 +21,7 @@ const SearchBar = () => {
 
 			<DataSearch
 				
-				onChange={(value) => {setSearchText(value) ;
-				}}
+				onChange={(value) => {setSearchText(value)}}
 				componentId="search"
 				placeholder={context.t('home.hero.search-placeholder')}
 				autosuggest={true}
@@ -101,23 +100,34 @@ const SearchBar = () => {
 				]
 				}}
 				size={3}
-				render={({ data }) =>(
-					<ItemRow>
-						{data.map( item => (
-							<CardProduct 
-								key={item._id} 
-								data={item}
-								// name={item.name}
-								// image={item.photo_url ? item.photo_url : '/placeholder.png'}
-								// consumer_package_size={item.consumer_package_size}
-								// sales_unit_size={item.sales_unit_size}
-								// id={item._id}
-								// product_family_name={item.product_family_name}
-								// vendor={item.vendor}
-							/>
-						))}
-					</ItemRow>		
-				)}
+				render={({ data,  }) => {
+					if(data) {
+						return(
+							<ItemRow>
+								{data.map( item => (
+									<CardProduct 
+										key={item._id} 
+										data={item}
+										// name={item.name}
+										// image={item.photo_url ? item.photo_url : '/placeholder.png'}
+										// consumer_package_size={item.consumer_package_size}
+										// sales_unit_size={item.sales_unit_size}
+										// id={item._id}
+										// product_family_name={item.product_family_name}
+										// vendor={item.vendor}
+									/>
+								))}
+							</ItemRow>	
+						)
+					}
+					else{
+						return(
+							<></>
+						)
+					}
+						
+				}
+			}
 			/>
 		</ReactiveBase>
     );

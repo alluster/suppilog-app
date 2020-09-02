@@ -8,12 +8,13 @@ import SearchBar from '../../components/SearchBar';
 
 const HeroStyled = styled.div`
 
-	height: 500px;
+	height: 600px;
 	z-index: -1;
-			justify-content: center;
+	justify-content: center;
+	align-items: center;
 
 	@media ${device.laptop} {
-		height: 60vh;
+		height: 90vh;
     }
 `;
 
@@ -32,18 +33,19 @@ const HeroContent = styled.div`
 const TextContainer = styled.div `
 	display: flex;
 	flex: 2;
-	height: 500px;
 	text-align: left;
 	display: flex;
-	flex-direction: column
-	justify-content: center;
+	flex-direction: column;
 
+	justify-content: center;
+	max-width: 100%;
+	line-break: normal;
 	@media ${device.laptop} {
 		justify-content: flex-start;
 		flex: 1;
 		justify-content: center;
-		height: 50vh;
-		padding-top: 10vh;
+		height: 90vh;
+		padding-top: 10px;
 
 	}	
 	`;
@@ -53,7 +55,7 @@ const LogoImage = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex: 1;
-	height: 500px;
+	height: 600px;
 	@media ${device.laptop} {
 		display: none;
 
@@ -63,17 +65,16 @@ const LogoImage = styled.div`
 const Title = styled.h1`
 	color: white;
 	display: flex;
-    font-weight: 400 !important;
+	font-weight: 400 !important;
+	line-height: 55px;
 	letter-spacing: -.5px;
-	font-size: 45px !important;
+	font-size: 55px !important;
 	margin: 0px !important;
     font-size:  ${props => props.theme.fontSize.h1}
     @media ${device.laptop} {
-		font-size: 44px !important;
 		letter-spacing: -.30px;
-		margin-top: 100px;
 		line-height: 50px;
-		hyphens: manual;
+		hyphens: auto;
 
 
 	}	
@@ -84,11 +85,11 @@ const Ingress = styled.p `
     color: white;
     font-weight: 300 !important;
 	letter-spacing: 0.6px;
-	margin-top: 0px;
+	margin-top: 25px;
+	margin-bottom: 30px;
     @media ${device.laptop} {
         font-size: 18px;
 		margin-top: 10px;
-
 
 
      }
@@ -101,27 +102,25 @@ const Ingress = styled.p `
 const Hero = ({title, ingress, image, children, searchBar}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-		<Container>
-		<ScrollAnimation animateIn="fadeIn" animateOnce>
+			<Container>
+				<ScrollAnimation animateIn="fadeIn" animateOnce>
 
-				<HeroContent>
-					<LogoImage>
-						<img src="/logo-image.png" alt="Hero" style={{ height: "120px"}}/>
-					</LogoImage>
-					<TextContainer>
-						<Title>
-							{title}
-							<div>
-								{children}
-							</div>
-						</Title>
-			
-						<Ingress>
-							{ingress}
-						</Ingress>
+					<HeroContent>
+						<LogoImage>
+							<img src="/logo-image.png" alt="Hero" style={{ height: "120px"}}/>
+						</LogoImage>
+						<TextContainer>
+							<Title>
+								{title}
 							
-					</TextContainer>
-		
+							</Title>
+				
+							<Ingress>
+								{ingress}
+							</Ingress>
+							{children}
+						</TextContainer>
+			
 					</HeroContent>
 
 					{
