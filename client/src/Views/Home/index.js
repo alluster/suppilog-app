@@ -13,15 +13,19 @@ import Spinner from '../../components/Spinner';
 import Moment from 'react-moment';
 import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
+import { Row, Col } from 'react-flexbox-grid';
 
-const Row = styled.div`
-	margin-top: 50px;
-`
 const StyledButton = styled(Button) `
 	width: 100%;
 	height: 50px;
 	font-size: 20px;
 `;
+
+const CardRow = styled.div`
+	margin-top: 50px;
+	margin-bottom: 50px;
+`;
+
 const Home = () => {
 	const context = useContext(AppContext);
 
@@ -32,19 +36,20 @@ const Home = () => {
 		context.GetPageContent("5cs7nMQlogDj6T27B1YJIs", `${context.lang}`)
 		
 	}, [])
-
 	const NumberCards = () => {
 		if(context.pageContent.companyInNumbersCard) {
 			return(
 					context.pageContent.companyInNumbersCard.map((item, i) => {
 									return(
-										<CardNumber 
-											key={i}
-											icon="fa-box-open"
-											ingress={item.fields.title} 
-											number={item.fields.number} 
-											title={item.fields.ingress} 
-										/>
+										<Col xs={12} md={4}>
+											<CardNumber 
+												key={i}
+												icon={item.fields.icon.fields.file.url}
+												ingress={item.fields.title} 
+												number={item.fields.number} 
+												title={item.fields.ingress} 
+											/>
+										</Col> 
 
 									)
 								})
@@ -76,13 +81,18 @@ const Home = () => {
 
 			
 			<ScrollAnimation animateIn="fadeIn">
+
+			<CardRow>
 				<Container>
-				<Row>
-					<ItemRow title={context.t('card.number.row-title')} >
-						{NumberCards()}	
-					</ItemRow>
-				</Row>
-				</Container>
+						<h2>
+							{context.t('card.number.row-title')}
+						</h2> 
+						<Row>
+							{NumberCards()}	
+						</Row>
+					</Container>
+				</CardRow>
+	
 			</ScrollAnimation>
 			<ScrollAnimation animateIn="fadeIn">
 
@@ -109,7 +119,7 @@ const Home = () => {
 				<Spinner />
 				:
 					<Container>
-						<Row>
+						<CardRow>
 							<ItemRow title={context.t('card.article.row-title')} >
 
 								{
@@ -139,7 +149,7 @@ const Home = () => {
 									})
 								}	
 							</ItemRow>
-						</Row>
+						</CardRow>
 					</Container>
 				
 			}

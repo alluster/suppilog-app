@@ -60,8 +60,8 @@ const Title = styled.h1`
      }
 `;
 const Ingress = styled.p `
-	font-size: 22px;
-    font-weight: 400;
+	font-size: 24px;
+    font-weight: 600;
 	margin-top: 30px !important;
     @media ${device.laptop} {
         font-size: 18px;
@@ -97,10 +97,10 @@ const Banner = () => {
 					<Ingress>{context.t('banner.register.ingress')}</Ingress>
 					<Body>{context.t('banner.register.body')}</Body>
 
-				</ContentBlock>
-            	<ContentBlock>
-					<LoginForm />
-				</ContentBlock>
+			</ContentBlock>
+			<ContentBlock>
+				<LoginForm />
+			</ContentBlock>
 				
         	</Wrapper>
 		</Container>

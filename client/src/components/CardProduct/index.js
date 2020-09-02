@@ -28,7 +28,7 @@ const CardProduct = ({data}) => {
 		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
 		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
 		@media ${device.laptop} {
-			width: 80vw;
+			width: 70vw;
 
 		}
 		

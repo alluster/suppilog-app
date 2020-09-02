@@ -11,7 +11,7 @@ import {
 import { device } from '../../device';
 
 
-const CardArticle = ({ id, image, title, description, date }) => {
+const CardArticle = ({ id, image, title, description, date, className }) => {
 	const CardContainer = styled.div `
 		font-family: 'Open Sans'
 		min-height: 100%;
@@ -24,7 +24,7 @@ const CardArticle = ({ id, image, title, description, date }) => {
 		-webkit-box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26); 
 		box-shadow: 0px 5px 13px 1px rgba(216,216,216,0.26);
 		@media ${device.laptop} {
-			width: 80vw;
+			width: 70vw;
 
 		}
 		
@@ -80,7 +80,7 @@ const CardArticle = ({ id, image, title, description, date }) => {
 
     return(
         <Link to={`/article/${id}`}>
-			<CardContainer>
+			<CardContainer className={className}>
 				<ImageContainer>
 					<Image src={image} />
 				</ImageContainer>

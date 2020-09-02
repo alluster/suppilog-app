@@ -1,86 +1,64 @@
-import React from 'react';
+import React, {useEffect, useContext  }from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import { device } from '../../device';
 import Social from '../Social'
+import { AppContext } from '../../context/Context';
+import Markdown from '../Markdown';
+
+const Footer = () => {
+	const context = useContext(AppContext);
 
 const FooterContent = styled.div`
     width: 100%;
-    height: 300px;
+    height: 100%;
 	margin-top: auto;
+	padding-top: 30px;
 	align-items: center;
 	text-align: center;
 	background-color: ${props => props.theme.colors.background}
     @media ${device.laptop} {
-		height: auto
+		height: 600px;
+		bottom: 0;
     }
 `;
 
-const Column = styled.div `
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-	@media ${device.laptop} {
-        height: 100px;
- 
-     }
-
-`;
-const ColumnLowLeft = styled.div`
-    font-size: 12px;
-    @media ${device.laptop} {
- 
-     }
-`;
-const ColumnLowRight= styled.div`
-  
-    @media ${device.laptop} {
-		margin-top: 50px;
-        height: 40px;
- 
-     }
-
-`;
-
-const ColumnHigh = styled.div`
-	text-align: center;
-	margin-top: 50px;
-    font-size: 12px;
-    @media ${device.laptop} {
-        height: 100px;
- 
-     }
-`;
 
 const Logo = styled.img`
     width: 150px;
     
 `;
 
+const Content = styled.div`
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+`;
 
+const SocialButtons = styled.div`
+	margin-top: 30px;
+`;
 
 
 const disclaimer = "Suppilog.com, A Digital Wholesale Platform"
-const Footer = () => {
+
+useEffect(() => {
+		context.GetFooterContent("4g3oxVSEZ0pvZelnhxZVHL",`${context.lang}`)
+	
+}, [])
+
     return(
         <FooterContent>
 			<Container>
-                    <Column>
-                        <ColumnHigh>
-                            <Logo src="/logo-footer.png" alt="Suppilog Oy"/>
+						<Logo src="/logo-footer.png" alt="Suppilog Oy"/>
+						<Content>
+							<Markdown source={context.footerContent.body} />
+							<SocialButtons>
+								<Social />
+							</SocialButtons>
+						</Content>
+						
                         
-                        </ColumnHigh>
-                        <ColumnLowLeft>
-                        {disclaimer}
-						<Social />
-                        </ColumnLowLeft>
-                    </Column>
-                <Column>
-                        
-                        <ColumnLowRight >
-                            © 2020 Suppilog Oy
-                        </ColumnLowRight>
-                    </Column>
 			</Container>
            
         </FooterContent>

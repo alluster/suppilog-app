@@ -13,6 +13,7 @@ const Provider = ({children}) => {
 	const [lang, setLang] = useState(localStorage.getItem('lang') || 'en-US')
 	const [loading, setLoading] = useState(false)
 	const { t, i18n } = useTranslation();
+	const [footerContent, setFooterContent] = useState({})
 	const [product, setProduct] = useState([{
 		name: "",
 		image:"",	
@@ -24,7 +25,7 @@ const Provider = ({children}) => {
 	}])
 
 
-
+	console.log("footer:",footerContent)
 	const GetArticles = async () => {
 		setLoading(true)
 		await axios.get('/api/getarticles')
@@ -90,7 +91,20 @@ const Provider = ({children}) => {
 			.then(function () {
 			});  
 	}
-
+	const GetFooterContent = async (id, locale) => {
+		setLoading(true)
+		await axios.get(`/api/getfootercontent/${id}/${locale}`)
+			.then(function (response) {
+				setFooterContent(response.data);
+				setLoading(false)
+			})
+			.catch(function (error) {
+				console.log(error);
+				setLoading(false)
+			})
+			.then(function () {
+			});  
+	}
         return (
             <AppContext.Provider 
                 value={{
@@ -109,7 +123,9 @@ const Provider = ({children}) => {
 					t,
 					i18n,
 					product,
-					setProduct
+					setProduct,
+					footerContent,
+					GetFooterContent
 
 					
 					

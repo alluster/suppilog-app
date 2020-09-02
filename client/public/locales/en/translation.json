@@ -1,10 +1,20 @@
 {
-	"home": {
-		"hero": {
-			"title": "Welcome to Suppilog",
-			"ingress": "A Digital Wholesale Platform",
-			"search-placeholder": "Search Products"
+	"page": {
+		"home": {
+			"hero": {
+				"title": "Tervetuloa Suppilogiin",
+				"ingress": "Digitaalinen myynti- ja ostokanava",
+				"search-placeholder": "Etsi tuotteita"
+			}
+		},
+		"articles": {
+			"hero": {
+				"title": "Suppiblog",
+				"ingress": "Read latest blog posts and news"
+			}
 		}
+		
+		
 	},
 	"button": {
 		"register": "Register Now",

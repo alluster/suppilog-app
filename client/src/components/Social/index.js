@@ -36,7 +36,7 @@ const Social = () => {
 			<Wrapper>
 				<SocialLink href="https://www.facebook.com/suppilog/"><SocialIcon icon={faFacebook}/></SocialLink>
 				<SocialLink href="https://twitter.com/suppilog"><SocialIcon icon={faTwitter}/></SocialLink>
-				<SocialLink href="https://www.linkedin.com/company/suppilog"><SocialIcon icon={faLinkedin}/></SocialLink>
+				<SocialLink href="https://www.linkedin.com/company/suppilo"><SocialIcon icon={faLinkedin}/></SocialLink>
 
 			</Wrapper>
 

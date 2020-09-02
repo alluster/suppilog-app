@@ -48,6 +48,13 @@ app.get('/api/getarticles', (req, res) => {
        res.status(500).send(err);
     })
   });
+  app.get('/api/getfootercontent/:id/:lang', (req, res) => {
+    client.getEntry(`${req.params.id}`, {locale: `${req.params.lang}`}).then((entry) => {
+      res.send(entry.fields);
+    }).catch((err) => {
+       res.status(500).send(err);
+    })
+  });
   app.get('/api/getproducts', (req, res) => {
     client.getEntries({content_type: 'product'}).then((entries) => {
       res.send(entries.items);

@@ -5,28 +5,41 @@ import ItemRow from '../../components/ItemRow';
 import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
 import Moment from 'react-moment';
-
-
-
+import HeroSmall from '../../components/HeroSmall';
+import { Row, Col } from 'react-flexbox-grid';
+import styled from 'styled-components'
+import { device } from '../../device';
 
 const Articles = () => {
 	const context = useContext(AppContext)
+	const Card = styled(CardArticle)`
+	@media ${device.laptop} {
+		width: 90% !important;
+
+	}
+	`;
 
 	
 	useEffect(() => {
 			window.scrollTo(0, 0)
 			context.GetArticles()
-		
+			context.i18n.changeLanguage(context.lang);
+
 	}, [])
 	return(
 		<div>
+			<HeroSmall 
+			title={context.t('page.articles.hero.title')}
+			image="/suppilog-dinner.jpg"
+			ingress={context.t('page.articles.hero.ingress')}
 
+			/>
 			{
 				context.articles === []  ? 
 				<Spinner />
 				:
-					<Container>
-						<ItemRow title="Suppiblog">
+				<Container>
+					<Row>
 							{
 								context.articles.map((item, i) => {
 											const ConvertDate = () => {
@@ -41,20 +54,23 @@ const Articles = () => {
 								
 									
 									return(
-										
-										<CardArticle
-											id={item.sys.id}
-											key={i}
-											image={item.fields.image.fields.file.url}
-											title={item.fields.title }
-											date={ConvertDate()}
-											description={item.fields.description}
-										/>
+										<Col xs={12} md={4}>
+
+											<Card
+												id={item.sys.id}
+												key={i}
+												image={item.fields.image.fields.file.url}
+												title={item.fields.title }
+												date={ConvertDate()}
+												description={item.fields.description}
+											/>
+										</Col>
 									)
 								})
 							}	
-						</ItemRow>
-					</Container>
+					</Row>
+				</Container>
+					
 				
 			}
 		</div>

@@ -43,6 +43,14 @@ const ContentBlock = styled.div `
 `;
 const ImageContainer = styled.div `
 	height: 100%;
+	max-width: 50%;
+	padding: 10px;
+	@media ${device.laptop} {
+		padding: 0px;
+		max-width: 100%;
+
+
+     }
 
 `;
 const Title = styled.h1`

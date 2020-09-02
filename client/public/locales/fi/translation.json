@@ -1,10 +1,19 @@
 {
-	"home": {
-		"hero": {
-			"title": "Tervetuloa Suppilogiin",
-			"ingress": "Digitaalinen myynti- ja ostokanava",
-			"search-placeholder": "Etsi tuotteita"
+	"page": {
+		"home": {
+			"hero": {
+				"title": "Tervetuloa Suppilogiin",
+				"ingress": "Digitaalinen myynti- ja ostokanava",
+				"search-placeholder": "Etsi tuotteita"
+			}
+		},
+		"articles": {
+			"hero": {
+				"title": "Suppiblog",
+				"ingress": "Lue uusimmat blogit ja uutiset."
+			}
 		}
+		
 		
 	},
 	"button": {
@@ -15,7 +24,7 @@
 	},
 	"card": {
 		"number": {
-			"row-title": "Suppilog numeroina"
+			"row-title": "Palvelumme numeroina"
 		},
 		"article": {
 			"row-title": "Suppiblog"
@@ -29,7 +38,7 @@
 	},
 	"banner": {
 		"register": {
-			"title": "Kuinka aloitan?",
+			"title": "Kuinka aloitan Suppilogin käytön?",
 			"ingress": "Rekisteröidy ilmaiseksi, kirjaudu ja tee tilaus suoraan yrityksiltä tukkuhinnoilla.",
 			"body": "Tuhannet ostajat ja sadat eri myyjät käyttävät Suppilogia, miksi et sinäkin?"
 		}

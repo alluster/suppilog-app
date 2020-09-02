@@ -23,7 +23,7 @@ const SearchBar = () => {
 				
 				onChange={(value) => {setSearchText(value)}}
 				componentId="search"
-				placeholder={context.t('home.hero.search-placeholder')}
+				placeholder={context.t('page.home.hero.search-placeholder')}
 				autosuggest={true}
 				showIcon={false}
 				showFilter={true}
