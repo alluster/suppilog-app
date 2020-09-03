@@ -109,7 +109,7 @@ const GlobalStyle = createGlobalStyle`
 
 
     input {
-		all: unset;
+		// all: unset;
 		font-family: 'Open Sans', sans-serif;
 
         ::-webkit-input-placeholder {
@@ -141,8 +141,9 @@ const App = () => {
 	
 	
 	return (
+		<Suspense fallback={<Spinner />}>
+
 		<ThemeProvider theme={theme}>
-			<Suspense fallback={<Spinner />}>
 				<Provider>
 					<Router>
 						<Navigation />
@@ -168,8 +169,9 @@ const App = () => {
 					</Router>
 					<GlobalStyle />
 				</Provider>
-			</Suspense>
 		</ThemeProvider>
+		</Suspense>
+
   	);
 }	
   	

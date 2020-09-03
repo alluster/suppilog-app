@@ -44,7 +44,7 @@
 		}
 	},
 	"input": {
-		"email": "Please Type Your Email Address",
+		"email": "Please type your email",
 		"password": "Password"
 	},
 	"notification": {

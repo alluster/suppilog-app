@@ -77,7 +77,7 @@ const TexrContainer = styled.div `
 		}
 
 	`;
-	const Number = styled(AnimatedNumber)`
+	const Number = styled.p`
 		color: ${props => props.theme.colors.black};
 		line-height: 60px;
 		font-size: 60px;
@@ -100,10 +100,10 @@ const TexrContainer = styled.div `
 			<TexrContainer>
 				<h2>{ingress}</h2>
 				<Number
-					value={number}
-					formatValue={formatValue}
-					duration={3000}
-				/>
+					
+				>
+				{number}
+				</Number>
 				<Title>{title}</Title>
 			</TexrContainer>
 	

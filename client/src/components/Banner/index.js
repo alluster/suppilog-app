@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import LoginForm from '../LoginForm';
 import { device } from '../../device';
 import { AppContext } from '../../context/Context';
+import Input from '../Input';
+import Button from '../Button';
 
+const Banner = () => {
+	const context = useContext(AppContext)
 
 const Container = styled.div `
 	width: 100%;
@@ -86,8 +89,9 @@ const Body = styled.p `
 
 
 
-const Banner = () => {
-	const context = useContext(AppContext)
+
+
+
 
     return(
 		<Container>
@@ -99,7 +103,7 @@ const Banner = () => {
 
 			</ContentBlock>
 			<ContentBlock>
-				<LoginForm />
+			<LoginForm />
 			</ContentBlock>
 				
         	</Wrapper>
@@ -108,12 +112,6 @@ const Banner = () => {
     );
 };
 
- Banner.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-        PropTypes.string
-    ])
- }
+ 
 
 export default Banner;

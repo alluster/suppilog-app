@@ -29,7 +29,7 @@ const StyledButton = styled.button `
 
 const Button = ({onClick, children, to, color, className, textColor}) => {
     return(
-        <Link to={to}><StyledButton className={className} color={color} textColor={textColor} onClick={onClick} >{children}</StyledButton></Link>
+        <Link to={to || ""}><StyledButton className={className} color={color} textColor={textColor} onClick={onClick} >{children}</StyledButton></Link>
     );
 };
 

@@ -14,6 +14,7 @@ const Provider = ({children}) => {
 	const [loading, setLoading] = useState(false)
 	const { t, i18n } = useTranslation();
 	const [footerContent, setFooterContent] = useState({})
+	const [email, setEmail] = useState("")
 	const [product, setProduct] = useState([{
 		name: "",
 		image:"",	
@@ -25,13 +26,11 @@ const Provider = ({children}) => {
 	}])
 
 
-	console.log("footer:",footerContent)
 	const GetArticles = async () => {
 		setLoading(true)
 		await axios.get('/api/getarticles')
 		  	.then(async function (response) {
 				await setArticles(response.data);
-				await setArticleImage(article.image.fields.file.url);
 				setLoading(false)
 
 		  	})
@@ -125,7 +124,9 @@ const Provider = ({children}) => {
 					product,
 					setProduct,
 					footerContent,
-					GetFooterContent
+					GetFooterContent,
+					email,
+					setEmail
 
 					
 					
