@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { device } from '../../device';
 import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
+import Spinner from '../Spinner';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const HeroStyled = styled.div`
 
@@ -20,12 +22,12 @@ const HeroStyled = styled.div`
 
 const HeroContent = styled.div`
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
 	flex-direction: row;
 
 	@media ${device.laptop} {
 		flex-direction: column;
-
+		display: inline-block;
     }
 `;
 
@@ -66,7 +68,7 @@ const Title = styled.h1`
 	color: white;
 	display: flex;
 	font-weight: 400 !important;
-	line-height: 55px;
+	line-height: 60px;
 	letter-spacing: -.5px;
 	font-size: 55px !important;
 	margin: 0px !important;
@@ -103,7 +105,6 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 			<Container>
-				<ScrollAnimation animateIn="fadeIn" animateOnce>
 
 					<HeroContent>
 						<LogoImage>
@@ -111,7 +112,18 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 						</LogoImage>
 						<TextContainer>
 							<Title>
-								{title}
+								{title ?
+									title 
+									:
+									<div 
+										style={{ textAlign: "center",
+												width: "100%"
+								}}>
+
+									<ClipLoader color="ffffff" />
+									</div>
+
+								}
 							
 							</Title>
 				
@@ -130,7 +142,6 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 
 							""
 					}
-					</ScrollAnimation>
 				</Container>
         </HeroStyled>
 		

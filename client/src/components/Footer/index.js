@@ -40,7 +40,6 @@ const SocialButtons = styled.div`
 `;
 
 
-const disclaimer = "Suppilog.com, A Digital Wholesale Platform"
 
 useEffect(() => {
 		context.GetFooterContent("4g3oxVSEZ0pvZelnhxZVHL",`${context.lang}`)

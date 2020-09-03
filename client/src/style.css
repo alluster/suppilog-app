@@ -46,7 +46,7 @@
 
 .css-x2306x-pagination {
 	margin-top: 10px !important;
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 600;
 }
 
@@ -63,16 +63,24 @@
 .css-x2306x-pagination .css-iioxla-Button {
 	background-color: white !important;
 	color: black !important;
-	margin-left: 20px;
 	padding: 10px;
 }
 
 
- active css-hc20h2-Button-large e165j7gc0{
 
-}
 
 .css-1ek36dp-PoweredByImage  {
 	display: none;
 }
+.css-14t2e2-Button {
+	background-color: #390754 !important;
+}
 
+/* .css-x2306x-pagination a {
+	margin-right: 20px !important; 
+
+}
+
+.css-x2306x-pagination .css-iioxla-Button {
+	margin-left: 20px !important;
+} */

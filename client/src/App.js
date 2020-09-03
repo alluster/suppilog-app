@@ -72,27 +72,26 @@ const GlobalStyle = createGlobalStyle`
         max-width: 100%;
     }
     a {
-		all: unset;
-		font-family: 'Open Sans', sans-serif;
+		text-decoration: none;
     }
     a:link {
-        all: unset !important;
+		text-decoration: none;
 		::-webkit-any-link {
-			all: unset;
+			text-decoration: none;
 		}
     }
     a:focus {
-        all: unset !important;
+		text-decoration: none;
     }
     a:active {
-        all: unset !important;
+		text-decoration: none;
     }
     a:visited {
-        all: unset !important;
+		text-decoration: none;
     }
     a:hover {
 		cursor: pointer !important;
-		all: unset;
+		text-decoration: none;
     }
     button {
 		all: unset;
@@ -109,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
 
 
     input {
-		// all: unset;
+		all: unset;
 		font-family: 'Open Sans', sans-serif;
 
         ::-webkit-input-placeholder {
