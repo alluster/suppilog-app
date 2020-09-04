@@ -50,7 +50,10 @@ const Article = () => {
 		
 		
 		<div>
-
+	<MetaTag 
+		name={context.article.title}
+	
+		/>
 			<Hero 
 				image={context.article.image ?  context.article.image.fields.file.url : "" } 
 				title={context.article.title} 
