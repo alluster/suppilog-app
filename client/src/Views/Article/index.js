@@ -9,7 +9,7 @@ import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle'
 import Moment from 'react-moment';
-
+import MetaTag from '../../components/MetaTag';
 import {
 	useParams
   } from "react-router-dom";
