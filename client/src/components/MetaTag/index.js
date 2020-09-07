@@ -11,46 +11,46 @@ const MetaTag = ({name}) => {
 		
 		<Helmet>
 			{/* <!-- HTML Meta Tags --> */}
-			<title>{name}</title>
+			<title>Suppilog Ltd.</title>
 			<meta
 				name="description"
-				content="Articles, tips, and insights aimed at making you a world-class developer, designer, and beyond."
+				content="Digital Wholesale Distribution Platform."
 			/>
 
 			{/* <!-- Google / Search Engine Tags --> */}
-			<meta itemprop="name" content="Reed" />
+			<meta itemprop="name" content="Suppilog Ltd." />
 			<meta
 				itemprop="description"
-				content="Articles, tips, and insights aimed at making you a world-class developer, designer, and beyond."
+				content="Digital Wholesale Distribution Platform."
 			/>
 			<meta
 				itemprop="image"
-				content="http://reedbarger.com/static/ca-styled-logo-5205dbb0983e1531d228c98584ab5711.png"
+				content="http://images.ctfassets.net/d941dswhbyyn/2i5w1xlHSMI0lttLOmORr0/17aed4c8c00a1d231eb1961711f34904/suppilog-dinner.jpg"
 			/>
 
 			{/* <!-- Facebook Meta Tags --> */}
-			<meta property="og:url" content="https://reedbarger.com" />
+			<meta property="og:url" content="https://suppilog.fi" />
 			<meta property="og:type" content="website" />
-			<meta property="og:title" content="Reed" />
+			<meta property="og:title" content="Suppilog Ltd." />
 			<meta
 			property="og:description"
-			content="Articles, tips, and insights aimed at making you a world-class developer, designer, and beyond."
+			content="Digital Wholesale Distribution Platform."
 			/>
 			<meta
 			property="og:image"
-			content="http://reedbarger.com/static/ca-styled-logo-5205dbb0983e1531d228c98584ab5711.png"
+			content="http://images.ctfassets.net/d941dswhbyyn/2i5w1xlHSMI0lttLOmORr0/17aed4c8c00a1d231eb1961711f34904/suppilog-dinner.jpg"
 			/>
 
 			{/* <!-- Twitter Meta Tags --> */}
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:title" content="Reed" />
+			<meta name="twitter:title" content="Suppilog Ltd." />
 			<meta
 			name="twitter:description"
-			content="Articles, tips, and insights aimed at making you a world-class developer, designer, and beyond."
+			content="Digital Wholesale Distribution Platform."
 			/>
 			<meta
 			name="twitter:image"
-			content="http://reedbarger.com/static/ca-styled-logo-5205dbb0983e1531d228c98584ab5711.png"
+			content="http://images.ctfassets.net/d941dswhbyyn/2i5w1xlHSMI0lttLOmORr0/17aed4c8c00a1d231eb1961711f34904/suppilog-dinner.jpg"
 			/>
 		</Helmet>
 		

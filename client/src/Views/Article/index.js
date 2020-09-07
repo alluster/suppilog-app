@@ -9,7 +9,6 @@ import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle'
 import Moment from 'react-moment';
-import MetaTag from '../../components/MetaTag';
 import {
 	useParams
   } from "react-router-dom";
@@ -50,10 +49,7 @@ const Article = () => {
 		
 		
 		<div>
-	<MetaTag 
-		name={context.article.title}
-	
-		/>
+
 			<Hero 
 				image={context.article.image ?  context.article.image.fields.file.url : "" } 
 				title={context.article.title} 

@@ -5,8 +5,15 @@
 				"title": "Tervetuloa Suppilogiin",
 				"ingress": "Digitaalinen myynti- ja ostokanava",
 				"search-placeholder": "Etsi tuotteita"
+			},
+			"search": {
+				"filter": {
+					"restaurants": "Ravintolat",
+					"k-shops": "K-ruokakaupat"
+				}
 			}
 		},
+		
 		"articles": {
 			"hero": {
 				"title": "Suppiblog",

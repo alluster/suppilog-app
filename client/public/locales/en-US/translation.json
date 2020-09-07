@@ -5,8 +5,16 @@
 				"title": "Tervetuloa Suppilogiin",
 				"ingress": "Digitaalinen myynti- ja ostokanava",
 				"search-placeholder": "Etsi tuotteita"
+			},
+			"search": {
+				"filter": {
+					"restaurants": "Restaurants",
+					"k-shops": "K-Shops"
+				}
 			}
+			
 		},
+		
 		"articles": {
 			"hero": {
 				"title": "Suppiblog",

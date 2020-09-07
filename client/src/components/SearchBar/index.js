@@ -1,6 +1,6 @@
 import React, { useState, useContext} from 'react';
 import { AppContext } from '../../context/Context'
-import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters } from '@appbaseio/reactivesearch';
+import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton } from '@appbaseio/reactivesearch';
 import '../../style.css';
 import CardProduct from '../CardProduct';
 import ItemRow from '../../components/ItemRow';
@@ -49,30 +49,26 @@ const SearchBar = () => {
 				]}
 				className="search-bar"
 				/>
-				{/* <ToggleButton
+				<ToggleButton
 					className="toggle-button"
-					componentId="MeetupTops"
-					dataField={[
-						'search_terms',
-						'name',
-						'product_family_name',
-						'vendor_name',
-
-					]}
-					data={
-						[{"label": "Ravintolat",   "value": "olut"},
-						{"label": "K-Kaupat",   "value": "Travel"},
-						{"label": "Alkoholilupa A", "value": "Outdoors"},
-						{"label": "Apteekit", "value": "Outdoors"},
-						{"label": "Europe", "value": "Outdoors"},
-						{"label": "Luontaistuotekaupat", "value": "Outdoors"}
-					]
-						
-
-					}
-					// multiSelect={true}
+					componentId="Filters"
+					dataField={
+						'name'
 	
-				/> */}
+					}
+					data={
+						[
+							{"label": `${context.t('page.home.search.filter.restaurants')}`, "value": "olut"},
+							{"label": "K-Kaupat",   "value": "ruoka"},
+							{"label": "Alkoholilupa A", "value": "panimo"},
+							{"label": "Apteekit", "value": "vitamiini"},
+							{"label": "Europe", "value": "natural"},
+							{"label": "Luontaistuotekaupat", "value": "f"}
+						]
+					}
+					multiSelect={true}
+	
+				/>
 			<SelectedFilters 
 				showClearAll={true}	
 				clearAllLabel="Tyhjennä haku"
@@ -96,11 +92,11 @@ const SearchBar = () => {
 				scrollOnChange={false}
 				react={{
 				and: [
-					'search'
+					'search', 'Filters'
 				]
 				}}
 				size={3}
-				render={({ data,  }) => {
+				render={({ data }) => {
 					if(data) {
 						return(
 							<ItemRow>

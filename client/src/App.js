@@ -18,6 +18,7 @@ import Articles from './Views/Articles';
 import Article from './Views/Article';
 import Product from './Views/Product';
 import Spinner from './components/Spinner'
+import MetaTag from './components/MetaTag';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -141,8 +142,10 @@ const App = () => {
 	
 	return (
 		<Suspense fallback={<Spinner />}>
-
-		<ThemeProvider theme={theme}>
+			<MetaTag 
+			
+				/>
+			<ThemeProvider theme={theme}>
 				<Provider>
 					<Router>
 						<Navigation />
@@ -168,7 +171,7 @@ const App = () => {
 					</Router>
 					<GlobalStyle />
 				</Provider>
-		</ThemeProvider>
+			</ThemeProvider>
 		</Suspense>
 
   	);
