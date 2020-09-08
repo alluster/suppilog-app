@@ -7,6 +7,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
 import Spinner from '../Spinner';
 import ClipLoader from "react-spinners/ClipLoader";
+import Overlay from '../Overlay';
 
 const HeroStyled = styled.div`
 
@@ -14,6 +15,7 @@ const HeroStyled = styled.div`
 	z-index: -1;
 	justify-content: center;
 	align-items: center;
+	background-position: center;
 
 	@media ${device.laptop} {
 		height: 90vh;
@@ -24,6 +26,8 @@ const HeroContent = styled.div`
 	display: flex;
 	// justify-content: center;
 	flex-direction: row;
+	position: relative;
+	z-index: 1000;
 
 	@media ${device.laptop} {
 		flex-direction: column;
@@ -137,12 +141,13 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 
 					{
 						searchBar === true ?
-							<SearchBar />
+							<SearchBar style={{zIndex: "100000", position: "relative"}}/>
 						:
 
 							""
 					}
 				</Container>
+				<Overlay themeColor="Brand" />
         </HeroStyled>
 		
         

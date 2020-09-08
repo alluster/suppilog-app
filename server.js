@@ -27,6 +27,13 @@ app.get('/api/getarticles', (req, res) => {
        res.status(500).send(err);
     })
   });
+  app.get('/api/getpages/:lang', (req, res) => {
+    client.getEntries({content_type: 'page', locale: `${req.params.lang}`}).then((entries) => {
+      res.send(entries.items);
+    }).catch((err) => {
+       res.status(500).send(err);
+    })
+  });
   app.get('/api/getarticle/:id', (req, res) => {
     client.getEntry(`${req.params.id}`).then((entry) => {
       res.send(entry.fields);

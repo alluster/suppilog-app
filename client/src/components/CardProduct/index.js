@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import Button from '../../components/Button';
 import {
 
 	Link
@@ -35,9 +35,9 @@ const CardProduct = ({data}) => {
 	`;
 
 	const ImageContainer = styled.div`
-		height: 300px;
+		height: 200px;
+		width: 100%;
 		background-repeat: no-repeat;
-		background-size: auto;
 		border-radius: 16px 16px 0px 0px;
 		@media ${device.laptop} {
 			height: 150px;
@@ -45,21 +45,23 @@ const CardProduct = ({data}) => {
 	`;
 
 	const Image = styled.img`
-		height: 300px;
-		min-width: 100%;
+		
 		border-radius: 16px 16px 0px 0px;
+		height: 100%;
+		width: inherit;
 		object-fit: cover;
-		// object-position: 50% 0%
-		@media ${device.laptop} {
-			height: 150px;
-		}
+		// // object-position: 50% 0%
+		// @media ${device.laptop} {
+		// 	height: 150px;
+		// }
 	`;
 
 	const CardContent = styled.div`
 		display: flex;
 		flex-direction: column;
+
 		background-color: white;
-		height: 200px;
+		height: 80px;
 		border-radius: 0px 0px 16px 16px;
 		padding: 10px;
 
@@ -127,16 +129,16 @@ const CardProduct = ({data}) => {
 					</p> */}
 					<Quantity style={{ 
 						fontSize: "12px"}}>
-						{context.t('card.product.quantity')} {data.sales_unit_size}
+						{data.product_family_name}
 					</Quantity>
-					<Price >
+					{/* <Price >
 						0,00 €
-					</Price>
-					
-					<Type style={{ 
+					</Price> */}
+					{/* <Button>{context.t('button.read-more')}</Button> */}
+					{/* <Type style={{ 
 						fontSize: "18px"}}>
 						/{data.consumer_package_size}
-					</Type>
+					</Type> */}
 			
 				</CardContent>
 				

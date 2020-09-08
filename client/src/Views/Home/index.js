@@ -108,7 +108,7 @@ const Home = () => {
 					button={true}
 					buttonColor="#31004C"
 					buttonText={context.t("button.buyers")}
-					to="/buyers"
+					to="/page/1fiMjIBykW8dj4gvT4miU9"
 
 				>
 				<p>Ostajayritykset tilaavat yhdellä rekisteröitymisellä haluamiaan tuotteita sadoilta eri myyjäyrityksiltä. Tilausprosessin tehostumisella valikoimahallinta helpottuu, sekä tuotteiden jatkotilaaminen on yksinkertaista</p>

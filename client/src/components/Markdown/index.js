@@ -55,9 +55,7 @@ const Markdown = ({source}) => {
 
 	return(
 		
-		<Container>
 			<StyledMarkdown source={source} />
-		</Container>
 		
 	)
 }

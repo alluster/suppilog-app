@@ -15,6 +15,7 @@ const Provider = ({children}) => {
 	const { t, i18n } = useTranslation();
 	const [footerContent, setFooterContent] = useState({})
 	const [email, setEmail] = useState("")
+	const [pages, setPages] = useState([])
 	const [product, setProduct] = useState([{
 		name: "",
 		image:"",	
@@ -25,12 +26,29 @@ const Provider = ({children}) => {
 
 	}])
 
-
 	const GetArticles = async () => {
 		setLoading(true)
 		await axios.get('/api/getarticles')
 		  	.then(async function (response) {
 				await setArticles(response.data);
+				setLoading(false)
+
+		  	})
+			.catch(function (error) {
+				console.log(error);
+				setLoading(false)
+
+			})
+			.then(function() {
+				setLoading(false)
+
+			});  
+	}
+	const GetPages = async (lang) => {
+		setLoading(true)
+		await axios.get(`/api/getpages/${lang}`)
+		  	.then(async function (response) {
+				await setPages(response.data);
 				setLoading(false)
 
 		  	})
@@ -126,7 +144,9 @@ const Provider = ({children}) => {
 					footerContent,
 					GetFooterContent,
 					email,
-					setEmail
+					setEmail,
+					pages,
+					GetPages
 
 					
 					

@@ -11,7 +11,8 @@
 	/* border: none; */
 	font-size: 18px;
 	padding-left: 20px;
-	z-index: 10000000;
+	z-index: 1000;
+	position: relative;
 	margin-top: -30px;
 	/* width: calc(100% - 20px); */
 }

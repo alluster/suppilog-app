@@ -4,7 +4,7 @@
 			"hero": {
 				"title": "Tervetuloa Suppilogiin",
 				"ingress": "Digitaalinen myynti- ja ostokanava",
-				"search-placeholder": "Etsi tuotteita"
+				"search-placeholder": "Search for products"
 			},
 			"search": {
 				"filter": {
@@ -28,7 +28,8 @@
 		"register": "Register Now",
 		"sign-in": "Sign In",
 		"buyers": "Benefits For Buyer Companies",
-		"or": "or"
+		"or": "or",
+		"read-more": "Read More"
 	},
 	"card": {
 		"number": {

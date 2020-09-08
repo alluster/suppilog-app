@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Link } from "react-router-dom";
 import styled from 'styled-components';
 import { AppContext } from '../../context/Context';
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { device } from '../../device';
 import Flag from 'react-world-flags'
+import ItemRow from '../ItemRow';
 
 const logo = '/suppilog_logo_horizontal_dark.png'
 
@@ -97,6 +98,7 @@ const OpenNav = styled.div`
 const LinkText = styled.h2 `
 
 	line-height: 60px;
+	color: black !important;
 
 
 `;
@@ -140,13 +142,24 @@ const StyledFlag = styled(Flag)`
 const Navigation = ({ className }) => {
 	const context = useContext(AppContext)
 	const [navOpen, setNavOpen] = useState(false)
-	const LocaleSelector = (locale) => {
-	localStorage.setItem('lang', locale);
-	context.setLang(locale)
-	setNavOpen(false)
-	window.location.reload();
 
-}
+	const LocaleSelector = (locale) => {
+		localStorage.setItem('lang', locale);
+		context.setLang(locale)
+		setNavOpen(false)
+		window.location.reload();
+	}
+
+	useEffect(() => {
+		let mounted = true;
+		if(mounted){
+			context.GetPages(`${context.lang}`)
+		}
+		return () => mounted = false;
+		
+	}, [])
+	console.log(context.pages)
+
     return(
 		<>
 		<NavContainer className={className} >
@@ -209,58 +222,24 @@ const Navigation = ({ className }) => {
 						
 							<Container>
 								<LinkText onClick={e => setNavOpen(false)} >		
-									<CustomLink to="/" 
-										onClick={e => setNavOpen(false)}
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.landing-page")}
-									</CustomLink>
+												<CustomLink to={"/"} 
+												>
+													{context.t('navigation.landing-page')}
+												</CustomLink>
 								</LinkText>
-								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/about-us" 
-										onClick={e => setNavOpen(false)}
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.about-us")}
-									</CustomLink>
-								</LinkText>
-								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/sellers" 
-										onClick={e => setNavOpen(false)}
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.sellers")}
-									</CustomLink>
-								</LinkText>
-								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/buyers" 
-										onClick={e => setNavOpen(false)}
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.buyers")}
-									</CustomLink>
-								</LinkText>
-								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/articles" 
-										onClick={e => setNavOpen(false)}
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.suppiblog")}
-									</CustomLink>
-								</LinkText>
-								<LinkText onClick={e => setNavOpen(false)} >
-									<CustomLink to="/privacy-policy" 
-										color={props=>props.theme.colors.linkGray} 
-										activeColor={props=>props.theme.colors.primary}
-									>
-										{context.t("navigation.privacy-policy")}
-									</CustomLink>
-								</LinkText>
+								{
+									context.pages.map((item, i) => {
+										return(
+											<LinkText key={i} onClick={e => setNavOpen(false)} >		
+												<CustomLink to={`/page/${item.sys.id}`} 
+												>
+													{item.fields.name}
+												</CustomLink>
+											</LinkText>
+
+										)
+									})
+								}
 								<LanguageSelector>
 									<StyledFlag code="fi" onClick={e => LocaleSelector("fi")}  />
 									<StyledFlag code="gb" onClick={e => LocaleSelector("en-US")}/>
@@ -273,8 +252,6 @@ const Navigation = ({ className }) => {
 					</>
     );
 };
-Navigation.propTypes = {
-    className: PropTypes.string
-};
+
 
 export default Navigation;

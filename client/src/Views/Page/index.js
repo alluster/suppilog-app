@@ -9,28 +9,31 @@ import CardPerson from '../../components/CardPerson'
 import Spinner from '../../components/Spinner';
 import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
+import { useParams } from "react-router-dom";
 
 
 
 
 
-const About = () => {
+const Page = () => {
+
 	const context = useContext(AppContext)
 	const Content = styled(Container)`
 		margin-top: 50px;
 	
 	`;
+	let { id } = useParams();
 
 	useEffect(() => {
 		let mounted = true;
 		if(mounted){
 			window.scrollTo(0, 0)
 			context.GetPersons()
-			context.GetPageContent("2xjTFdz9kF3keyZlMwVlEA", `${context.lang}`)
+			context.GetPageContent(`${id}`, `${context.lang}`)
 		}
 		return () => mounted = false;
 		
-	}, [])
+	}, [id])
 	return(
 
 		<div>
@@ -94,4 +97,4 @@ const About = () => {
 	)
 }
 
-export default About;
+export default Page;

@@ -6,9 +6,10 @@ import {
 	NavLink
   } from "react-router-dom";
 
-function CustomLink({ props, children, to, color, activeColor }) {
+function CustomLink({ props, children, to}) {
 	const Styled = styled.div`
 		margin-right: 10px;
+		color: ${props => props.theme.colors.black};
 		
 	`
 

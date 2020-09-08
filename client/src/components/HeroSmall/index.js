@@ -5,10 +5,14 @@ import PropTypes from 'prop-types';
 import { device } from '../../device';
 import ScrollAnimation from 'react-animate-on-scroll';
 import SearchBar from '../../components/SearchBar';
+import Overlay from '../../components/Overlay';
 
 const HeroStyled = styled.div`
 	height: 300px;
-	z-index: -1
+	z-index: 1;
+	position: relative;
+	background-position: center;
+
 	@media ${device.laptop} {
 		height: 300px;
     }
@@ -16,8 +20,9 @@ const HeroStyled = styled.div`
 
 const HeroContent = styled.div`
 	display: flex;
+	position: relative;
+	z-index: 1000;
 	flex-direction: row;
-
 	@media ${device.laptop} {
 		flex-direction: column;
     }
@@ -28,6 +33,7 @@ const TextContainer = styled.div `
 	display: flex;
 	flex: 2;
 	height: 300px;
+	position: relative;
 	text-align: left;
 	// margin-top: 50px;
 	display: flex;
@@ -80,11 +86,11 @@ const Ingress = styled.p `
 
 const HeroSmall = ({title, ingress, image, children, searchBar}) => {
     return(
-        <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+        <HeroStyled style={{backgroundImage: `url(${image})`}}>
 		<Container>
-		<ScrollAnimation animateIn="fadeIn" animateOnce>
 
 				<HeroContent>
+
 					<TextContainer>
 						<Title>
 							{title}
@@ -98,7 +104,7 @@ const HeroSmall = ({title, ingress, image, children, searchBar}) => {
 						</Ingress>
 							
 					</TextContainer>
-		
+
 					</HeroContent>
 
 					{
@@ -108,8 +114,9 @@ const HeroSmall = ({title, ingress, image, children, searchBar}) => {
 
 							""
 					}
-					</ScrollAnimation>
 				</Container>
+				<Overlay themeColor="Brand"/>
+
         </HeroStyled>
 		
         

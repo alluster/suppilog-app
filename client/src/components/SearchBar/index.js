@@ -8,6 +8,9 @@ import ItemRow from '../../components/ItemRow';
 const SearchBar = () => {
 	const [searchText, setSearchText] = useState("")
 	const context = useContext(AppContext);
+
+
+
     return(
 		<ReactiveBase
 				app="suppilog"

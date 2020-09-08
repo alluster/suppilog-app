@@ -11,9 +11,7 @@ import Home from './Views/Home';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import Provider from './context/Provider';
-import About from './Views/About';
-import Sellers from './Views/Sellers';
-import Buyers from './Views/Buyers';
+import Page from './Views/Page';
 import Articles from './Views/Articles';
 import Article from './Views/Article';
 import Product from './Views/Product';
@@ -137,8 +135,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App = () => {
-	
-	
+
 	
 	return (
 		<Suspense fallback={<Spinner />}>
@@ -153,9 +150,7 @@ const App = () => {
 							<Route exact path="/" component={Home} />
 							<Route exact path="/article/:id" component={Article} />
 							<Route exact path="/articles" component={Articles} />
-							<Route exact path="/about-us" component={About} />
-							<Route exact path="/sellers" component={Sellers} />
-							<Route exact path="/buyers" component={Buyers} />
+							<Route exact path="/page/:id" component={Page} />
 							<Route exact path="/product/:id" component={Product} />
 
 							<Route path='/sign-in' component={() => { 
