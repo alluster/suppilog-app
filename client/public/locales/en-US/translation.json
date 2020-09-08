@@ -12,7 +12,9 @@
 					"k-shops": "K-Shops"
 				}
 			}
-			
+		},
+		"product": {
+			"accordion-title": "Product Details"
 		},
 		
 		"articles": {

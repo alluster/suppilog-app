@@ -13,12 +13,15 @@
 				}
 			}
 		},
-		
 		"articles": {
 			"hero": {
 				"title": "Suppiblog",
 				"ingress": "Lue uusimmat blogit ja uutiset."
 			}
+		},
+
+		"product": {
+			"accordion-title": "Tuotetiedot"
 		}
 		
 		
