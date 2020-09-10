@@ -105,7 +105,7 @@ const Ingress = styled.p `
 
 
 
-const Hero = ({title, ingress, image, children, searchBar}) => {
+const Hero = ({title, ingress, image, children }) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 			<Container>
@@ -139,13 +139,7 @@ const Hero = ({title, ingress, image, children, searchBar}) => {
 			
 					</HeroContent>
 
-					{
-						searchBar === true ?
-							<SearchBar style={{zIndex: "100000", position: "relative"}}/>
-						:
-
-							""
-					}
+				
 				</Container>
 				<Overlay themeColor="Brand" />
         </HeroStyled>

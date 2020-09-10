@@ -9,7 +9,7 @@ import theme from './theme';
 import { ThemeProvider } from 'styled-components';
 import Home from './Views/Home';
 import Footer from './components/Footer';
-import Navigation from './components/Navigation';
+import BannerRegister from './components/BannerRegister';
 import Provider from './context/Provider';
 import Page from './Views/Page';
 import Articles from './Views/Articles';
@@ -145,7 +145,6 @@ const App = () => {
 			<ThemeProvider theme={theme}>
 				<Provider>
 					<Router>
-						<Navigation />
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route exact path="/article/:id" component={Article} />
@@ -162,6 +161,7 @@ const App = () => {
 								return null;
 							}}/>
 						</Switch>
+						<BannerRegister />
 						<Footer />
 					</Router>
 					<GlobalStyle />

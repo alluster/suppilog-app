@@ -1,17 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { BrowserRouter as Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AppContext } from '../../context/Context';
 import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
 import { Row, Col } from 'react-flexbox-grid';
 import Button from '../../components/Button'
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { device } from '../../device';
 import Flag from 'react-world-flags'
-import ItemRow from '../ItemRow';
 
 const logo = '/suppilog_logo_horizontal_dark.png'
 
@@ -20,12 +17,13 @@ const NavContainer = styled.div`
 	min-width: 100%;
 	z-index: 100000;
 	height: 80px;
-	// text-align: center;
 	top: 0;
 	margin-bottom: -40px;
-	// background-color: #fff;
-	
-
+    ${props => {
+        if (props.navColor === 'dark') return css`
+            background-color: ${props => props.theme.colors.brand};
+		`;
+	}}
 
 `;
 
@@ -34,7 +32,7 @@ const Icon = styled(FontAwesomeIcon)`
 	font-size: 40px;
 	text-align: right;
 	padding-top: 20px;
-			color: ${props => props.theme.colors.white};
+	color: ${props => props.theme.colors.white};
 
     :hover {
 		cursor: pointer;
@@ -139,7 +137,7 @@ const StyledFlag = styled(Flag)`
 
 
 
-const Navigation = ({ className }) => {
+const Navigation = ({ className, navColor }) => {
 	const context = useContext(AppContext)
 	const [navOpen, setNavOpen] = useState(false)
 
@@ -158,11 +156,9 @@ const Navigation = ({ className }) => {
 		return () => mounted = false;
 		
 	}, [])
-	console.log(context.pages)
-
     return(
 		<>
-		<NavContainer className={className} >
+		<NavContainer navColor={navColor} className={className} >
 			<Container>
 				<Row>
 					<Col xs={3}>
@@ -189,9 +185,19 @@ const Navigation = ({ className }) => {
 
 							
 									<ButtonsRow>
-										<Button to="/sign-in"style={{display: "inline-block"}} color={"#31004C"}>{context.t('button.sign-in')}</Button>   
+										<Button 
+											onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/kirjaudu')} 
+											style={{display: "inline-block"}} color={"#31004C"}
+										>
+											{context.t('button.sign-in')}
+											 
+										</Button>   
 										<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
-										<Button to="/register"style={{display: "inline-block"}}color={"#0C10E9"}>{context.t('button.register')}</Button>             
+										<Button 
+											onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/rekisteroidy')} 
+											style={{display: "inline-block"}}color={"#0C10E9"}>
+												{context.t('button.register')}
+										</Button>             
 									</ButtonsRow>
 							
 						}
@@ -221,12 +227,6 @@ const Navigation = ({ className }) => {
 						<OpenNav>
 						
 							<Container>
-								<LinkText onClick={e => setNavOpen(false)} >		
-												<CustomLink to={"/"} 
-												>
-													{context.t('navigation.landing-page')}
-												</CustomLink>
-								</LinkText>
 								{
 									context.pages.map((item, i) => {
 										return(

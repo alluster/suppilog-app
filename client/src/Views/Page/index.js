@@ -3,13 +3,13 @@ import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
 import HeroSmall from '../../components/HeroSmall';
 import ItemRow from '../../components/ItemRow';
-import Banner from '../../components/Banner';
 import ScrollAnimation from 'react-animate-on-scroll';
 import CardPerson from '../../components/CardPerson'
 import Spinner from '../../components/Spinner';
 import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
 import { useParams } from "react-router-dom";
+import Navigation from '../../components/Navigation';
 
 
 
@@ -23,7 +23,7 @@ const Page = () => {
 	
 	`;
 	let { id } = useParams();
-
+	console.log(context.pageContent)
 	useEffect(() => {
 		let mounted = true;
 		if(mounted){
@@ -37,6 +37,7 @@ const Page = () => {
 	return(
 
 		<div>
+			<Navigation />
 		{ !context.loading ? 
 			<div>
 				<HeroSmall 
@@ -52,13 +53,12 @@ const Page = () => {
 					
 				<ScrollAnimation animateIn="fadeIn">
 					{
-						context.persons === []  ? 
-						<Spinner />
-						:
+						context.pageContent.personCards ? 
+					
 							<Content>
 								<ItemRow title={context.t('card.person.row-title')}>
 									{
-										context.persons.map((item, i) => {
+										context.pageContent.personCards.map((item, i) => {
 									
 										
 											
@@ -79,13 +79,11 @@ const Page = () => {
 									}	
 								</ItemRow>
 							</Content>
-
+							:null
 						
 					}
 				</ScrollAnimation>
-				<ScrollAnimation animateIn="fadeIn">
-					<Banner />
-				</ScrollAnimation>
+
 			</div>
 			:
 			<Spinner />

@@ -11,14 +11,11 @@ const Footer = () => {
 
 const FooterContent = styled.div`
     width: 100%;
-    height: 100%;
 	margin-top: auto;
 	padding-top: 30px;
 	align-items: center;
-	text-align: center;
-	background-color: ${props => props.theme.colors.background}
+	// background-color: ${props => props.theme.colors.background}
     @media ${device.laptop} {
-		height: 600px;
 		bottom: 0;
     }
 `;
@@ -30,9 +27,10 @@ const Logo = styled.img`
 `;
 
 const Content = styled.div`
-	margin-top: 20px;
-	margin-bottom: 20px;
-	
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+
 `;
 
 const SocialButtons = styled.div`
@@ -49,17 +47,15 @@ useEffect(() => {
     return(
         <FooterContent>
 			<Container>
-						<Logo src="/logo-footer.png" alt="Suppilog Oy"/>
-						<Content>
-							<Markdown source={context.footerContent.body} />
-							<SocialButtons>
-								<Social />
-							</SocialButtons>
-						</Content>
-						
-                        
+				<Content>
+				<Logo src="/logo-footer.png" alt="Suppilog Oy"/>
+
+					<Markdown source={context.footerContent.body} />
+					<SocialButtons>
+						<Social />
+					</SocialButtons>
+				</Content>
 			</Container>
-           
         </FooterContent>
     );
 };

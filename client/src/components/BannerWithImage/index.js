@@ -7,9 +7,9 @@ import { device } from '../../device';
 
 const Container = styled.div `
 	width: 100%;
-	height: 500px;
-	margin-top: 80px;
-	margin-bottom: 20px;
+	height: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	@media ${device.laptop} {
 		height: 100%;
  	}
@@ -83,6 +83,7 @@ const StyledButton = styled(Button) `
 	width: 100%;
 	height: 50px;
 	font-size: 20px;
+	margin-top: 20px;
 `
 const Image = styled.img`
 	 max-height: 500px;

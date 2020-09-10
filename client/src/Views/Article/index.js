@@ -12,6 +12,7 @@ import Moment from 'react-moment';
 import {
 	useParams
   } from "react-router-dom";
+import Navigation from '../../components/Navigation';
 
 
 
@@ -49,7 +50,7 @@ const Article = () => {
 		
 		
 		<div>
-
+			<Navigation />
 			<Hero 
 				image={context.article.image ?  context.article.image.fields.file.url : "" } 
 				title={context.article.title} 

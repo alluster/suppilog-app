@@ -9,6 +9,7 @@ import HeroSmall from '../../components/HeroSmall';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components'
 import { device } from '../../device';
+import Navigation from '../../components/Navigation';
 
 const Articles = () => {
 	const context = useContext(AppContext)
@@ -28,6 +29,7 @@ const Articles = () => {
 	}, [])
 	return(
 		<div>
+			<Navigation />
 			<HeroSmall 
 			title={context.t('page.articles.hero.title')}
 			image="/suppilog-dinner.jpg"

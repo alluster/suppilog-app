@@ -4,7 +4,6 @@ import Container from '../../components/Container'
 import Hero from '../../components/Hero';
 import ItemRow from '../../components/ItemRow';
 import CardNumber from '../../components/CardNumber';
-import Banner from '../../components/Banner';
 import BannerWithImage from '../../components/BannerWithImage';
 import ScrollAnimation from 'react-animate-on-scroll';
 import styled from 'styled-components';
@@ -14,6 +13,7 @@ import Moment from 'react-moment';
 import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
 import { Row, Col } from 'react-flexbox-grid';
+import Navigation from '../../components/Navigation';
 
 const StyledButton = styled(Button) `
 	width: 100%;
@@ -34,13 +34,13 @@ const Home = () => {
 		context.i18n.changeLanguage(context.lang);
 		window.scrollTo(0, 0)
 		context.GetArticles()
-		context.GetPageContent("5cs7nMQlogDj6T27B1YJIs", `${context.lang}`)
+		context.GetPageContent("63PEJ5YVRz4DvnEFMZJj3R", `${context.lang}`)
 		
 	}, [])
 	const NumberCards = () => {
-		if(context.pageContent.companyInNumbersCard) {
+		if(context.pageContent.companyInNumbersCards) {
 			return(
-					context.pageContent.companyInNumbersCard.map((item, i) => {
+					context.pageContent.companyInNumbersCards.map((item, i) => {
 									return(
 										<Col key={i} xs={12} md={4}>
 											<CardNumber 
@@ -62,22 +62,49 @@ const Home = () => {
 			)
 		}
 	}
+	const Banners = () => {
+		if(context.pageContent.banners) {
+			return(
+				context.pageContent.banners.map((item, i) => {
+					return(
+						<BannerWithImage
+							key={i}
+							title={item.fields.title}
+							image={item.fields.image.fields.file.url}
+							ingress={item.fields.ingress}
+							button={true}
+							buttonColor="#31004C"
+							buttonText={item.fields.buttonText}
+							to={`/page/${item.fields.buttonLink}`}
+						>
+							<p>{item.fields.body}</p>
+
+						</BannerWithImage>
+
+					)
+				})
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
 	return(
 		<div>			
-			
-			<Hero 
-				image={context.pageContent.bannerImage ?  context.pageContent.bannerImage.fields.file.url : "/suppilog-dinner.jpg"} 
-				title={context.pageContent.title}
-				ingress={context.pageContent.ingress}  
-				
+			<Navigation />
 
+			<Hero 
+				image={context.pageContent.image ?  context.pageContent.image.fields.file.url : "/suppilog-dinner.jpg"} 
+				title={context.pageContent.heroTitle}
+				ingress={context.pageContent.title}  
 			>
-			<StyledButton >{context.t('button.register')}</StyledButton>
-			<p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p>
+				<StyledButton onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/rekisteroidy')} >{context.t('button.register')}</StyledButton>
+				<p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p>
 			</Hero>
 			<Container>
 				<SearchBar />
-
 			</Container>
 
 			
@@ -95,24 +122,9 @@ const Home = () => {
 				</CardRow>
 	
 			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn">
-				<Banner />
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn">
 
-				<BannerWithImage 
-					title="Tehosta ostamista ja
-					säästä aikaa"
-					image={"/app-image.png"}
-					ingress="Yhdellä rekisteröitymisellä tuotteita sadoilta eri myyjäyrityksiltä."
-					button={true}
-					buttonColor="#31004C"
-					buttonText={context.t("button.buyers")}
-					to="/page/1fiMjIBykW8dj4gvT4miU9"
-
-				>
-				<p>Ostajayritykset tilaavat yhdellä rekisteröitymisellä haluamiaan tuotteita sadoilta eri myyjäyrityksiltä. Tilausprosessin tehostumisella valikoimahallinta helpottuu, sekä tuotteiden jatkotilaaminen on yksinkertaista</p>
-				</BannerWithImage>
+			<ScrollAnimation animateIn="fadeIn">
+				{Banners()}
 			</ScrollAnimation>
 			{
 				context.articles === []  ? 
@@ -140,7 +152,7 @@ const Home = () => {
 											<CardArticle
 												id={item.sys.id}
 												key={i}
-												image={item.fields.image.fields.file.url}
+												image={item.fields.thumbImage.fields.file.url}
 												title={item.fields.title }
 												date={ConvertDate()}
 												description={item.fields.description}

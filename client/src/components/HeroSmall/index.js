@@ -12,7 +12,8 @@ const HeroStyled = styled.div`
 	z-index: 1;
 	position: relative;
 	background-position: center;
-
+	background-repeat: no-repeat;
+	background-size: cover;
 	@media ${device.laptop} {
 		height: 300px;
     }
@@ -23,9 +24,7 @@ const HeroContent = styled.div`
 	position: relative;
 	z-index: 1000;
 	flex-direction: row;
-	@media ${device.laptop} {
-		flex-direction: column;
-    }
+
 `;
 
 
@@ -35,17 +34,14 @@ const TextContainer = styled.div `
 	height: 300px;
 	position: relative;
 	text-align: left;
-	// margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	@media ${device.laptop} {
-		justify-content: flex-start;
-		flex: 1;
-		justify-content: center;
-    }
-
-	}	
+		@media ${device.laptop} {
+			// justify-content: flex-start;
+			flex: 1;
+			justify-content: center;
+		}
 	`;
 
 const Title = styled.h1`
@@ -84,13 +80,11 @@ const Ingress = styled.p `
 
 
 
-const HeroSmall = ({title, ingress, image, children, searchBar}) => {
+const HeroSmall = ({ title, ingress, image, children }) => {
     return(
         <HeroStyled style={{backgroundImage: `url(${image})`}}>
-		<Container>
-
+			<Container>
 				<HeroContent>
-
 					<TextContainer>
 						<Title>
 							{title}
@@ -98,25 +92,13 @@ const HeroSmall = ({title, ingress, image, children, searchBar}) => {
 								{children}
 							</div>
 						</Title>
-			
 						<Ingress>
 							{ingress}
 						</Ingress>
-							
 					</TextContainer>
-
-					</HeroContent>
-
-					{
-						searchBar === true ?
-							<SearchBar />
-						:
-
-							""
-					}
-				</Container>
-				<Overlay themeColor="Brand"/>
-
+				</HeroContent>
+			</Container>
+			<Overlay themeColor="Brand"/>
         </HeroStyled>
 		
         
@@ -129,6 +111,6 @@ HeroSmall.propTypes = {
 	image: PropTypes.string,
 	children: PropTypes.any
 
- };
+};
 
 export default HeroSmall;

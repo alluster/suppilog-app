@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { AppContext } from '../../context/Context';
 import BannerWithImage from '../../components/BannerWithImage';
 import Accordion from '../../components/Accordion'
+import Navigation from '../../components/Navigation';
 
 
 
@@ -12,11 +13,15 @@ import Accordion from '../../components/Accordion'
 const Product = () => {
 	const context = useContext(AppContext);
 	const [product, setProduct] = useState({})
+	const Content = styled.div`
+		min-height: 100vh;
+		margin-bottom: 200px;
+	`;
+
 	useEffect(() => {
 		context.i18n.changeLanguage(context.lang);
-
-			setProduct(JSON.parse(localStorage.getItem("product")))
-			window.scrollTo(0, 0)
+		setProduct(JSON.parse(localStorage.getItem("product")))
+		window.scrollTo(0, 0)
 	
 	}, [])
 
@@ -24,18 +29,18 @@ const Product = () => {
 	return(
 		
 		
-		<div>
-
-			<HeroSmall 
+		<Content>
+			<Navigation navColor="dark" />
+			{/* <HeroSmall 
 			title={product.name}
 			image="/suppilog-dinner.jpg"
-			/>
+			/> */}
 			<BannerWithImage 
 				image={product.photo_url}
 				title={product.name}
 				ingress={product.product_family_name}
-			
-				buttonText=""
+				button
+				buttonText="Register to view the product price"
 				
 			
 				>
@@ -52,7 +57,7 @@ const Product = () => {
 
 			
 			
-		</div>
+		</Content>
 		
 	)
 }

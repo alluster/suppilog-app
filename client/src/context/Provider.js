@@ -146,7 +146,8 @@ const Provider = ({children}) => {
 					email,
 					setEmail,
 					pages,
-					GetPages
+					GetPages,
+
 
 					
 					

@@ -3,30 +3,25 @@ import styled from 'styled-components';
 import LoginForm from '../LoginForm';
 import { device } from '../../device';
 import { AppContext } from '../../context/Context';
-import Input from '../Input';
-import Button from '../Button';
-
-const Banner = () => {
-	const context = useContext(AppContext)
 
 const Container = styled.div `
 	width: 100%;
 	background-color: ${props => props.theme.colors.background}
-	height: 600px;
+	height: 400px;
 	@media ${device.laptop} {
 		height: 100%;
  	}
-`
+
+`;
 
 const Wrapper = styled.div`
     max-width: 900px;
-    margin-left: auto;
+	margin-left: auto;
     margin-right: auto;
 	padding-left: 10px;
 	padding-right: 10px;
 	display: flex;
 	align-items: center
-	height: 100%;
 	flex-direction: row;
 	@media ${device.laptop} {
 		flex-direction: column;
@@ -40,12 +35,12 @@ const Wrapper = styled.div`
 const ContentBlock = styled.div `
 	flex: 1;
 	flex-direction: column;
-	align-items: center
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	@media ${device.laptop} {
 		align-items: center;
 
-		margin-top: 30px;
-		margin-bottom: 30px;
  	}
 
 `;
@@ -88,24 +83,19 @@ const Body = styled.p `
 `;
 
 
-
-
-
-
-
+const BannerRegister = () => {
+	const context = useContext(AppContext);
     return(
 		<Container>
 			<Wrapper>
-			<ContentBlock>
+				<ContentBlock>
 					<Title>{context.t('banner.register.title')}</Title>
 					<Ingress>{context.t('banner.register.ingress')}</Ingress>
 					<Body>{context.t('banner.register.body')}</Body>
-
-			</ContentBlock>
-			<ContentBlock>
-			<LoginForm />
-			</ContentBlock>
-				
+				</ContentBlock>
+				<ContentBlock>
+					<LoginForm />
+				</ContentBlock>	
         	</Wrapper>
 		</Container>
        
@@ -114,4 +104,4 @@ const Body = styled.p `
 
  
 
-export default Banner;
+export default BannerRegister;
