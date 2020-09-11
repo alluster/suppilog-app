@@ -3,11 +3,9 @@ import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
 import Hero from '../../components/Hero';
 import ItemRow from '../../components/ItemRow';
-
-
 import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
-import CardArticle from '../../components/CardArticle'
+import CardArticle from '../../components/CardArticle';
 import Moment from 'react-moment';
 import {
 	useParams
@@ -64,14 +62,7 @@ const Article = () => {
 				<ItemRow title="Suppiblog">
 					{
 						context.articles.slice(0,3).map((item, i) => {
-							const ConvertDate = () => {
-								return( 
-									<Moment
-										format="DD/MM/YYYY"
-									>
-										{item.sys.createdAt}
-									</Moment>
-								)}
+						
 								
 						
 							
@@ -82,7 +73,6 @@ const Article = () => {
 									key={i}
 									image={item.fields.image.fields.file.url}
 									title={item.fields.title }
-									date={ConvertDate()}
 									description={item.fields.description}
 								/>
 							)

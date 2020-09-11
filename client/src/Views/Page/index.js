@@ -23,7 +23,6 @@ const Page = () => {
 	
 	`;
 	let { id } = useParams();
-	console.log(context.pageContent)
 	useEffect(() => {
 		let mounted = true;
 		if(mounted){

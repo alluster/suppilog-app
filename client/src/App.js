@@ -18,7 +18,6 @@ import Product from './Views/Product';
 import Spinner from './components/Spinner'
 import MetaTag from './components/MetaTag';
 
-
 const GlobalStyle = createGlobalStyle`
     body, html {
         margin: 0px;
@@ -147,7 +146,7 @@ const App = () => {
 					<Router>
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route exact path="/article/:id" component={Article} />
+							<Route  path="/article/:id" component={Article} />
 							<Route exact path="/articles" component={Articles} />
 							<Route exact path="/page/:id" component={Page} />
 							<Route exact path="/product/:id" component={Product} />

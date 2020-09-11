@@ -86,7 +86,7 @@ const StyledButton = styled(Button) `
 	margin-top: 20px;
 `
 const Image = styled.img`
-	 max-height: 500px;
+	max-height: 500px;
 
 `;
 

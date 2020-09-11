@@ -45,17 +45,20 @@ const Banner = ({title, children}) => {
 
 
     return(
-		<AccordionContainer >
-			<AccordionLine onClick={e => setOpen(true)}>
+		<AccordionContainer 
+			children={children} 
+			onClick={() => setOpen(!open)}
+		>
+			<AccordionLine >
 				<Title>
 					{title}
 				</Title>
 				<IconContainer>
 					{
 						open ?
-					<Icon icon={faAngleDown} onClick={e => setOpen(false)} />
+					<Icon icon={faAngleDown} />
 					:
-					<Icon icon={faAngleUp} onClick={e => setOpen(true)} />
+					<Icon icon={faAngleUp}  />
 					}
 				</IconContainer>
 				
@@ -63,8 +66,8 @@ const Banner = ({title, children}) => {
 			</AccordionLine>
 			{
 				open ?
-				<AccordionContent onClick={e => setOpen(false)}>
-					<p>{children}</p>
+				<AccordionContent >
+					{children}
 				</AccordionContent>
 				: 
 				null	

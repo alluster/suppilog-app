@@ -19,11 +19,6 @@ const NavContainer = styled.div`
 	height: 80px;
 	top: 0;
 	margin-bottom: -40px;
-    ${props => {
-        if (props.navColor === 'dark') return css`
-            background-color: ${props => props.theme.colors.brand};
-		`;
-	}}
 
 `;
 
@@ -33,7 +28,6 @@ const Icon = styled(FontAwesomeIcon)`
 	text-align: right;
 	padding-top: 20px;
 	color: ${props => props.theme.colors.white};
-
     :hover {
 		cursor: pointer;
 	}
@@ -137,7 +131,7 @@ const StyledFlag = styled(Flag)`
 
 
 
-const Navigation = ({ className, navColor }) => {
+const Navigation = ({ className }) => {
 	const context = useContext(AppContext)
 	const [navOpen, setNavOpen] = useState(false)
 
@@ -158,7 +152,7 @@ const Navigation = ({ className, navColor }) => {
 	}, [])
     return(
 		<>
-		<NavContainer navColor={navColor} className={className} >
+		<NavContainer className={className} >
 			<Container>
 				<Row>
 					<Col xs={3}>
@@ -210,7 +204,7 @@ const Navigation = ({ className, navColor }) => {
 						{
 							!navOpen ? 
 							
-							<Icon  onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
+							<Icon   onClick={e => setNavOpen(true)}style={{display: "inline-block"}} icon={faBars} />
 							: 
 							<Icon  onClick={e => setNavOpen(false)} icon={faTimes} style={{color: "black"}}/>
 
@@ -227,22 +221,35 @@ const Navigation = ({ className, navColor }) => {
 						<OpenNav>
 						
 							<Container>
+								<LinkText onClick={() => setNavOpen(false)} >		
+									<CustomLink to="/" 
+									>
+										{context.t('navigation.landing-page')}
+									</CustomLink>
+								</LinkText>
+
 								{
-									context.pages.map((item, i) => {
-										return(
-											<LinkText key={i} onClick={e => setNavOpen(false)} >		
-												<CustomLink to={`/page/${item.sys.id}`} 
-												>
+									context.pages.flatMap((item, i) => {
+										return (
+											item.fields.name !== context.t('navigation.landing-page') ?
+											<LinkText key={i} onClick={() => setNavOpen(false)} >		
+												<CustomLink to={`/page/${item.sys.id}`}>
 													{item.fields.name}
 												</CustomLink>
 											</LinkText>
-
+										: 
+											null
 										)
-									})
-								}
+										
+									}
+												
+	
+											)
+										}
+					
 								<LanguageSelector>
-									<StyledFlag code="fi" onClick={e => LocaleSelector("fi")}  />
-									<StyledFlag code="gb" onClick={e => LocaleSelector("en-US")}/>
+									<StyledFlag code="fi" onClick={() => LocaleSelector("fi")}  />
+									<StyledFlag code="gb" onClick={() => LocaleSelector("en-US")}/>
 								</LanguageSelector>
 							</Container>
 						</OpenNav>

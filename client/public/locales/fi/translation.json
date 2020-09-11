@@ -30,7 +30,9 @@
 		"register": "Rekisteröidy",
 		"sign-in": "Kirjaudu",
 		"buyers": "Hyödyt ostajayritykselle",
-		"or": "tai"
+		"or": "tai",
+		"product-details": "Rekisteröidy nähdäksesi hinnat"
+
 	},
 	"card": {
 		"number": {
