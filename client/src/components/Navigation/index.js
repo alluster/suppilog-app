@@ -88,8 +88,9 @@ const OpenNav = styled.div`
 `;
 
 const LinkText = styled.h2 `
-
-	line-height: 60px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
 	color: black !important;
 
 
