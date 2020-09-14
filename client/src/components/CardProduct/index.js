@@ -114,7 +114,7 @@ const CardProduct = ({data}) => {
 			>
 			<CardContainer>
 				<ImageContainer>
-					<Image src={`${data.photo_url}`} />
+					<Image src={data.photo_url || "./placeholder.png"} />
 				</ImageContainer>
 				<CardContent>
 					{/* <Tags>

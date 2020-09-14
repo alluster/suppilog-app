@@ -136,14 +136,7 @@ const Home = () => {
 
 								{
 									context.articles.slice(0,3).map((item, i) => {
-												const ConvertDate = () => {
-											return( 
-												<Moment
-													format="DD/MM/YYYY"
-												>
-													{item.sys.createdAt}
-												</Moment>
-											)}
+											
 											
 									
 										
@@ -154,7 +147,6 @@ const Home = () => {
 												key={i}
 												image={item.fields.thumbImage.fields.file.url}
 												title={item.fields.title }
-												date={ConvertDate()}
 												description={item.fields.description}
 											/>
 										)

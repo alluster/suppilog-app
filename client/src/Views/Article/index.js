@@ -19,23 +19,10 @@ const Article = () => {
 	const [article, setArticle] = useState({ image: "", title:""})
 	let { id } = useParams();
 	const context = useContext(AppContext)
-	const getArticle = async () => {
-
-		if(context.article === {}){
-
-		}
-		else(
-			setArticle({
-				image: context.articleImage ? context.articleImage : "" ,
-				title: context.article.title
-			})
-		)
-	}
-
+	
 	useEffect(() => {
 			window.scrollTo(0, 0)
 			context.GetArticle(id)
-			getArticle()
 			context.GetArticles()
 	
 	}, [ ])

@@ -82,7 +82,7 @@ const CardArticle = ({ id, image, title, description, date, className }) => {
         <Link to={`/article/${id}`}>
 			<CardContainer className={className}>
 				<ImageContainer>
-					<Image src={image} />
+					<Image src={image || "./placeholder.png"} />
 				</ImageContainer>
 				<CardContent>
 					<p>{date}</p>
