@@ -10,7 +10,10 @@
 				"filter": {
 					"restaurants": "Restaurants",
 					"k-shops": "K-Shops"
-				}
+				},
+				"result-stats-1": "Found",
+				"result-stats-2": "Showing",
+				"result-stats-3": "different products"
 			}
 		},
 		"product": {

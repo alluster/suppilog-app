@@ -106,9 +106,7 @@
 	background-color: #240237 !important;
 	color: white !important;
 }
-.css-1kfwsuu-resultStats {
-	font-size: 20px !important;
-}
+
 
 .css-6u8r7c-Button-large {
 	background-color: #31004C !important;
@@ -118,4 +116,8 @@
 .filter-buttons a {
 	background-color: #461761 !important;
 	color: white !important;
+}
+
+.css-1kfwsuu-resultStats {
+	font-size: 20px !important;
 }

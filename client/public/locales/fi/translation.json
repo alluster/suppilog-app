@@ -11,6 +11,10 @@
 					"restaurants": "Ravintolat",
 					"k-shops": "K-ruokakaupat"
 				}
+				,
+			"result-stats-1": "Yhteensä",
+			"result-stats-2": "näytetään",
+			"result-stats-3": "erilaista tuotetta"
 			}
 		},
 		"articles": {

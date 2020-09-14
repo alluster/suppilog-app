@@ -27,7 +27,12 @@ const Title = styled.h2`
 
     return(
 		<div children={children}>
-			<Title>{title}</Title>
+			{
+				title ? 
+					<Title>{title}</Title>
+				:
+					null
+			}
 			<Container  >
 				{children}
 			</Container>

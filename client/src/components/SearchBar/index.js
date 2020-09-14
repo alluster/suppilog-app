@@ -81,7 +81,9 @@ const SearchBar = () => {
 		
 			
 			<ReactiveList
-
+				renderResultStats={function(stats) {
+					return `${context.t('page.home.search.result-stats-1')} ${stats.numberOfResults} ${context.t('page.home.search.result-stats-3')} (${context.t('page.home.search.result-stats-2')} ${stats.displayedResults})`;
+				}}
 
 				style={{
 					backgroundColor: "white", 
