@@ -88,4 +88,34 @@
 
 .toggle-button {
 	margin-top: 20px !important;
+	
+}
+.toggle-button a{
+	background-color: #461761 !important;
+	color: white !important;
+}
+.toggle-button a:focus{
+	background-color: #240237 !important;
+	color: white !important;
+}
+.toggle-button a:active{
+	background-color: #240237 !important;
+	color: white !important;
+}
+.toggle-button a:selected{
+	background-color: #240237 !important;
+	color: white !important;
+}
+.css-1kfwsuu-resultStats {
+	font-size: 20px !important;
+}
+
+.css-6u8r7c-Button-large {
+	background-color: #31004C !important;
+	color: white !important;
+}
+
+.filter-buttons a {
+	background-color: #461761 !important;
+	color: white !important;
 }

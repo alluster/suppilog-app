@@ -69,12 +69,13 @@ const SearchBar = () => {
 							{"label": "Luontaistuotekaupat", "value": "f"}
 						]
 					}
-					multiSelect={true}
+					multiSelect={false}
 	
 				/>
 			<SelectedFilters 
 				showClearAll={true}	
 				clearAllLabel="Tyhjennä haku"
+				className="filter-buttons"
 
 			/>
 		
