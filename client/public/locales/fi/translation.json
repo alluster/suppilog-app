@@ -4,7 +4,7 @@
 			"hero": {
 				"title": "Tervetuloa Suppilogiin",
 				"ingress": "Digitaalinen myynti- ja ostokanava",
-				"search-placeholder": "Etsi tuotteita"
+				"search-placeholder": "Etsi yli 16000 tuotteen joukosta"
 			},
 			"search": {
 				"filter": {
@@ -60,7 +60,7 @@
 		}
 	},
 	"input": {
-		"email": "Anna email osoite",
+		"email": "Email",
 		"password": "Salasana"
 	},
 	"notification": {

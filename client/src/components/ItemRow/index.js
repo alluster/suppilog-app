@@ -11,6 +11,7 @@ const ItemRow = ({ children, title }) => {
 		flex-direction: row;
 		flex-wrap: no-wrap;
 		overflow-x: auto;
+		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
 		padding-bottom: 30px;
 			@media ${device.laptop} {

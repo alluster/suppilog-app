@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled  from 'styled-components';
 import { AppContext } from '../../context/Context';
 import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
@@ -143,10 +143,12 @@ const Navigation = ({ className }) => {
 		window.location.reload();
 	}
 
-	useEffect(() => {
+	useEffect( () => {
 		let mounted = true;
 		if(mounted){
+			
 			context.GetPages(`${context.lang}`)
+
 		}
 		return () => mounted = false;
 		

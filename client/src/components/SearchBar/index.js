@@ -4,12 +4,13 @@ import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton }
 import '../../style.css';
 import CardProduct from '../CardProduct';
 import ItemRow from '../../components/ItemRow';
+import Spinner from '../Spinner';
+import { Row, Col, Grid } from 'react-flexbox-grid';
 
 const SearchBar = () => {
 	const [searchText, setSearchText] = useState("")
 	const context = useContext(AppContext);
-
-
+	const [showResults, setShowResults] = useState(false)
 
     return(
 		<ReactiveBase
@@ -21,17 +22,20 @@ const SearchBar = () => {
 				noInitialQuery={true}
 				
 			>
-
 			<DataSearch
-				
-				onChange={(value) => {setSearchText(value)}}
+				onQueryChange={value => setSearchText(value)}
 				componentId="search"
 				placeholder={context.t('page.home.hero.search-placeholder')}
 				autosuggest={true}
 				showIcon={false}
-				showFilter={true}
-				filterLabel="Filters"
+				// showFilter={true}
+				// filterLabel="Filters"
 				showClear={true}
+				// customQuery={(value, props) =>
+				// 	value.length > 0
+				// 	  ? DataSearch.defaultQuery(value, props)
+				// 	  : { match_none: {} }
+				//   }
 				// defaultValue="Suosituimmat"
 				// defaultSuggestions={[{label: "Suosituimmat", value: "Suosituimmat"}]}
 				dataField={[
@@ -52,7 +56,7 @@ const SearchBar = () => {
 				]}
 				className="search-bar"
 				/>
-				<ToggleButton
+				{/* <ToggleButton
 					className="toggle-button"
 					componentId="Filters"
 					dataField={
@@ -71,57 +75,68 @@ const SearchBar = () => {
 					}
 					multiSelect={false}
 	
-				/>
-			<SelectedFilters 
+				/> */}
+			{/* <SelectedFilters 
 				showClearAll={true}	
 				clearAllLabel="Tyhjennä haku"
 				className="filter-buttons"
 
-			/>
+			/> */}
 		
 			
 			<ReactiveList
-				renderResultStats={function(stats) {
-					return `${context.t('page.home.search.result-stats-1')} ${stats.numberOfResults} ${context.t('page.home.search.result-stats-3')} (${context.t('page.home.search.result-stats-2')} ${stats.displayedResults})`;
-				}}
-
-				style={{
-					backgroundColor: "white", 
-					zIndex: "1000000", 
-					display: "flex",
-					flexDirection: "column"
-					}}
+				// renderResultStats={function(stats) {
+				// 	return `${context.t('page.home.search.result-stats-1')} ${stats.numberOfResults} ${context.t('page.home.search.result-stats-3')} (${context.t('page.home.search.result-stats-2')} ${stats.displayedResults})`;
+				// }}
+				// renderResultStats={false}
+				// style={{
+				// 	backgroundColor: "white", 
+				// 	zIndex: "1000000", 
+				// 	display: "flex",
+				// 	flexDirection: "column"
+				// 	}}
 				componentId="result"
 				dataField="name"
-				pagination={true}
-				scrollTarget=""
+				pagination={false}
+				// scrollTarget="search"
+				// loader={true}
 				scrollOnChange={false}
 				react={{
 				and: [
-					'search', 'Filters'
+					'search'
+					// , 'Filters'
 				]
 				}}
-				size={3}
+				size={9}
 				render={({ data }) => {
-					if(data) {
+					if(searchText )  {
+						console.log(searchText)
+
 						return(
-							<ItemRow>
-								{data.map( item => (
-									<CardProduct 
-										key={item._id} 
-										data={item}
-										// name={item.name}
-										// image={item.photo_url ? item.photo_url : '/placeholder.png'}
-										// consumer_package_size={item.consumer_package_size}
-										// sales_unit_size={item.sales_unit_size}
-										// id={item._id}
-										// product_family_name={item.product_family_name}
-										// vendor={item.vendor}
-									/>
+							<Row>
+
+								{
+									data.map( item => (
+										
+									<Col lg={4} key={item._id} 
+									>
+										<CardProduct 
+											data={item}
+											// name={item.name}
+											// image={item.photo_url ? item.photo_url : '/placeholder.png'}
+											// consumer_package_size={item.consumer_package_size}
+											// sales_unit_size={item.sales_unit_size}
+											// id={item._id}
+											// product_family_name={item.product_family_name}
+											// vendor={item.vendor}
+										/>
+									</Col>
+									
 								))}
-							</ItemRow>	
-						)
-					}
+							</Row>
+
+						
+					)}
 					else{
 						return(
 							<></>

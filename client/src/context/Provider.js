@@ -134,6 +134,7 @@ const Provider = ({children}) => {
 					articles,
 					GetArticle,
 					article,
+					setArticleImage,
 					articleImage,
 					persons,
 					GetPersons,

@@ -16,7 +16,6 @@ import Articles from './Views/Articles';
 import Article from './Views/Article';
 import Product from './Views/Product';
 import Spinner from './components/Spinner'
-import MetaTag from './components/MetaTag';
 
 const GlobalStyle = createGlobalStyle`
     body, html {
@@ -29,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 		color: ${props => props.theme.colors.black};
 		hyphens: manual;
 		text-rendering: optimizeLegibility;
+		background-color: ${props => props.theme.colors.background}
 		
 	}
 
@@ -138,9 +138,7 @@ const App = () => {
 	
 	return (
 		<Suspense fallback={<Spinner />}>
-			<MetaTag 
-			
-				/>
+	
 			<ThemeProvider theme={theme}>
 				<Provider>
 					<Router>

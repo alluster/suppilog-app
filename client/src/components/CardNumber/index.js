@@ -70,7 +70,7 @@ const TexrContainer = styled.div `
 
 
 	const Title = styled.h4`
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 400;
 		@media ${device.laptop} {
 			font-size: 16px !important;
@@ -94,11 +94,11 @@ const TexrContainer = styled.div `
     return(
 		<CardContainer>
 			<CardContent>
-			<IconContainer>
+			{/* <IconContainer>
 				<Icon src={icon} alt="Icon" />
-			</IconContainer>
+			</IconContainer> */}
 			<TexrContainer>
-				<h2>{ingress}</h2>
+				<h3>{ingress}</h3>
 				<Number
 					
 				>

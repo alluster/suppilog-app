@@ -1,4 +1,4 @@
-import React, { useContext, useEffect,useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
 import Hero from '../../components/Hero';
@@ -9,7 +9,6 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle'
 import Spinner from '../../components/Spinner';
-import Moment from 'react-moment';
 import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
 import { Row, Col } from 'react-flexbox-grid';
@@ -28,7 +27,6 @@ const CardRow = styled.div`
 
 const Home = () => {
 	const context = useContext(AppContext);
-	const [value, setValue ] = useState("")
 
 	useEffect(() => {
 		context.i18n.changeLanguage(context.lang);
@@ -106,57 +104,45 @@ const Home = () => {
 			<Container>
 				<SearchBar />
 			</Container>
-
-			
+				{Banners()}
 			<ScrollAnimation animateIn="fadeIn">
-
 			<CardRow>
 				<Container>
-						<h2>
-							{context.t('card.number.row-title')}
-						</h2> 
-						<Row>
-							{NumberCards()}	
-						</Row>
-					</Container>
-				</CardRow>
-	
+					<h2>
+						{context.t('card.number.row-title')}
+					</h2> 
+					<Row>
+						{NumberCards()}	
+					</Row>
+				</Container>
+			</CardRow>
 			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn">
-				{Banners()}
-			</ScrollAnimation>
-			{
-				context.articles === []  ? 
-				<Spinner />
-				:
-					<Container>
-						<CardRow>
-							<ItemRow title={context.t('card.article.row-title')} >
-
-								{
-									context.articles.slice(0,3).map((item, i) => {
-											
-											
-									
-										
-										return(
-											
-											<CardArticle
-												id={item.sys.id}
-												key={i}
-												image={item.fields.thumbImage.fields.file.url}
-												title={item.fields.title }
-												description={item.fields.description}
-											/>
-										)
-									})
-								}	
-							</ItemRow>
-						</CardRow>
-					</Container>
-				
-			}
+		
+				{
+					context.articles === []  ? 
+					<Spinner />
+					:
+						<Container>
+							<CardRow>
+								<ItemRow title={context.t('card.article.row-title')} >
+									{
+										context.articles.slice(0,3).map((item, i) => {
+											return(
+												<CardArticle
+													id={item.sys.id}
+													key={i}
+													image={item.fields.thumbImage.fields.file.url}
+													title={item.fields.title }
+													description={item.fields.description}
+												/>
+											)
+										})
+									}	
+								</ItemRow>
+							</CardRow>
+						</Container>
+					
+				}
 		</div>
 		
 	)

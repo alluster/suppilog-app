@@ -20,7 +20,8 @@ const Page = () => {
 	const context = useContext(AppContext)
 	const Content = styled(Container)`
 		margin-top: 50px;
-	
+		min-height: 100vh;
+		margin-bottom: 100px;
 	`;
 	let { id } = useParams();
 	useEffect(() => {
