@@ -8,22 +8,45 @@ import Spinner from '../Spinner';
 import { Row, Col, Grid } from 'react-flexbox-grid';
 
 const SearchBar = () => {
-	const [searchText, setSearchText] = useState("")
 	const context = useContext(AppContext);
-	const [showResults, setShowResults] = useState(false)
+	const [searchText, setSearchText] = useState()
 
     return(
 		<ReactiveBase
 				app="suppilog"
 				credentials="iNQDxBHRm:f194e6d7-45c6-4f5e-ab94-fc3adbd1f47a"
 				url="https://scalr.api.appbase.io"
-				recordAnalytics={true}
-				
-				noInitialQuery={true}
-				
+				recordAnalytics={true}				
 			>
 			<DataSearch
+
+				// onValueChange={(value) => { 
+				// 	if(value === ''){
+				// 		setSearchText(null)
+				// 	}
+
+				// }}
+				// // onValueSelected={(value, cause, source) => {
+				// // 	if(value) {
+				// // 		setSearchText(value.value)
+
+				// // 	}
+				// // 	else{
+				// // 		setSearchText(null)
+				// // 	}
+				// // 	}
+					
+				// // }
+
 				onQueryChange={value => setSearchText(value)}
+
+				// onQueryChange={
+				// 	function(prevQuery, nextQuery) {
+				// 	  if ('match_all' in nextQuery['query']) {
+				// 		nextQuery['query'] = { match_none: {} }
+				// 	  }
+				// 	}
+				//   }
 				componentId="search"
 				placeholder={context.t('page.home.hero.search-placeholder')}
 				autosuggest={true}
@@ -95,9 +118,29 @@ const SearchBar = () => {
 				// 	display: "flex",
 				// 	flexDirection: "column"
 				// 	}}
+
+				// defaultQuery={()=> {
+				// 	if(searchText){
+				// 	  return {
+				// 		query: {
+				// 		  match: {
+				// 			name: searchText
+				// 		  }
+				// 		}
+				// 	  }
+				// 	} else {
+				// 	  return {
+				// 		query: {
+				// 		  match_none: {}
+				// 		}
+				// 	  }
+	
+				// 	}
+				//   }}
+
 				componentId="result"
 				dataField="name"
-				pagination={false}
+				pagination={true}
 				// scrollTarget="search"
 				// loader={true}
 				scrollOnChange={false}
@@ -107,10 +150,10 @@ const SearchBar = () => {
 					// , 'Filters'
 				]
 				}}
-				size={9}
+				size={6}
 				render={({ data }) => {
-					if(searchText )  {
-						console.log(searchText)
+					// if(searchText )  {
+					// 	console.log(searchText)
 
 						return(
 							<Row>
@@ -122,13 +165,7 @@ const SearchBar = () => {
 									>
 										<CardProduct 
 											data={item}
-											// name={item.name}
-											// image={item.photo_url ? item.photo_url : '/placeholder.png'}
-											// consumer_package_size={item.consumer_package_size}
-											// sales_unit_size={item.sales_unit_size}
-											// id={item._id}
-											// product_family_name={item.product_family_name}
-											// vendor={item.vendor}
+									
 										/>
 									</Col>
 									
@@ -137,13 +174,13 @@ const SearchBar = () => {
 
 						
 					)}
-					else{
-						return(
-							<></>
-						)
-					}
+				// 	else{
+				// 		return(
+				// 			<></>
+				// 		)
+				// 	}
 						
-				}
+				// }
 			}
 			/>
 		</ReactiveBase>

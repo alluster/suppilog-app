@@ -62,6 +62,7 @@ const CardProduct = ({data}) => {
 		height: 100px;
 		border-radius: 0px 0px 16px 16px;
 		padding: 10px;
+		text-align: center;
 
 		color: ${props => props.theme.colors.black};
 
@@ -102,7 +103,7 @@ const CardProduct = ({data}) => {
 			""
 			: 
 			<Link 
-			to={{ pathname: `/product/${data._id}`}} 
+			to={{ pathname: `/product/${data.name}`}} 
 			onClick={() => localStorage.setItem("product", JSON.stringify(data))}
 			>
 			<CardContainer>

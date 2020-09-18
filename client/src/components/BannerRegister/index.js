@@ -18,15 +18,13 @@ const Wrapper = styled.div`
     max-width: 900px;
 	margin-left: auto;
     margin-right: auto;
-	padding-left: 10px;
-	padding-right: 10px;
+
 	display: flex;
 	align-items: center
 	flex-direction: row;
 	@media ${device.laptop} {
 		flex-direction: column;
-		padding-left: 20px;
-		padding-right: 20px;
+	
  	}
 
 
@@ -38,10 +36,13 @@ const ContentBlock = styled.div `
 	align-items: center;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
 	@media ${device.laptop} {
 		align-items: center;
-
- 	}
+		padding-left: 20px;
+		padding-right: 20px;
+ 	}	
 
 `;
 const Title = styled.h1`

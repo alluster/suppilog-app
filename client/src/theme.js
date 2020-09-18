@@ -8,7 +8,7 @@ export default {
 		brandDark: '#240237',
 		secondary: '#F5A623',
 		secondaryDark: '#E69000',
-		background: '#F8F8F8',
+		background: '#f1f4f6',
 		linkGray: '#C8CCD4',
 		lightGray: '#F0F0F0'
 		
