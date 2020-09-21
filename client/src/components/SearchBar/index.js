@@ -9,7 +9,7 @@ import { Row, Col, Grid } from 'react-flexbox-grid';
 
 const SearchBar = () => {
 	const context = useContext(AppContext);
-	const [searchText, setSearchText] = useState()
+	const [searchText, setSearchText] = useState("")
 
     return(
 		<ReactiveBase
@@ -38,7 +38,7 @@ const SearchBar = () => {
 					
 				// // }
 
-				onQueryChange={value => setSearchText(value)}
+				// onQueryChange={value => setSearchText(value)}
 
 				// onQueryChange={
 				// 	function(prevQuery, nextQuery) {
@@ -47,10 +47,30 @@ const SearchBar = () => {
 				// 	  }
 				// 	}
 				//   }
+				queryFormat="and"
+				noInitialQuery={true}
 				componentId="search"
 				placeholder={context.t('page.home.hero.search-placeholder')}
-				autosuggest={true}
+				autosuggest={false}
+				debounce={0}
 				showIcon={false}
+				renderNoSuggestion={() => (
+					<></>
+				)
+				}
+				onValueChange={(value) => { 
+					if(value === ''){
+					  setSearchText({searchText: ""})
+					}
+					else{
+						setSearchText(value)
+					}
+				  }}
+				  onValueSelected={(value, cause, source) => {
+					  setSearchText(value)
+					}
+				  }
+
 				// showFilter={true}
 				// filterLabel="Filters"
 				showClear={true}
@@ -73,7 +93,7 @@ const SearchBar = () => {
 					1,
 					1
 				]}
-				fuzziness={1}
+				fuzziness={4}
 				highlightField={[
 					'name'
 				]}
@@ -105,8 +125,13 @@ const SearchBar = () => {
 				className="filter-buttons"
 
 			/> */}
-		
-			
+		{/* {
+			searchText !== "" ?
+				<p onClick={() => setSearchText("")}>Tyhjennä haku</p>
+
+			:
+			<></>
+		} */}
 			<ReactiveList
 				// renderResultStats={function(stats) {
 				// 	return `${context.t('page.home.search.result-stats-1')} ${stats.numberOfResults} ${context.t('page.home.search.result-stats-3')} (${context.t('page.home.search.result-stats-2')} ${stats.displayedResults})`;
@@ -119,32 +144,35 @@ const SearchBar = () => {
 				// 	flexDirection: "column"
 				// 	}}
 
-				// defaultQuery={()=> {
-				// 	if(searchText){
-				// 	  return {
-				// 		query: {
-				// 		  match: {
-				// 			name: searchText
-				// 		  }
-				// 		}
-				// 	  }
-				// 	} else {
-				// 	  return {
-				// 		query: {
-				// 		  match_none: {}
-				// 		}
-				// 	  }
+				defaultQuery={()=> {
+					if(searchText){
+					  return {
+						query: {
+						  match: {
+							name: searchText
+						  }
+						}
+					  }
+					} else {
+					  return {
+						query: {
+						  match_none: {}
+						}
+					  }
 	
-				// 	}
-				//   }}
+					}
+				  }}
 
 				componentId="result"
 				dataField="name"
 				pagination={true}
+				showFilter={false}
 				pages={4}
-				// scrollTarget="search"
-				// loader={true}
+				scrollTarget="search"
+				loader={<Spinner />}
 				scrollOnChange={false}
+				showResultStats={false}
+				renderNoResults={() => <></> }
 				react={{
 				and: [
 					'search'
@@ -153,8 +181,7 @@ const SearchBar = () => {
 				}}
 				size={6}
 				render={({ data }) => {
-					// if(searchText )  {
-					// 	console.log(searchText)
+
 
 						return(
 							<div>
@@ -175,13 +202,9 @@ const SearchBar = () => {
 
 						
 					)}
-				// 	else{
-				// 		return(
-				// 			<></>
-				// 		)
-				// 	}
+					
 						
-				// }
+				
 			}
 			/>
 		</ReactiveBase>

@@ -137,3 +137,7 @@ input:focus:-moz-placeholder {
 	padding-top: 20px !important;
 	display: none !important;
 }
+
+.css-yw1mgn-Flex-leftLabel {
+	display: none !important;
+}
