@@ -47,12 +47,11 @@ const SearchBar = () => {
 				// 	  }
 				// 	}
 				//   }
-				queryFormat="and"
+				// queryFormat="and"
 				noInitialQuery={true}
 				componentId="search"
 				placeholder={context.t('page.home.hero.search-placeholder')}
-				autosuggest={false}
-				debounce={0}
+				autosuggest={true}
 				showIcon={false}
 				renderNoSuggestion={() => (
 					<></>
