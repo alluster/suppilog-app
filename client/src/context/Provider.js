@@ -16,15 +16,8 @@ const Provider = ({children}) => {
 	const [footerContent, setFooterContent] = useState({})
 	const [email, setEmail] = useState("")
 	const [pages, setPages] = useState([])
-	const [product, setProduct] = useState([{
-		name: "",
-		image:"",	
-		vendor: "",
-		product_family_name:"",
-		sales_unit_size:"",
-		consumer_package_size: ""
-
-	}])
+	const [modalOpen, setModalOpen] = useState(false)
+	const [product, setProduct] = useState({})
 
 	const GetArticles = async () => {
 		setLoading(true)
@@ -148,6 +141,8 @@ const Provider = ({children}) => {
 					setEmail,
 					pages,
 					GetPages,
+					setModalOpen,
+					modalOpen
 
 
 					

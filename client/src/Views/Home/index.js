@@ -13,7 +13,7 @@ import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
 import { Row, Col } from 'react-flexbox-grid';
 import Navigation from '../../components/Navigation';
-
+import ProductModal from '../../components/ProductModal';
 const StyledButton = styled(Button) `
 	width: 100%;
 	height: 50px;
@@ -33,6 +33,7 @@ const Home = () => {
 		window.scrollTo(0, 0)
 		context.GetArticles()
 		context.GetPageContent("63PEJ5YVRz4DvnEFMZJj3R", `${context.lang}`)
+		
 		
 	}, [])
 	const NumberCards = () => {
@@ -91,6 +92,7 @@ const Home = () => {
 	}
 	return(
 		<div>			
+			<ProductModal open={true}/>
 			<Navigation />
 
 			<Hero 

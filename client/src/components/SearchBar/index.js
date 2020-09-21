@@ -2,7 +2,7 @@ import React, { useState, useContext} from 'react';
 import { AppContext } from '../../context/Context'
 import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton } from '@appbaseio/reactivesearch';
 import '../../style.css';
-import CardProduct from '../CardProduct';
+import CardProductVertical from '../CardProductVertical';
 import ItemRow from '../../components/ItemRow';
 import Spinner from '../Spinner';
 import { Row, Col, Grid } from 'react-flexbox-grid';
@@ -141,6 +141,7 @@ const SearchBar = () => {
 				componentId="result"
 				dataField="name"
 				pagination={true}
+				pages={4}
 				// scrollTarget="search"
 				// loader={true}
 				scrollOnChange={false}
@@ -156,21 +157,21 @@ const SearchBar = () => {
 					// 	console.log(searchText)
 
 						return(
-							<Row>
+							<div>
 
 								{
 									data.map( item => (
 										
-									<Col lg={4} key={item._id} 
-									>
-										<CardProduct 
+									// <Col lg={4} key={item._id} >
+										<CardProductVertical 
+											key={item._id}
 											data={item}
 									
 										/>
-									</Col>
+									// </Col>
 									
 								))}
-							</Row>
+							</div>
 
 						
 					)}
