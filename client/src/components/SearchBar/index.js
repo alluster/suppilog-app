@@ -74,7 +74,13 @@ const SearchBar = () => {
 				// showFilter={true}
 				// filterLabel="Filters"
 				showClear={true}
-				clearIcon={<FontAwesomeIcon icon={faTimes} />}
+				clearIcon={
+					<FontAwesomeIcon 
+						icon={faTimes}
+						style={{zIndex: 10000, marginTop: "-30px", lineHeight: "48px"}}
+
+					/>
+				}
 				// customQuery={(value, props) =>
 				// 	value.length > 0
 				// 	  ? DataSearch.defaultQuery(value, props)
