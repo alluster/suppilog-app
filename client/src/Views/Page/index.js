@@ -60,8 +60,6 @@ const Page = () => {
 									{
 										context.pageContent.personCards.map((item, i) => {
 									
-										
-											
 											return(
 												
 												<CardPerson
