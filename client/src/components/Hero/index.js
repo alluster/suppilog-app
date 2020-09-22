@@ -11,24 +11,22 @@ import Overlay from '../Overlay';
 
 const HeroStyled = styled.div`
 
-	height: 600px;
+	height: 60vh;
 	z-index: -1;
 	justify-content: center;
 	align-items: center;
 	background-position: center;
-
 	@media ${device.laptop} {
-		height: 90vh;
+		height: 100vh;
     }
+
 `;
 
 const HeroContent = styled.div`
 	display: flex;
-	// justify-content: center;
 	flex-direction: row;
 	position: relative;
 	z-index: 1000;
-
 	@media ${device.laptop} {
 		flex-direction: column;
 		display: inline-block;
@@ -51,7 +49,7 @@ const TextContainer = styled.div `
 		flex: 1;
 		justify-content: center;
 		height: 90vh;
-		padding-top: 10px;
+		padding-top: 40px;
 
 	}	
 	`;

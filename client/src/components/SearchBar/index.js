@@ -6,7 +6,8 @@ import CardProductVertical from '../CardProductVertical';
 import ItemRow from '../../components/ItemRow';
 import Spinner from '../Spinner';
 import { Row, Col, Grid } from 'react-flexbox-grid';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faTimes } from '@fortawesome/free-solid-svg-icons'
 const SearchBar = () => {
 	const context = useContext(AppContext);
 	const [searchText, setSearchText] = useState("")
@@ -73,6 +74,7 @@ const SearchBar = () => {
 				// showFilter={true}
 				// filterLabel="Filters"
 				showClear={true}
+				clearIcon={<FontAwesomeIcon icon={faTimes} />}
 				// customQuery={(value, props) =>
 				// 	value.length > 0
 				// 	  ? DataSearch.defaultQuery(value, props)
@@ -92,7 +94,7 @@ const SearchBar = () => {
 					1,
 					1
 				]}
-				fuzziness={4}
+				
 				highlightField={[
 					'name'
 				]}

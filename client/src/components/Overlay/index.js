@@ -12,7 +12,7 @@ const Bg = styled.div`
         `;
     }}
     opacity: 0.8;
-    height: inherit;
+	height: inherit;
     width: 100%;
     z-index: 1;
     position: absolute;

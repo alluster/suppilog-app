@@ -5,6 +5,7 @@ import Hero from '../../components/Hero';
 import ItemRow from '../../components/ItemRow';
 import CardNumber from '../../components/CardNumber';
 import BannerWithImage from '../../components/BannerWithImage';
+import BannerCentered from '../../components/BannerCentered';
 import ScrollAnimation from 'react-animate-on-scroll';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle'
@@ -27,7 +28,7 @@ const CardRow = styled.div`
 
 const Home = () => {
 	const context = useContext(AppContext);
-
+	console.log(context.pageContent)
 	useEffect(() => {
 		context.i18n.changeLanguage(context.lang);
 		window.scrollTo(0, 0)
@@ -90,6 +91,28 @@ const Home = () => {
 			)
 		}
 	}
+	const Testimonials = () => {
+		if(context.pageContent.testimonials) {
+			return(
+				context.pageContent.testimonials.map((item, i) => {
+					return(
+						<BannerCentered
+							key={i}
+							title={item.fields.body}
+							ingress={item.fields.name}
+							
+						/>
+
+					)
+				})
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
 	return(
 		<div>			
 			<ProductModal open={true}/>
@@ -107,6 +130,8 @@ const Home = () => {
 				<SearchBar />
 			</Container>
 				{Banners()}
+				{Testimonials()}
+
 			<ScrollAnimation animateIn="fadeIn">
 			<CardRow>
 				<Container>
