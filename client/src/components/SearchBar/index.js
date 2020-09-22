@@ -77,7 +77,7 @@ const SearchBar = () => {
 				clearIcon={
 					<FontAwesomeIcon 
 						icon={faTimes}
-						style={{zIndex: 10000, marginTop: "-30px", lineHeight: "48px"}}
+						// style={{zIndex: 10000, marginTop: "-30px", lineHeight: "48px"}}
 
 					/>
 				}
