@@ -1,45 +1,34 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);
 
 .search-bar input {
-
 	background-color: white !important;
 	font-family: 'Open Sans',sans-serif !important;
 	font-weight: 600 !important;
 	border-radius: 10px;
 	height: 60px;
-	/* width: 100% !important; */
-	/* border: none; */
 	font-size: 18px;
 	padding-left: 30px;
 	z-index: 1000;
 	margin-top: -30px;
 	position: relative;
-
-	/* width: calc(100% - 20px); */
-
 }
 
-@media only screen and (max-width: 600px) {
-	.search-bar input {
-		text-align: center;
-		padding-left: 10px;
-	}
-  }
-  .css-1chxs1i-InputIcon-right {
-	z-index: 10000000;
-	line-height: 48px;
-	margin-top: -30px;
 
-
+.css-1chxs1i-InputIcon-right {
+	z-index: 1000 !important;
+	line-height: 48px !important;
+	margin-top: -30px !important;
 }
-  input::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
 	color: black;
 }
+
 input:focus::-webkit-input-placeholder {
-    opacity: 0;
+	opacity: 0;
 }
+
 input:focus::-moz-placeholder {
-   opacity: 0;
+	opacity: 0;
 }
  
 input:focus:-ms-input-placeholder {
@@ -47,17 +36,16 @@ input:focus:-ms-input-placeholder {
 }
  
 input:focus:-moz-placeholder {
-   opacity: 0;
- }
+	opacity: 0;
+}
+
 .css-dmx3ll-InputIcon-left {
 	margin-top: -15px !important;
 }
 
 .css-c4vjye-InputIcon-right {
 	margin-top: -15px !important;
-
 }
-
 
 .css-x2306x-pagination {
 	margin-top: 10px !important;
@@ -141,3 +129,10 @@ input:focus:-moz-placeholder {
 .css-yw1mgn-Flex-leftLabel {
 	display: none !important;
 }
+
+@media only screen and (max-width: 600px) {
+	.search-bar input {
+		text-align: center;
+		padding-left: 10px;
+	}
+  }
