@@ -1,7 +1,7 @@
 import React, { useState, useContext} from 'react';
 import { AppContext } from '../../context/Context'
 import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton } from '@appbaseio/reactivesearch';
-// import '../../style.css';
+import '../../style.css';
 import CardProductVertical from '../CardProductVertical';
 import ItemRow from '../../components/ItemRow';
 import Spinner from '../Spinner';
@@ -53,7 +53,6 @@ const SearchBar = () => {
 				componentId="search"
 				placeholder={context.t('page.home.hero.search-placeholder')}
 				autosuggest={true}
-				showIcon={false}
 				renderNoSuggestion={() => (
 					<></>
 				)
