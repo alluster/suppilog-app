@@ -54,7 +54,7 @@ const Image = styled.img`
 
 
 
-const ProductModal = ({ className, children }) => {
+const ProductModal = () => {
 	const context = useContext(AppContext)
 	
 

@@ -1,16 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Accordion from '../Accordion';
 import { Row, Col } from 'react-flexbox-grid';
-import {
-
-	Link
-  } from "react-router-dom";
-
 import { device } from '../../device';
 import { AppContext } from '../../context/Context';
-import ProductModal from '../ProductModal';
+import ReactGA from 'react-ga';
 
 
 const CardProductVertical = ({data}) => {
@@ -96,6 +90,10 @@ const CardProductVertical = ({data}) => {
 const handleClick = () => {
 	context.setProduct(	data)
 	localStorage.setItem("product", JSON.stringify(data)) 
+	ReactGA.event({
+		category: 'Product',
+		action: `${data.name}`
+	})
 	context.setModalOpen(true)
 
 }

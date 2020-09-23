@@ -15,16 +15,21 @@ import Button from '../../components/Button';
 import { Row, Col } from 'react-flexbox-grid';
 import Navigation from '../../components/Navigation';
 import ProductModal from '../../components/ProductModal';
+import CardPerson from '../../components/CardPerson';
+import Markdown from '../../components/Markdown';
+
 const StyledButton = styled(Button) `
 	width: 100%;
 	height: 50px;
 	font-size: 20px;
 `;
 
-const CardRow = styled.div`
+const ContentBlock = styled(Container)`
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 `;
+
+
 
 const Home = () => {
 	const context = useContext(AppContext);
@@ -40,20 +45,88 @@ const Home = () => {
 	const NumberCards = () => {
 		if(context.pageContent.companyInNumbersCards) {
 			return(
-					context.pageContent.companyInNumbersCards.map((item, i) => {
-									return(
-										<Col key={i} xs={12} md={4}>
-											<CardNumber 
-									
-												icon={item.fields.icon.fields.file.url}
-												ingress={item.fields.title} 
-												number={item.fields.number} 
-												title={item.fields.ingress} 
-											/>
-										</Col> 
+				<ContentBlock>
+					<h2>
+						{context.t('card.number.row-title')}
+					</h2> 
+					<Row>
+						{
+							context.pageContent.companyInNumbersCards.map((item, i) => {
+								return(
+									<Col key={i} xs={12} md={4}>
+										<CardNumber 
+											icon={item.fields.icon.fields.file.url}
+											ingress={item.fields.title} 
+											number={item.fields.number} 
+											title={item.fields.ingress} 
+										/>
+									</Col> 
+								)
+							}
+							)}
+					</Row>
+				</ContentBlock>
 
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
+	const Articles = () => {
+		if(context.pageContent.selectedBlogPosts) {
+			return(
+				<ContentBlock>
+						<ItemRow title={context.t('card.article.row-title')} >
+							{
+								context.pageContent.selectedBlogPosts.slice(0,3).map((item, i) => {
+									return(
+										<CardArticle
+											id={item.sys.id}
+											key={i}
+											image={item.fields.thumbImage.fields.file.url}
+											title={item.fields.title }
+											description={item.fields.description}
+										/>	
 									)
+									
 								})
+							}
+						</ItemRow>
+				</ContentBlock>
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
+	const PersonCards = () => {
+		if(context.pageContent.personCards) {
+			return(
+				<ContentBlock>
+					<ItemRow title={context.t('card.person.row-title')}>
+						{
+							context.pageContent.personCards.map((item, i) => {
+								return(
+									<CardPerson
+										key={i}
+										image={item.fields.image.fields.file.url}
+										name={item.fields.name }
+										description={item.fields.description}
+										phone={item.fields.phone }
+										email={item.fields.email }
+										position={item.fields.position}
+
+									/>
+								)
+							})
+						}	
+					</ItemRow>
+				</ContentBlock>
 			)
 		}
 		else{
@@ -113,11 +186,24 @@ const Home = () => {
 			)
 		}
 	}
+	const MarkdownContent = () => {
+		if(context.pageContent.content) {
+			return(
+				<ContentBlock>
+					<Markdown source={context.pageContent.content}/>
+				</ContentBlock>
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
 	return(
 		<div>			
-			<ProductModal open={true}/>
+			<ProductModal />
 			<Navigation />
-
 			<Hero 
 				image={context.pageContent.image ?  context.pageContent.image.fields.file.url : "/suppilog-dinner.jpg"} 
 				title={context.pageContent.heroTitle}
@@ -129,47 +215,22 @@ const Home = () => {
 			<Container>
 				<SearchBar />
 			</Container>
+				<ScrollAnimation animateIn="fadeIn">
+					{MarkdownContent()}
+				</ScrollAnimation>
 				{Banners()}
-				{Testimonials()}
-
 			<ScrollAnimation animateIn="fadeIn">
-			<CardRow>
-				<Container>
-					<h2>
-						{context.t('card.number.row-title')}
-					</h2> 
-					<Row>
-						{NumberCards()}	
-					</Row>
-				</Container>
-			</CardRow>
+				{Testimonials()}
 			</ScrollAnimation>
-		
-				{
-					context.articles === []  ? 
-					<Spinner />
-					:
-						<Container>
-							<CardRow>
-								<ItemRow title={context.t('card.article.row-title')} >
-									{
-										context.articles.slice(0,3).map((item, i) => {
-											return(
-												<CardArticle
-													id={item.sys.id}
-													key={i}
-													image={item.fields.thumbImage.fields.file.url}
-													title={item.fields.title }
-													description={item.fields.description}
-												/>
-											)
-										})
-									}	
-								</ItemRow>
-							</CardRow>
-						</Container>
-					
-				}
+			<ScrollAnimation animateIn="fadeIn">
+				{NumberCards()}	
+			</ScrollAnimation>
+			<ScrollAnimation animateIn="fadeIn">
+				{PersonCards()}	
+			</ScrollAnimation>
+			<ScrollAnimation animateIn="fadeIn">
+				{Articles()}
+			</ScrollAnimation>
 		</div>
 		
 	)

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -16,6 +16,7 @@ import Articles from './Views/Articles';
 import Article from './Views/Article';
 import Product from './Views/Product';
 import Spinner from './components/Spinner'
+import ReactGA from 'react-ga';
 
 const GlobalStyle = createGlobalStyle`
     body, html {
@@ -134,7 +135,11 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App = () => {
+	useEffect(() => {
+		ReactGA.initialize('UA-178741766-1');
+		ReactGA.pageview(window.location.pathname + window.location.search);
 
+	}, [])
 	
 	return (
 		<Suspense fallback={<Spinner />}>
@@ -146,7 +151,7 @@ const App = () => {
 							<Route exact path="/" component={Home} />
 							<Route  path="/article/:id" component={Article} />
 							<Route exact path="/articles" component={Articles} />
-							<Route exact path="/page/:id" component={Page} />
+							<Route exact path="/:id/:name" component={Page} />
 							<Route exact path="/product/:id" component={Product} />
 
 							<Route path='/sign-in' component={() => { 

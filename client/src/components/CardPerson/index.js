@@ -10,15 +10,10 @@ const CardPerson = ({ image, name, description, position, email, phone }) => {
 		width: 280px;
 		font-family: 'Open Sans'
 		height: 300px;
-		background-color: white;
 		margin-right: 10px;
 		margin-top: 10px
 		border-radius: 5px;
-		// border: 1px solid #DFDFDF;
-		// box-shadow:
-		// 	2.8px 0 2.2px rgba(0, 0, 0, 0.034),
-		// 	6.7px 0 5.3px rgba(0, 0, 0, 0.048),
-		// 	;
+		
 		@media ${device.laptop} {
 			width: 100%;
 		}
@@ -28,7 +23,6 @@ const CardPerson = ({ image, name, description, position, email, phone }) => {
 	const CardContent = styled.div`
 		display: flex;
 		flex-direction: column;
-		background-color: white;
 		min-height: 100px;
 		border-radius: 0px 0px 5px 5px;
 		padding: 15px 15px 15px 0px;
