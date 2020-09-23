@@ -13,8 +13,9 @@ const FooterContent = styled.div`
     width: 100%;
 	margin-top: auto;
 	padding-top: 30px;
+	padding-bottom: 50px;
 	align-items: center;
-	// background-color: ${props => props.theme.colors.background}
+	background-color: ${props => props.theme.colors.backgroundDark}
     @media ${device.laptop} {
 		bottom: 0;
     }
