@@ -77,6 +77,13 @@ const CardArticle = ({ id, image, title, description, date, className }) => {
 		}
 
 	`;
+		const Description = styled.p`
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		`;
+
 
     return(
         <Link to={`/article/${id}`}>
@@ -89,10 +96,10 @@ const CardArticle = ({ id, image, title, description, date, className }) => {
 					<Title>
 						{title}
 					</Title>
-					<p style={{ 
+					<Description style={{ 
 						fontSize: "12px", marginTop: "10px"}}>
 						{description}
-					</p>
+					</Description>
 					{/* <div style={{marginTop: "auto"}}>
 						<FontAwesomeIcon 
 							icon={faThumbsUp} 
