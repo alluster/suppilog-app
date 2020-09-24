@@ -11,7 +11,7 @@ import Overlay from '../Overlay';
 
 const HeroStyled = styled.div`
 
-	height: 80vh;
+	height: 70vh;
 	z-index: -1;
 	justify-content: center;
 	align-items: center;

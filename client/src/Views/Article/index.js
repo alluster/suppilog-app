@@ -11,6 +11,7 @@ import {
 	useParams
   } from "react-router-dom";
 import Navigation from '../../components/Navigation';
+import HeroSmall from '../../components/HeroSmall';
 
 
 
@@ -36,7 +37,7 @@ const Article = () => {
 		
 		<div>
 			<Navigation />
-			<Hero 
+			<HeroSmall
 				image={context.article.image ?  context.article.image.fields.file.url : "" } 
 				title={context.article.title} 
 			/>

@@ -230,7 +230,12 @@ const Navigation = ({ className }) => {
 										{context.t('navigation.landing-page')}
 									</CustomLink>
 								</LinkText>
-
+								<LinkText onClick={() => setNavOpen(false)} >		
+									<CustomLink to="/articles" 
+									>
+										{context.t('navigation.suppiblog')}
+									</CustomLink>
+								</LinkText>
 								{
 									context.pages.flatMap((item, i) => {
 										return (

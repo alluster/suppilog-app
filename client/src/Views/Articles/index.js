@@ -13,68 +13,64 @@ import Navigation from '../../components/Navigation';
 
 const Articles = () => {
 	const context = useContext(AppContext)
+	const ContentBlock = styled(Container)`
+		margin-top: 50px;
+		margin-bottom: 100px;
+	`;
 	const Card = styled(CardArticle)`
-	@media ${device.laptop} {
-		width: 90% !important;
-
-	}
+		width: auto !important;
 	`;
 
-	
-	useEffect(() => {
-			window.scrollTo(0, 0)
-			context.GetArticles()
-			context.i18n.changeLanguage(context.lang);
 
+	const Articles = () => {
+		if(context.articles) {
+			return(
+				<ContentBlock>
+						<Row title={context.t('card.article.row-title')} >
+							{
+								context.articles.map((item, i) => {
+									return(
+										<Col key={i} sm={12} md={4}>
+										<Card
+											id={item.sys.id}
+											image={item.fields.thumbImage.fields.file.url}
+											title={item.fields.title }
+											description={item.fields.description}
+										/>	
+										</Col>
+									
+									)
+									
+								})
+							}
+						</Row>
+				</ContentBlock>
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
+	useEffect(() => {
+		context.i18n.changeLanguage(context.lang);
+		window.scrollTo(0, 0)
+		context.GetArticles()	
+		context.GetPageContent("6pyem7N53mBVoeSHpcpUpn", `${context.lang}`)
+	
+		
 	}, [])
 	return(
 		<div>
 			<Navigation />
 			<HeroSmall 
-			title={context.t('page.articles.hero.title')}
-			image="/suppilog-dinner.jpg"
-			ingress={context.t('page.articles.hero.ingress')}
+				title={context.t('page.articles.hero.title')}
+				image="/suppilog-dinner.jpg"
+				ingress={context.t('page.articles.hero.ingress')}
 
 			/>
-			{
-				context.articles === []  ? 
-				<Spinner />
-				:
-				<Container>
-					<Row>
-							{
-								context.articles.map((item, i) => {
-											const ConvertDate = () => {
-										return( 
-											<Moment
-												format="DD/MM/YYYY"
-											>
-												{item.sys.createdAt}
-											</Moment>
-										)}
-										
-								
-									
-									return(
-										<Col xs={12} md={4}>
-
-											<Card
-												id={item.sys.id}
-												key={i}
-												image={item.fields.image.fields.file.url}
-												title={item.fields.title }
-												date={ConvertDate()}
-												description={item.fields.description}
-											/>
-										</Col>
-									)
-								})
-							}	
-					</Row>
-				</Container>
-					
-				
-			}
+			{Articles()}
 		</div>
 		
 	)
