@@ -31,12 +31,12 @@ const Articles = () => {
 								context.articles.map((item, i) => {
 									return(
 										<Col key={i} sm={12} md={4}>
-										<Card
-											id={item.sys.id}
-											image={item.fields.thumbImage.fields.file.url}
-											title={item.fields.title }
-											description={item.fields.description}
-										/>	
+											<Card
+												id={item.sys.id}
+												image={item.fields.thumbImage.fields.file.url}
+												title={item.fields.title }
+												description={item.fields.description}
+											/>	
 										</Col>
 									
 									)
@@ -44,6 +44,7 @@ const Articles = () => {
 								})
 							}
 						</Row>
+						
 				</ContentBlock>
 			)
 		}

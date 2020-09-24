@@ -77,12 +77,12 @@ const CardArticle = ({ id, image, title, description, date, className }) => {
 		}
 
 	`;
-		const Description = styled.p`
-			overflow: hidden;
-			display: -webkit-box;
-			-webkit-line-clamp: 2;
-			-webkit-box-orient: vertical;
-		`;
+	const Description = styled.p`
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	`;
 
 
     return(

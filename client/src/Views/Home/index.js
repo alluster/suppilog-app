@@ -95,6 +95,7 @@ const Home = () => {
 								})
 							}
 						</ItemRow>
+						<StyledButton to="/articles">{context.t('button.articles')}</StyledButton>
 				</ContentBlock>
 			)
 		}
