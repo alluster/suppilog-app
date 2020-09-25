@@ -225,19 +225,17 @@ const Navigation = ({ className }) => {
 						
 							<Container>
 								<LinkText onClick={() => setNavOpen(false)} >		
-									<CustomLink to="/" 
-									>
+									<CustomLink to="/" >
 										{context.t('navigation.landing-page')}
 									</CustomLink>
 								</LinkText>
 								<LinkText onClick={() => setNavOpen(false)} >		
-									<CustomLink to="/articles" 
-									>
+									<CustomLink to="/articles">
 										{context.t('navigation.suppiblog')}
 									</CustomLink>
 								</LinkText>
 								{
-									context.pages.flatMap((item, i) => {
+									context.pages.map((item, i) => {
 										return (
 											item.fields.name !== context.t('navigation.landing-page') ?
 											<LinkText key={i} onClick={() => setNavOpen(false)} >		

@@ -36,7 +36,8 @@
 		"or": "or",
 		"read-more": "Read More",
 		"product-details": "Register to view prices",
-		"articles": "Read all articles"
+		"articles": "Read all articles",
+		"share": "Share in social media"
 	},
 	"card": {
 		"number": {
@@ -65,8 +66,8 @@
 	},
 	"notification": {
 		"already-member": "Already have an Account?",
-		"register": "Create a free user account and purchase from over 16 000 products"
-		
+		"register": "Create a free user account and purchase from over 16 000 products",
+		"share": "Article copied to clipboard. Now you can paste it to social media!"
 	},		
 	"navigation": {
 		"landing-page": "Home" ,

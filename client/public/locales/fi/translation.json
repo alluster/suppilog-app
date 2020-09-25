@@ -36,7 +36,8 @@
 		"buyers": "Hyödyt ostajayritykselle",
 		"or": "tai",
 		"product-details": "Rekisteröidy nähdäksesi hinnat",
-		"articles": "Lue kaikki artikkelit"
+		"articles": "Lue kaikki artikkelit",
+		"share": "jaa sosiaalisessa mediassa"
 
 	},
 	"card": {
@@ -66,7 +67,8 @@
 	},
 	"notification": {
 		"already-member": "Onko sinulla jo tili?",
-		"register": "Luo käyttäjätili ja aloita tukkuostaminen yli 16 000 tuotteen joukosta."
+		"register": "Luo käyttäjätili ja aloita tukkuostaminen yli 16 000 tuotteen joukosta.",
+		"share": "Artikkeli on kopioitu leikepöydälle. Voit liittää sen sosialisessa mediassa!"
 
 	},
 	"navigation": {
