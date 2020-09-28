@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { device } from '../../device';
 
 
-const CardPerson = ({ image, name, description, position, email, phone }) => {
+const CardPerson = ({ image, name, email, position, description, phone }) => {
 	const CardContainer = styled.div `
 		width: 280px;
 		font-family: 'Open Sans'

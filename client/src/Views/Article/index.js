@@ -25,39 +25,40 @@ const StyledButton = styled(Button) `
 
 
 const Article = (props) => {
-	const [article, setArticle] = useState({ image: "", title:""})
+	const [article, setArticle] = useState({description: "helloo"})
 	const [og, setOg] = useState("")
 	let { id } = useParams();
 	const context = useContext(AppContext)
 	
-	useEffect(() => {
+	useEffect(()  => {
 		context.i18n.changeLanguage(context.lang);	
 		window.scrollTo(0, 0)
 		context.GetArticle(id)
 		context.GetArticles()
-		GetOgTag()
+		// GetOgTag()
 	
 	}, [])
 	const Content = styled(Container) `
 		margin-top: 40px;
 		margin-bottom: 100px;
 	`;
-	console.log(window.location.href)
-	let infoForOg = {
-		image: `${context.article.image}`,
-		url: window.location.href,
-		description: `${context.article.description} || "no description`,
-		title: `${context.article.title}`
-	}
-	const GetOgTag = () => {
-		fetch("https://ogtag.me/1e6b0cb9c0cb5f0de1aaa9c468cf77bd" , {
-			method : "POST" ,
-			body : JSON.stringify(infoForOg) 
+	// console.log(article)
+	// let infoForOg = {
+	// 	image: article.image.fields.file.url || 'images.ctfassets.net/d941dswhbyyn/2i5w1xlHSMI0lttLOmORr0/d91a9d643e569575cbbd272febe19572/dinner.jpeg',
+	// 	url: window.location.href,
+	// 	description: article.description || "Read latest news and articles",
+	// 	title: context.article.title || "Suppilog oy"
+	// }
+	// const GetOgTag = async () => {
 
-		})
-		.then((res) => res.json() )
-		.then((data) => setOg(data.url))
-	}
+	// 	fetch("https://ogtag.me/1e6b0cb9c0cb5f0de1aaa9c468cf77bd" , {
+	// 		method : "POST" ,
+	// 		body : await JSON.stringify(infoForOg) 
+
+	// 	})
+	// 	.then((res) => res.json() )
+	// 	.then((data) => setOg(data.url))
+	// }
 	
 	return(
 		
@@ -70,15 +71,15 @@ const Article = (props) => {
 			/>
  					
 		<Content>
-				<Markdown 
-					source={context.article.body}
-				/>
-					<CopyToClipboard 
-					text={og}
-					onCopy={() => (alert(`${context.t('notification.share')}`))}
-				>
-				<StyledButton>{context.t('button.share')}</StyledButton>
-			</CopyToClipboard>
+			<Markdown 
+				source={context.article.body}
+			/>
+			{/* <CopyToClipboard 
+				text={og}
+				onCopy={() => (alert(`${context.t('notification.share')}`))}
+			>
+				<StyledButton >{context.t('button.share')}</StyledButton>
+			</CopyToClipboard> */}
 			</Content>
 			<Container>
 			
