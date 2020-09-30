@@ -35,9 +35,10 @@ const Article = (props) => {
 		window.scrollTo(0, 0)
 		context.GetArticle(id)
 		context.GetArticles()
+
 		// GetOgTag()
 	
-	}, [])
+	}, [id])
 	const Content = styled(Container) `
 		margin-top: 40px;
 		margin-bottom: 100px;
