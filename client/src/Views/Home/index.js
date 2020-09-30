@@ -52,6 +52,8 @@ const Home = () => {
 					<Row>
 						{
 							context.pageContent.companyInNumbersCards.map((item, i) => {
+								if(item.fields)
+
 								return(
 									<Col key={i} xs={12} md={4}>
 										<CardNumber 
@@ -82,6 +84,8 @@ const Home = () => {
 						<ItemRow title={context.t('card.article.row-title')} >
 							{
 								context.pageContent.selectedBlogPosts.slice(0,3).map((item, i) => {
+									if(item.fields)
+
 									return(
 										<CardArticle
 											id={item.sys.id}
@@ -91,11 +95,13 @@ const Home = () => {
 											description={item.fields.description}
 										/>	
 									)
+									return(
+										null
+									)
 									
 								})
 							}
 						</ItemRow>
-						<StyledButton to="/articles">{context.t('button.articles')}</StyledButton>
 				</ContentBlock>
 			)
 		}
@@ -105,17 +111,20 @@ const Home = () => {
 			)
 		}
 	}
+	
 	const PersonCards = () => {
 		if(context.pageContent.personCards) {
+			console.log(context.pageContent.personCards)
 			return(
 				<ContentBlock>
 					<ItemRow title={context.t('card.person.row-title')}>
 						{
 							context.pageContent.personCards.map((item, i) => {
+								if(item.fields)
 								return(
 									<CardPerson
 										key={i}
-										image={item.fields.image.fields.file.url}
+										image={item.fields.image.fields.file.url && item.fields.image.fields.file.url }
 										name={item.fields.name }
 										description={item.fields.description}
 										phone={item.fields.phone }
@@ -124,6 +133,11 @@ const Home = () => {
 
 									/>
 								)
+								
+									return(
+										null
+									)
+								
 							})
 						}	
 					</ItemRow>
@@ -140,6 +154,8 @@ const Home = () => {
 		if(context.pageContent.banners) {
 			return(
 				context.pageContent.banners.map((item, i) => {
+					if(item.fields)
+
 					return(
 						<BannerWithImage
 							key={i}
@@ -156,6 +172,9 @@ const Home = () => {
 						</BannerWithImage>
 
 					)
+					return(
+						null
+					)
 				})
 			)
 		}
@@ -169,6 +188,8 @@ const Home = () => {
 		if(context.pageContent.testimonials) {
 			return(
 				context.pageContent.testimonials.map((item, i) => {
+					if(item.fields)
+
 					return(
 						<BannerCentered
 							key={i}
@@ -177,6 +198,9 @@ const Home = () => {
 							
 						/>
 
+					)
+					return(
+						null
 					)
 				})
 			)
