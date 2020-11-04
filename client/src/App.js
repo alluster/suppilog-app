@@ -135,14 +135,43 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-const App = () => {
+const App = (props) => {
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for(var i = 0; i <ca.length; i++) {
+		  var c = ca[i];
+		  while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		  }
+		  if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		  }
+		}
+		return "";
+	  }
+	  function checkCookie() {
+		var coockie = getCookie("intercom-id-by4niuhj");
+		if (coockie != "") {
+		 console.log(coockie);
+		} else {
+			
+		}
+	  }
 	useEffect(() => {
 		ReactGA.initialize('UA-178741766-1');
 		ReactGA.pageview(window.location.pathname + window.location.search);
-
+		// console.log(allCookies({"intercom-id-by4niuhj"})
+		checkCookie()
 	}, [])
+	const { appUser } = props;
     
- 
+    const user = {
+    //   user_id: appUser.id,
+    //   email: appUser.email,
+    //   name: appUser.name
+    };
 	return (
 		<Suspense fallback={<Spinner />}>
 			<ThemeProvider theme={theme}>
@@ -164,7 +193,7 @@ const App = () => {
 								return null;
 							}}/>
 						</Switch>
-						<Intercom appID="by4niuhj" />
+						<Intercom appID="by4niuhj" { ...user } />
 						<BannerRegister />
 						<Footer />
 					</Router>

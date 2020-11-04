@@ -107,30 +107,30 @@ const Page = () => {
 			console.log(context.pageContent.personCards)
 			return(
 				<ContentBlock>
-					<ItemRow title={context.t('card.person.row-title')}>
+					<h2>{context.t('card.person.row-title')}</h2>
+					<Row >
 						{
 							context.pageContent.personCards.map((item, i) => {
 								if(item.fields)
 								return(
-									<CardPerson
-										key={i}
-										image={item.fields.image.fields.file.url && item.fields.image.fields.file.url }
-										name={item.fields.name }
-										description={item.fields.description}
-										phone={item.fields.phone }
-										email={item.fields.email }
-										position={item.fields.position}
-
-									/>
+									<Col key={i} sm={12} md={4}>
+										<CardPerson
+											image={item.fields.image.fields.file.url && item.fields.image.fields.file.url }
+											name={item.fields.name }
+											description={item.fields.description}
+											phone={item.fields.phone }
+											email={item.fields.email }
+											position={item.fields.position}
+										/>
+									</Col>
 								)
-								
-									return(
-										null
-									)
+								return(
+									null
+								)
 								
 							})
 						}	
-					</ItemRow>
+					</Row>
 				</ContentBlock>
 			)
 		}
