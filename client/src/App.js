@@ -17,6 +17,7 @@ import Article from './Views/Article';
 import Product from './Views/Product';
 import Spinner from './components/Spinner'
 import ReactGA from 'react-ga';
+import Intercom from 'react-intercom';
 
 const GlobalStyle = createGlobalStyle`
     body, html {
@@ -140,10 +141,10 @@ const App = () => {
 		ReactGA.pageview(window.location.pathname + window.location.search);
 
 	}, [])
-	
+    
+ 
 	return (
 		<Suspense fallback={<Spinner />}>
-	
 			<ThemeProvider theme={theme}>
 				<Provider>
 					<Router>
@@ -163,6 +164,7 @@ const App = () => {
 								return null;
 							}}/>
 						</Switch>
+						<Intercom appID="by4niuhj" />
 						<BannerRegister />
 						<Footer />
 					</Router>

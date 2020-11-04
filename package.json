@@ -16,6 +16,7 @@
 		"heroku-ssl-redirect": "0.0.4",
 		"react": "^16.13.1",
 		"react-copy-to-clipboard": "^5.0.2",
+		"react-intercom": "^1.0.15",
 		"react-side-effect": "^2.1.0"
 	},
 	"devDependencies": {
