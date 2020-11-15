@@ -42,7 +42,7 @@ const Product = () => {
 			else(
 				setProduct(initialState)
 			)
-	// eslint-disable-next-line
+		// eslint-disable-next-line
 	}, [localStorage])
 
 

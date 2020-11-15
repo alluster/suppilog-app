@@ -162,9 +162,15 @@ const App = (props) => {
 	useEffect(() => {
 		ReactGA.initialize('UA-178741766-1');
 		ReactGA.pageview(window.location.pathname + window.location.search);
-	
+		intercom()
 	}, [])
-    
+    const intercom = () => {
+		if (!!window.Intercom) { window.Intercom("boot", {
+			app_id: "by4niuhj"
+		  }); }
+	}
+
+
 
 
 
@@ -188,8 +194,8 @@ const App = (props) => {
 								window.location.href = 'https://secure.suppilog.fi/kayttajat/rekisteroidy'; 
 								return null;
 							}}/>
-						</Switch>
-						<Intercom appID="by4niuhj"  />
+						</Switch>						
+						{/* <Intercom appID="by4niuhj"  /> */}
 						<BannerRegister />
 						<Footer />
 					</Router>
