@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { device } from '../../device';
-import { AppContext } from '../../context/Context';
-import Button from '../Button';
+
 const StyledInput = styled.input `
 	background-color: white;
 	font-family: 'Open Sans'
@@ -54,24 +53,7 @@ const Label = styled.p`
 
 `
 
-const StyledButton = styled(Button) `
-width: 100%;
-height: 50px;
-font-size: 20px;
-`;
-
-
-
-const CTA = styled.p`
-text-align: center;
-margin-bottom: 10px;
-margin-top: 20px;
-	@media ${device.laptop} {
-	text-align: left;
-}
-`;
 const Input = ({ placeholder, label, className }) => {
-	const context = useContext(AppContext);
 	const [value, setValue] = useState("")
 
 

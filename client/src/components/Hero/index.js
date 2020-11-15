@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import Container from '../Container';
 import PropTypes from 'prop-types';
 import { device } from '../../device';
-import ScrollAnimation from 'react-animate-on-scroll';
-import SearchBar from '../../components/SearchBar';
-import Spinner from '../Spinner';
 import ClipLoader from "react-spinners/ClipLoader";
 import Overlay from '../Overlay';
 

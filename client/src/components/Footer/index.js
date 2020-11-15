@@ -42,7 +42,7 @@ const SocialButtons = styled.div`
 
 useEffect(() => {
 		context.GetFooterContent("4g3oxVSEZ0pvZelnhxZVHL",`${context.lang}`)
-	
+	// eslint-disable-next-line
 }, [])
 
     return(

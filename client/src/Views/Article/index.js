@@ -1,32 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
-import Hero from '../../components/Hero';
 import ItemRow from '../../components/ItemRow';
 import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle';
-import Moment from 'react-moment';
 import {
 	useParams
   } from "react-router-dom";
 import Navigation from '../../components/Navigation';
 import HeroSmall from '../../components/HeroSmall';
-import Button from '../../components/Button';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 
-const StyledButton = styled(Button) `
-	width: 100%;
-	height: 50px;
-	font-size: 20px;
-`;
 
-
-const Article = (props) => {
-	const [article, setArticle] = useState({description: "helloo"})
-	const [og, setOg] = useState("")
+const Article = () => {
 	let { id } = useParams();
 	const context = useContext(AppContext)
 	
@@ -36,8 +24,7 @@ const Article = (props) => {
 		context.GetArticle(id)
 		context.GetArticles()
 
-		// GetOgTag()
-	
+		// eslint-disable-next-line
 	}, [id])
 	const Content = styled(Container) `
 		margin-top: 40px;
@@ -104,10 +91,7 @@ const Article = (props) => {
 						})
 					}	
 				</ItemRow>
-			
 			</Container>
-			
-			
 		</div>
 		
 	)

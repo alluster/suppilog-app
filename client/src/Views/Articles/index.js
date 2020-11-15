@@ -1,14 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/Context';
 import Container from '../../components/Container'
-import ItemRow from '../../components/ItemRow';
 import CardArticle from '../../components/CardArticle'
-import Spinner from '../../components/Spinner';
-import Moment from 'react-moment';
 import HeroSmall from '../../components/HeroSmall';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components'
-import { device } from '../../device';
 import Navigation from '../../components/Navigation';
 
 const Articles = () => {
@@ -60,7 +56,7 @@ const Articles = () => {
 		context.GetArticles()	
 		context.GetPageContent("6pyem7N53mBVoeSHpcpUpn", `${context.lang}`)
 	
-		
+		// eslint-disable-next-line
 	}, [])
 	return(
 		<div>

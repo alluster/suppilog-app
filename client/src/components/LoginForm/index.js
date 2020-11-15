@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Input from '../Input';
 import Button from '../Button';
 import { device } from '../../device';
 import { AppContext } from '../../context/Context';

@@ -9,7 +9,6 @@ import BannerCentered from '../../components/BannerCentered';
 import ScrollAnimation from 'react-animate-on-scroll';
 import styled from 'styled-components';
 import CardArticle from '../../components/CardArticle'
-import Spinner from '../../components/Spinner';
 import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
 import { Row, Col } from 'react-flexbox-grid';
@@ -33,14 +32,13 @@ const ContentBlock = styled(Container)`
 
 const Home = () => {
 	const context = useContext(AppContext);
-	console.log(context.pageContent)
 	useEffect(() => {
 		context.i18n.changeLanguage(context.lang);
 		window.scrollTo(0, 0)
 		context.GetArticles()
 		context.GetPageContent("63PEJ5YVRz4DvnEFMZJj3R", `${context.lang}`)
 		
-		
+		// eslint-disable-next-line
 	}, [])
 	const NumberCards = () => {
 		if(context.pageContent.companyInNumbersCards) {
@@ -63,6 +61,9 @@ const Home = () => {
 											title={item.fields.ingress} 
 										/>
 									</Col> 
+								)
+								return(
+									null
 								)
 							}
 							)}
@@ -114,7 +115,6 @@ const Home = () => {
 	
 	const PersonCards = () => {
 		if(context.pageContent.personCards) {
-			console.log(context.pageContent.personCards)
 			return(
 				<ContentBlock>
 					<ItemRow title={context.t('card.person.row-title')}>
@@ -240,9 +240,9 @@ const Home = () => {
 			<Container>
 				<SearchBar />
 			</Container>
-				<ScrollAnimation animateIn="fadeIn">
-					{MarkdownContent()}
-				</ScrollAnimation>
+			<ScrollAnimation animateIn="fadeIn">
+				{MarkdownContent()}
+			</ScrollAnimation>
 				{Banners()}
 			<ScrollAnimation animateIn="fadeIn">
 				{Testimonials()}

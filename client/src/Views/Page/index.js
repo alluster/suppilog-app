@@ -54,6 +54,9 @@ const Page = () => {
 										/>
 									</Col> 
 								)
+								return(
+									null
+								)
 							}
 							)}
 					</Row>
@@ -104,7 +107,6 @@ const Page = () => {
 	
 	const PersonCards = () => {
 		if(context.pageContent.personCards) {
-			console.log(context.pageContent.personCards)
 			return(
 				<ContentBlock>
 					<h2>{context.t('card.person.row-title')}</h2>
@@ -225,7 +227,7 @@ const Page = () => {
 
 		}
 		return () => mounted = false;
-		
+		// eslint-disable-next-line
 	}, [id])
 	return(
 

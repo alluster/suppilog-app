@@ -151,7 +151,7 @@ const Navigation = ({ className }) => {
 
 		}
 		return () => mounted = false;
-		
+		// eslint-disable-next-line
 	}, [])
     return(
 		<>

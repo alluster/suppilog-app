@@ -1,12 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled  from 'styled-components';
 import { AppContext } from '../../context/Context';
-import CustomLink from '../CustomLink';
 import Container from '../../components/Container';
-import { Row, Col } from 'react-flexbox-grid';
-import Button from '../../components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { device } from '../../device';
 
 

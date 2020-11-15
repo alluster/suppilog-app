@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Button from '../Button';
-import LoginForm from '../LoginForm';
 import { device } from '../../device';
 import { FontAwesomeIcon } from '../../../node_modules/@fortawesome/react-fontawesome';
 import {  faStar } from '@fortawesome/free-solid-svg-icons'
@@ -70,12 +68,6 @@ const Ingress = styled.p `
      }
 `;
 
-const StyledButton = styled(Button) `
-`
-
-const Image = styled.div`
-padding: 20px;
-`;
 const Icons = styled.div`
 	 margin-top: 20px;
 	 margin-bottom: 20px;

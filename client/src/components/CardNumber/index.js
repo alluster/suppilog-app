@@ -1,13 +1,11 @@
 import React  from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import AnimatedNumber from 'animated-number-react';
 import { device } from '../../device';
 
 
-const CardNumber = ({ingress, number, title, icon}) => {
+const CardNumber = ({ ingress, number, title }) => {
 
-	const formatValue = (value) => value.toFixed();
 	const CardContainer = styled.div `
 		font-family: 'Open Sans'
 		height: 100%;
@@ -42,29 +40,9 @@ const CardNumber = ({ingress, number, title, icon}) => {
 			
 	`;
 
-const TexrContainer = styled.div `
-		flex-direction: column;
+	const TexrContainer = styled.div `
+			flex-direction: column;
 
-`;
-
-
-	const IconContainer = styled.div`
-
-		display: flex;
-		height: 100px;
-		width: 100px;
-		justify-content: center;
-		align-items: center;
-		margin-right: 20px;
-		background-color: ${props => props.theme.colors.background};
-		border-radius: 50px 50px 50px 50px;
-		@media ${device.laptop} {
-		}
-	`;
-
-	const Icon = styled.img`
-		text-align: center;
-		height: 50px;
 	`;
 
 

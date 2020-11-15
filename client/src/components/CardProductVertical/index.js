@@ -29,16 +29,6 @@ const CardProductVertical = ({data}) => {
 		}
 		
 	`;
-
-	const ImageContainer = styled.div`
-		height: 150px;
-		width: 100%;
-		background-repeat: no-repeat;
-		border-radius: 16px 0px 0px 16px;
-		background-size: cover;
-
-	`;
-
 	const Image = styled.img`
 		height: 100px;
 		width: 100%;

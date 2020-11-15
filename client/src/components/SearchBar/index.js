@@ -1,13 +1,12 @@
 import React, { useState, useContext} from 'react';
-import { AppContext } from '../../context/Context'
-import { ReactiveBase, DataSearch, ReactiveList, SelectedFilters, ToggleButton } from '@appbaseio/reactivesearch';
+import { AppContext } from '../../context/Context';
+import { ReactiveBase, DataSearch, ReactiveList } from '@appbaseio/reactivesearch';
 import '../../style.css';
 import CardProductVertical from '../CardProductVertical';
-import ItemRow from '../../components/ItemRow';
 import Spinner from '../Spinner';
-import { Row, Col, Grid } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faTimes } from '@fortawesome/free-solid-svg-icons'
+
 const SearchBar = () => {
 	const context = useContext(AppContext);
 	const [searchText, setSearchText] = useState("")

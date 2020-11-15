@@ -1,15 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import LoginForm from '../LoginForm';
-import { device } from '../../device';
-import { AppContext } from '../../context/Context';
-import Input from '../Input';
-import Button from '../Button';
 import { FontAwesomeIcon } from '../../../node_modules/@fortawesome/react-fontawesome';
-import { faHeart, faTruck, faCaretDown, faCaretUp, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 const Banner = ({title, children}) => {
-	const context = useContext(AppContext)
 	const [open, setOpen] = useState(false)
 	const AccordionContainer = styled.div`
 	
