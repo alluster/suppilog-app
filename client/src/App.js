@@ -17,7 +17,7 @@ import Article from './Views/Article';
 import Product from './Views/Product';
 import Spinner from './components/Spinner'
 import ReactGA from 'react-ga';
-import Intercom from 'react-intercom';
+import Intercom from 'intercom-react';
 
 const GlobalStyle = createGlobalStyle`
     body, html {
@@ -162,17 +162,7 @@ const App = (props) => {
 	useEffect(() => {
 		ReactGA.initialize('UA-178741766-1');
 		ReactGA.pageview(window.location.pathname + window.location.search);
-		intercom()
 	}, [])
-    const intercom = () => {
-		if (!!window.Intercom) { window.Intercom("boot", {
-			app_id: "by4niuhj"
-		  }); }
-	}
-
-
-
-
 
 	return (
 		<Suspense fallback={<Spinner />}>
@@ -194,8 +184,18 @@ const App = (props) => {
 								window.location.href = 'https://secure.suppilog.fi/kayttajat/rekisteroidy'; 
 								return null;
 							}}/>
-						</Switch>						
-						{/* <Intercom appID="by4niuhj"  /> */}
+						</Switch>	
+						<Intercom
+							open
+							appId="by4niuhj"
+							user={{
+								
+							}}
+							onOpen={() => {}}
+							onClose={() => {}}
+							onUnreadCountChange={unreadCount => {}}
+							onInitialization={intercom => {}}
+						/>
 						<BannerRegister />
 						<Footer />
 					</Router>

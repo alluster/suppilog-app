@@ -37,9 +37,10 @@ const Home = () => {
 		window.scrollTo(0, 0)
 		context.GetArticles()
 		context.GetPageContent("63PEJ5YVRz4DvnEFMZJj3R", `${context.lang}`)
-		
+
 		// eslint-disable-next-line
 	}, [])
+
 	const NumberCards = () => {
 		if(context.pageContent.companyInNumbersCards) {
 			return(
