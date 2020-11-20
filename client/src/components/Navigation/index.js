@@ -15,7 +15,7 @@ const logo = '/suppilog_logo_horizontal_dark.png'
 const NavContainer = styled.div`
 	position: absolute;
 	min-width: 100%;
-	z-index: 100000;
+	z-index: 1000;
 	height: 80px;
 	top: 0;
 	margin-bottom: -40px;
@@ -76,7 +76,7 @@ const OpenNav = styled.div`
 	background: rgba(255, 255, 255, 0.98);
 	text-align: center;
 	padding-top: 50px;
-	z-index: 10000;
+	z-index: 1002;
 	position: fixed;
 	width: 100vw;
 	@media ${device.laptop} {

@@ -23,7 +23,7 @@ const HeroContent = styled.div`
 	display: flex;
 	flex-direction: row;
 	position: relative;
-	z-index: 1000;
+	z-index: 999;
 	@media ${device.laptop} {
 		flex-direction: column;
 		display: inline-block;

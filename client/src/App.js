@@ -186,15 +186,13 @@ const App = (props) => {
 							}}/>
 						</Switch>	
 						<Intercom
-							open
+							
 							appId="by4niuhj"
 							user={{
 								
 							}}
-							onOpen={() => {}}
-							onClose={() => {}}
-							onUnreadCountChange={unreadCount => {}}
-							onInitialization={intercom => {}}
+							
+			
 						/>
 						<BannerRegister />
 						<Footer />

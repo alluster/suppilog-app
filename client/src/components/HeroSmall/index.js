@@ -20,7 +20,7 @@ const HeroStyled = styled.div`
 const HeroContent = styled.div`
 	display: flex;
 	position: relative;
-	z-index: 1000;
+	z-index: 999;
 	flex-direction: row;
 
 `;

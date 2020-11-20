@@ -11,7 +11,7 @@ const Content = styled.div`
 	position: fixed;
     height: 100px;
 	margin-top: calc(100vh - 100px);
-	z-index: 1000000;
+	z-index: 999;
 	align-items: center;
 	text-align: center;
 	background-color: white;
