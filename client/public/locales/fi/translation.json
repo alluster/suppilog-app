@@ -1,0 +1,86 @@
+{
+	"page": {
+		"home": {
+			"hero": {
+				"title": "Tervetuloa Suppilogiin",
+				"ingress": "Digitaalinen myynti- ja ostokanava",
+				"search-placeholder": "Etsi yli 16000 tuotteen joukosta"
+			},
+			"search": {
+				"filter": {
+					"restaurants": "Ravintolat",
+					"k-shops": "K-ruokakaupat"
+				}
+				,
+			"result-stats-1": "Yhteensä",
+			"result-stats-2": "näytetään",
+			"result-stats-3": "erilaista tuotetta"
+			}
+		},
+		"articles": {
+			"hero": {
+				"title": "Suppiblog",
+				"ingress": "Lue uusimmat blogit ja uutiset."
+			}
+		},
+
+		"product": {
+			"accordion-title": "Tuotetiedot"
+		}
+		
+		
+	},
+	"button": {
+		"register": "Rekisteröidy",
+		"sign-in": "Kirjaudu",
+		"buyers": "Hyödyt ostajayritykselle",
+		"or": "tai",
+		"product-details": "Rekisteröidy nähdäksesi hinnat",
+		"articles": "Lue kaikki artikkelit",
+		"share": "jaa sosiaalisessa mediassa"
+
+	},
+	"card": {
+		"number": {
+			"row-title": "Palvelumme numeroina"
+		},
+		"article": {
+			"row-title": "Suppiblog"
+		},
+		"product": {
+			"quantity": "Myyntikoko:"
+		},
+		"person": {
+			"row-title": "Keitä me olemme"
+		}
+	},
+	"banner": {
+		"register": {
+			"title": "Kuinka aloitan Suppilogin käytön?",
+			"ingress": "Rekisteröidy ilmaiseksi, kirjaudu ja tee tilaus suoraan yrityksiltä tukkuhinnoilla.",
+			"body": "Tuhannet ostajat ja sadat eri myyjät käyttävät Suppilogia, miksi et sinäkin?"
+		}
+	},
+	"input": {
+		"email": "Email",
+		"password": "Salasana"
+	},
+	"notification": {
+		"already-member": "Onko sinulla jo tili?",
+		"register": "Luo käyttäjätili ja aloita tukkuostaminen yli 16 000 tuotteen joukosta.",
+		"share": "Artikkeli on kopioitu leikepöydälle. Voit liittää sen sosialisessa mediassa!"
+
+	},
+	"navigation": {
+		"landing-page": "Etusivu" ,
+		"about-us": "Meistä",
+		"buyers": "Ostajayrityksille",
+		"sellers": "Myyjäyrityksille",
+		"privacy-policy": "Tietosuoja",
+		"suppiblog": "Suppiblog"
+	},
+	"product": {
+		"sales_unit_size": "Vähimmäismyyntimäärä",
+		"consumer_package_size": "Myyntipakkauksen koko"
+	}
+}

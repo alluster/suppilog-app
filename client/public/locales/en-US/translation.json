@@ -1,0 +1,84 @@
+{
+	"page": {
+		"home": {
+			"hero": {
+				"title": "Tervetuloa Suppilogiin",
+				"ingress": "Digitaalinen myynti- ja ostokanava",
+				"search-placeholder": "Search from over 16000 items"
+			},
+			"search": {
+				"filter": {
+					"restaurants": "Restaurants",
+					"k-shops": "K-Shops"
+				},
+				"result-stats-1": "Found",
+				"result-stats-2": "Showing",
+				"result-stats-3": "different products"
+			}
+		},
+		"product": {
+			"accordion-title": "Product Details"
+		},
+		
+		"articles": {
+			"hero": {
+				"title": "Suppiblog",
+				"ingress": "Read latest blog posts and news"
+			}
+		}
+		
+		
+	},
+	"button": {
+		"register": "Register Now",
+		"sign-in": "Sign In",
+		"buyers": "Benefits For Buyer Companies",
+		"or": "or",
+		"read-more": "Read More",
+		"product-details": "Register to view prices",
+		"articles": "Read all articles",
+		"share": "Share in social media"
+	},
+	"card": {
+		"number": {
+			"row-title": "Suppilog in Numbers"
+		},
+		"article": {
+			"row-title": "Suppiblog"
+		},
+		"product": {
+			"quantity": "Quantity:"
+		},
+		"person": {
+			"row-title": "Who we are"
+		}
+	},
+	"banner": {
+		"register": {
+			"title": "Where to Begin?",
+			"ingress": "Register for free, sign in and create your first order straight from producers and with whole sale prices.",
+			"body": "Thousands of Companies use Suppilog - Why Would'nt You?"
+		}
+	},
+	"input": {
+		"email": "Please type your email",
+		"password": "Password"
+	},
+	"notification": {
+		"already-member": "Already have an Account?",
+		"register": "Create a free user account and purchase from over 16 000 products",
+		"share": "Article copied to clipboard. Now you can paste it to social media!"
+	},		
+	"navigation": {
+		"landing-page": "Home" ,
+		"about-us": "About Us",
+		"buyers": "For Buyers",
+		"sellers": "For Sellers",
+		"privacy-policy": "Privacy Policy",
+		"suppiblog": "Suppiblog"
+	},
+	"product": {
+		"sales_unit_size": "Sales Unit Size",
+		"consumer_package_size": "Package Size"
+	}
+}
