@@ -250,7 +250,6 @@ const Home = () => {
 				>
 					{context.t('button.sign-in')}			 
 				</StyledButton>   
-				{/* <p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p> */}
 			</Hero>
 			<Container>
 				<SearchBar />
