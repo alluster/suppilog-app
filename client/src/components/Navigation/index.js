@@ -64,9 +64,6 @@ const Text = styled.div `
 	margin-left: 20px;
 	margin-right: 20px;
 	color: white;
-
-
-
 `;
 
 

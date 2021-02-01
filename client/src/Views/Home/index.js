@@ -29,6 +29,13 @@ const ContentBlock = styled(Container)`
 `;
 
 
+const Text = styled.div `
+	line-height: 30px !important;
+	text-align: center;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+`;
 
 const Home = () => {
 	const context = useContext(AppContext);
@@ -236,7 +243,17 @@ const Home = () => {
 				ingress={context.pageContent.title}  
 			>
 				<StyledButton onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/rekisteroidy')} >{context.t('button.register')}</StyledButton>
-				<p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p>
+				<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
+
+				<StyledButton 
+											onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/kirjaudu')} 
+											style={{display: "inline-block"}} color={"transparent"}
+										>
+											{context.t('button.sign-in')}
+											 
+										</StyledButton>   
+										{/* <p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p> */}
+
 			</Hero>
 			<Container>
 				<SearchBar />
