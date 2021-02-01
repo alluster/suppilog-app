@@ -244,16 +244,13 @@ const Home = () => {
 			>
 				<StyledButton onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/rekisteroidy')} >{context.t('button.register')}</StyledButton>
 				<Text style={{display: "inline-block"}}>{context.t('button.or')}</Text>
-
 				<StyledButton 
-											onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/kirjaudu')} 
-											style={{display: "inline-block"}} color={"transparent"}
-										>
-											{context.t('button.sign-in')}
-											 
-										</StyledButton>   
-										{/* <p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p> */}
-
+					onClick={() => window.location.assign('https://secure.suppilog.fi/kayttajat/kirjaudu')} 
+					style={{display: "inline-block"}} color={"transparent"}
+				>
+					{context.t('button.sign-in')}			 
+				</StyledButton>   
+				{/* <p style={{color: "white", fontSize: "12px", fontWeight: 300}}>{context.t('notification.register')}</p> */}
 			</Hero>
 			<Container>
 				<SearchBar />
