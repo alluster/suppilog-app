@@ -17,7 +17,8 @@ const Bg = styled.div`
     z-index: 1;
     position: absolute;
     top: 0;
-  
+	min-height: inherit;
+
 `;
 
 const Overlay = (props) =>

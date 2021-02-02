@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Overlay from '../Overlay';
 
 const HeroStyled = styled.div`
-
+	min-height: 650px;
 	height: 70vh;
 	z-index: -1;
 	justify-content: center;
