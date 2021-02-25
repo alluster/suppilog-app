@@ -120,7 +120,6 @@ const Home = () => {
 			)
 		}
 	}
-	
 	const PersonCards = () => {
 		if(context.pageContent.personCards) {
 			return(

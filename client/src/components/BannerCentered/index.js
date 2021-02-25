@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { device } from '../../device';
-import { FontAwesomeIcon } from '../../../node_modules/@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faStar } from '@fortawesome/free-solid-svg-icons'
 
 
