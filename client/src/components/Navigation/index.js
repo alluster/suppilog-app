@@ -64,9 +64,6 @@ const Text = styled.div `
 	margin-left: 20px;
 	margin-right: 20px;
 	color: white;
-
-
-
 `;
 
 
@@ -222,7 +219,6 @@ const Navigation = ({ className }) => {
 					{
 						navOpen ? 
 						<OpenNav>
-						
 							<Container>
 								<LinkText onClick={() => setNavOpen(false)} >		
 									<CustomLink to="/" >
