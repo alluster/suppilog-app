@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Overlay from '../Overlay';
 
 const HeroStyled = styled.div`
-
+	min-height: 650px;
 	height: 70vh;
 	z-index: -1;
 	justify-content: center;
@@ -37,12 +37,11 @@ const TextContainer = styled.div `
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-
 	justify-content: center;
 	max-width: 100%;
+	align-self: flex-end;
 	line-break: normal;
 	@media ${device.laptop} {
-		justify-content: flex-start;
 		flex: 1;
 		justify-content: center;
 		height: 90vh;
