@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
+function strcmp(a, b) {
+	if (a < b) return -1;
+	if (a > b) return +1;
+	return 0;
+}
+
 const Provider = ({children}) => {
 	const [articles, setArticles] = useState([])
 	const [article, setArticle] = useState({})
@@ -22,10 +28,9 @@ const Provider = ({children}) => {
 	const GetArticles = async () => {
 		setLoading(true)
 		await axios.get('/api/getarticles')
-		  	.then(async function (response) {
-				await setArticles(response.data);
+		  	.then(function (response) {
+				setArticles(response.data);
 				setLoading(false)
-
 		  	})
 			.catch(function (error) {
 				console.log(error);
@@ -34,7 +39,6 @@ const Provider = ({children}) => {
 			})
 			.then(function() {
 				setLoading(false)
-
 			});  
 	}
 	const GetPages = async (lang) => {
@@ -91,7 +95,16 @@ const Provider = ({children}) => {
 		setLoading(true)
 		await axios.get(`/api/getpagecontent/${id}/${locale}`)
 			.then(function (response) {
-				setPageContent(response.data);
+				let { data } = response;
+				let { selectedBlogPosts } = data;
+
+				selectedBlogPosts = selectedBlogPosts.sort(
+					(a, b) => -strcmp(a.sys.createdAt, b.sys.createdAt)
+				);
+
+				data.selectedBlogPosts = selectedBlogPosts;
+				
+				setPageContent(data);
 				setLoading(false)
 			})
 			.catch(function (error) {
