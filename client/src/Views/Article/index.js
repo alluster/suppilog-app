@@ -21,16 +21,15 @@ const Article = () => {
 	useEffect(()  => {
 		context.i18n.changeLanguage(context.lang);	
 		window.scrollTo(0, 0)
-		context.GetArticle(id)
-		context.GetArticles()
-
+		context.GetArticle(id, context.lang)
+		context.GetArticles(context.lang)
 		// eslint-disable-next-line
 	}, [id])
 	const Content = styled(Container) `
 		margin-top: 40px;
 		margin-bottom: 100px;
 	`;
-	// console.log(article)
+	// console.log(context.article)
 	// let infoForOg = {
 	// 	image: article.image.fields.file.url || 'images.ctfassets.net/d941dswhbyyn/2i5w1xlHSMI0lttLOmORr0/d91a9d643e569575cbbd272febe19572/dinner.jpeg',
 	// 	url: window.location.href,

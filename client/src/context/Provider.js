@@ -25,10 +25,10 @@ const Provider = ({children}) => {
 	const [modalOpen, setModalOpen] = useState(false)
 	const [product, setProduct] = useState({})
 
-	const GetArticles = async () => {
+	const GetArticles = async (locale) => {
 		setLoading(true)
-		await axios.get('/api/getarticles')
-		  	.then(function (response) {
+		await axios.get(`/api/getarticles/${locale}`)
+		  	.then(async function (response) {
 				setArticles(response.data);
 				setLoading(false)
 		  	})
@@ -59,9 +59,9 @@ const Provider = ({children}) => {
 
 			});  
 	}
-	const GetArticle = async (id) => {
+	const GetArticle = async (id, locale) => {
 		setLoading(true)
-		await axios.get(`/api/getarticle/${id}`)
+		await axios.get(`/api/getarticle/${id}/${locale}`)
 			.then(function (response) {
 				setArticle(response.data);
 				setLoading(false)
