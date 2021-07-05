@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-app.get('/api/getarticles', (req, res) => {
-    client.getEntries({content_type: 'blogPost'}).then((entries) => {
-      res.send(entries.items);
+app.get('/api/getarticles/:lang', (req, res) => {
+    client.getEntries({content_type: 'blogPost', locale: `${req.params.lang}`}).then((entries) => {
+		res.send(entries.items);
     }).catch((err) => {
        res.status(500).send(err);
     })
@@ -34,9 +34,9 @@ app.get('/api/getarticles', (req, res) => {
        res.status(500).send(err);
     })
   });
-  app.get('/api/getarticle/:id', (req, res) => {
-    client.getEntry(`${req.params.id}`).then((entry) => {
-      res.send(entry.fields);
+  app.get('/api/getarticle/:id/:lang', (req, res) => {
+    client.getEntry(`${req.params.id}`, {locale: `${req.params.lang}`}).then((entry) => {
+	  res.send(entry.fields);
     }).catch((err) => {
        res.status(500).send(err);
     })

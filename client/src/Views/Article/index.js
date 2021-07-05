@@ -10,6 +10,7 @@ import {
   } from "react-router-dom";
 import Navigation from '../../components/Navigation';
 import HeroSmall from '../../components/HeroSmall';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 
@@ -17,7 +18,38 @@ import HeroSmall from '../../components/HeroSmall';
 const Article = () => {
 	let { id } = useParams();
 	const context = useContext(AppContext)
+	const Articles = () => {
+		if(context.articles) {
+			return(
+						<ItemRow title={context.t('card.article.row-title')} >
+							{
+								context.articles.slice(0,3).map((item, i) => {
+									if(item.fields)
 	
+									return(
+										<CardArticle
+											id={item.sys.id}
+											key={i}
+											image={item.fields.thumbImage.fields.file.url}
+											title={item.fields.title }
+											description={item.fields.description}
+										/>	
+									)
+									return(
+										null
+									)
+									
+								})
+							}
+						</ItemRow>
+			)
+		}
+		else{
+			return(
+				""
+			)
+		}
+	}
 	useEffect(()  => {
 		context.i18n.changeLanguage(context.lang);	
 		window.scrollTo(0, 0)
@@ -69,27 +101,9 @@ const Article = () => {
 			</CopyToClipboard> */}
 			</Content>
 			<Container>
-			
-				<ItemRow title="Suppiblog">
-					{
-						context.articles.slice(0,3).map((item, i) => {
-						
-								
-						
-							
-							return(
-								
-								<CardArticle
-									id={item.sys.id}
-									key={i}
-									image={item.fields.image.fields.file.url}
-									title={item.fields.title }
-									description={item.fields.description}
-								/>
-							)
-						})
-					}	
-				</ItemRow>
+				<ScrollAnimation animateIn="fadeIn">
+					{Articles()}
+				</ScrollAnimation>
 			</Container>
 		</div>
 		
