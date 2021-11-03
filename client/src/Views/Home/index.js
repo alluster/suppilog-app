@@ -172,7 +172,7 @@ const Home = () => {
 							button={true}
 							buttonColor="#31004C"
 							buttonText={item.fields.buttonText}
-							to={`/page/${item.fields.buttonLink}`}
+							to={`/${item.fields.buttonLink}`}
 						>
 							<p>{item.fields.body}</p>
 
