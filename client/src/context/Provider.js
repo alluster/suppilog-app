@@ -29,6 +29,7 @@ const Provider = ({children}) => {
 		setLoading(true)
 		await axios.get(`/api/getarticles/${locale}`)
 		  	.then(async function (response) {
+				  console.log("articles", response)
 				setArticles(response.data);
 				setLoading(false)
 		  	})

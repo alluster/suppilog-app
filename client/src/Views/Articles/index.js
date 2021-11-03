@@ -6,7 +6,7 @@ import HeroSmall from '../../components/HeroSmall';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components'
 import Navigation from '../../components/Navigation';
-
+import Spinner from '../../components/Spinner';
 const Articles = () => {
 	const context = useContext(AppContext)
 	const ContentBlock = styled(Container)`
@@ -19,33 +19,38 @@ const Articles = () => {
 
 
 	const Articles = () => {
-		if(context.articles) {
-			return(
+		if (context.articles) {
+			return (
 				<ContentBlock>
-						<Row title={context.t('card.article.row-title')} >
-							{
-								context.articles.map((item, i) => {
-									return(
-										<Col key={i} sm={12} md={4}>
-											<Card
-												id={item.sys.id}
-												image={item.fields.thumbImage.fields.file.url}
-												title={item.fields.title }
-												description={item.fields.description}
-											/>	
-										</Col>
-									
-									)
-									
-								})
-							}
-						</Row>
-						
+					<Row title={context.t('card.article.row-title')} >
+						{
+							!context.loading ?
+								(
+									context.articles.map((item, i) => {
+										return (
+											<Col key={i} sm={12} md={4}>
+												<Card
+													id={item.sys.id}
+													image={item.fields.thumbImage.fields.file.url}
+													title={item.fields.title}
+													description={item.fields.description}
+												/>
+											</Col>
+
+										)
+
+									})
+								) :
+								<Spinner />
+
+						}
+					</Row>
+
 				</ContentBlock>
 			)
 		}
-		else{
-			return(
+		else {
+			return (
 				""
 			)
 		}
@@ -53,15 +58,14 @@ const Articles = () => {
 	useEffect(() => {
 		context.i18n.changeLanguage(context.lang);
 		window.scrollTo(0, 0)
-		context.GetArticles()	
-		context.GetPageContent("6pyem7N53mBVoeSHpcpUpn", `${context.lang}`)
-	
+		context.GetArticles(context.lang)
+
 		// eslint-disable-next-line
 	}, [])
-	return(
+	return (
 		<div>
 			<Navigation />
-			<HeroSmall 
+			<HeroSmall
 				title={context.t('page.articles.hero.title')}
 				image="/suppilog-dinner.jpg"
 				ingress={context.t('page.articles.hero.ingress')}
@@ -69,7 +73,7 @@ const Articles = () => {
 			/>
 			{Articles()}
 		</div>
-		
+
 	)
 }
 
