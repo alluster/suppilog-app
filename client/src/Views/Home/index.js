@@ -43,7 +43,7 @@ const Home = () => {
 		context.i18n.changeLanguage(context.lang);
 		window.scrollTo(0, 0)
 		context.GetArticles()
-		context.GetPageContent("63PEJ5YVRz4DvnEFMZJj3R", `${context.lang}`)
+		context.GetPageContent({ id: "63PEJ5YVRz4DvnEFMZJj3R", locale: `${context.lang}` })
 
 		// eslint-disable-next-line
 	}, [])
@@ -172,7 +172,7 @@ const Home = () => {
 							button={true}
 							buttonColor="#31004C"
 							buttonText={item.fields.buttonText}
-							to={`/${item.fields.buttonLink}`}
+							to={`/page/${item.fields.buttonLink}`}
 						>
 							<p>{item.fields.body}</p>
 

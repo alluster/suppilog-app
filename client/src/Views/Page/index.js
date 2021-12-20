@@ -19,17 +19,17 @@ import CardPerson from '../../components/CardPerson';
 import Markdown from '../../components/Markdown';
 
 
+const Content = styled.div`
+	min-height: 100vh;
+`;
+const ContentBlock = styled(Container)`
+	margin-top: 50px;
+	margin-bottom: 100px;
+`; 
+
 
 const Page = () => {
 	const context = useContext(AppContext)
-
-	const Content = styled.div`
-		min-height: 100vh;
-	`;
-	const ContentBlock = styled(Container)`
-		margin-top: 50px;
-		margin-bottom: 100px;
-	`;
 	let { id } = useParams();
 
 	const NumberCards = () => {
@@ -222,7 +222,7 @@ const Page = () => {
 		if(mounted){
 			window.scrollTo(0, 0)
 			context.GetPersons()
-			context.GetPageContent(`${id}`, `${context.lang}`)
+			context.GetPageContent({ id: `${id}`, locale: `${context.lang}`})
 			context.i18n.changeLanguage(context.lang);
 
 		}

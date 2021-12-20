@@ -136,29 +136,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App = (props) => {
-	// function getCookie(cname) {
-	// 	var name = cname + "=";
-	// 	var decodedCookie = decodeURIComponent(document.cookie);
-	// 	var ca = decodedCookie.split(';');
-	// 	for(var i = 0; i <ca.length; i++) {
-	// 	  var c = ca[i];
-	// 	  while (c.charAt(0) == ' ') {
-	// 		c = c.substring(1);
-	// 	  }
-	// 	  if (c.indexOf(name) == 0) {
-	// 		return c.substring(name.length, c.length);
-	// 	  }
-	// 	}
-	// 	return "";
-	//   }
-	//   function checkCookie() {
-	// 	var coockie = getCookie("intercom-id-by4niuhj");
-	// 	if (coockie != "") {
-	// 	 console.log("cookie:", coockie);
-	// 	} else {
-			
-	// 	}
-	//   }
+
 	useEffect(() => {
 		ReactGA.initialize('UA-178741766-1');
 		ReactGA.pageview(window.location.pathname + window.location.search);
@@ -171,10 +149,10 @@ const App = (props) => {
 					<Router>
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route  path="/article/:id" component={Article} />
-							<Route exact path="/articles" component={Articles} />
-							<Route exact path="/:id/:name" component={Page} />
-							<Route exact path="/product/:id" component={Product} />
+							<Route path="/article/:id" component={Article} />
+							<Route path="/articles" component={Articles} />
+							<Route path="/page/:id" component={Page} />
+							<Route path="/product/:id" component={Product} />
 
 							<Route path='/sign-in' component={() => { 
 								window.location.href = 'https://secure.suppilog.fi/kayttajat/kirjaudu'; 

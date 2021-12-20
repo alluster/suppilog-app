@@ -26,109 +26,84 @@ const Provider = ({children}) => {
 	const [product, setProduct] = useState({})
 
 	const GetArticles = async (locale) => {
-		setLoading(true)
-		await axios.get(`/api/getarticles/${locale}`)
-		  	.then(async function (response) {
-				  console.log("articles", response)
-				setArticles(response.data);
-				setLoading(false)
-		  	})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-
-			})
-			.then(function() {
-				setLoading(false)
-			});  
-	}
+		setLoading(true);
+		try {
+			const response = await axios.get(`/api/getarticles/${locale}`);
+			setArticles(response.data);
+		}
+		catch (err){
+			console.log("Fetching articles failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
 	const GetPages = async (lang) => {
-		setLoading(true)
-		await axios.get(`/api/getpages/${lang}`)
-		  	.then(async function (response) {
-				await setPages(response.data);
-				setLoading(false)
-
-		  	})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-
-			})
-			.then(function() {
-				setLoading(false)
-
-			});  
-	}
+		setLoading(true);
+		try {
+			const response = await axios.get(`/api/getpages/${lang}`);
+			setPages(response.data);
+		}
+		catch (err){
+			console.log("Fetching pages failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
 	const GetArticle = async (id, locale) => {
-		setLoading(true)
-		await axios.get(`/api/getarticle/${id}/${locale}`)
-			.then(function (response) {
-				setArticle(response.data);
-				setLoading(false)
-			})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-
-			})
-			.then(function () {
-				setLoading(false)
-			});  
-	}
+		setLoading(true);
+		try {
+			const response = await axios.get(`/api/getarticle/${id}/${locale}`);
+			setArticle(response.data);
+		}
+		catch (err){
+			console.log("Fetching article failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
 	const GetPersons = async () => {
-		setLoading(true)
-		await axios.get('/api/getpersons')
-		  	.then(async function (response) {
-				await setPersons(response.data);
-				setLoading(false)
-
-		  	})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-			})
-			.then(function() {
-				setLoading(false)
-			});  
-	}
-	const GetPageContent = async (id, locale) => {
-		setLoading(true)
-		await axios.get(`/api/getpagecontent/${id}/${locale}`)
-			.then(function (response) {
-				let { data } = response;
-				let { selectedBlogPosts } = data;
-
-				selectedBlogPosts = selectedBlogPosts.sort(
-					(a, b) => -strcmp(a.sys.createdAt, b.sys.createdAt)
-				);
-
-				data.selectedBlogPosts = selectedBlogPosts;
-				
-				setPageContent(data);
-				setLoading(false)
-			})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-			})
-			.then(function () {
-			});  
-	}
+		setLoading(true);
+		try {
+			const response = await axios.get('/api/getpersons');
+			setPersons(response.data);
+		}
+		catch (err){
+			console.log("Fetching article failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
+	const GetPageContent = async ({ id, locale }) => {
+		setLoading(true);
+		try {
+			const response = await axios.get(`/api/getpagecontent/${id}/${locale}`);
+			setPageContent(response.data);
+		}
+		catch (err){
+			console.log("Fetching page content failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
 	const GetFooterContent = async (id, locale) => {
-		setLoading(true)
-		await axios.get(`/api/getfootercontent/${id}/${locale}`)
-			.then(function (response) {
-				setFooterContent(response.data);
-				setLoading(false)
-			})
-			.catch(function (error) {
-				console.log(error);
-				setLoading(false)
-			})
-			.then(function () {
-			});  
-	}
+		setLoading(true);
+		try {
+			const response = await axios.get(`/api/getfootercontent/${id}/${locale}`);
+			setFooterContent(response.data);
+		}
+		catch (err){
+			console.log("Fetching article failed:", err);
+		}
+		finally {
+			setLoading(false);
+		}
+	};
+
         return (
             <AppContext.Provider 
                 value={{
@@ -157,10 +132,6 @@ const Provider = ({children}) => {
 					GetPages,
 					setModalOpen,
 					modalOpen
-
-
-					
-					
                 }} 
             >
                 {children}

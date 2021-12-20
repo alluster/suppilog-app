@@ -235,7 +235,7 @@ const Navigation = ({ className }) => {
 										return (
 											item.fields.name !== context.t('navigation.landing-page') ?
 											<LinkText key={i} onClick={() => setNavOpen(false)} >		
-												<CustomLink to={`/${item.sys.id}/${item.fields.name}`}>
+												<CustomLink to={`/page/${item.sys.id}`}>
 													{item.fields.name}
 												</CustomLink>
 											</LinkText>
